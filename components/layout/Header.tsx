@@ -14,19 +14,19 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border">
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
+    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-black  border-border">
+      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-20" aria-label="Main navigation">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-foreground">
-              <span className="text-sm font-bold text-background">BC</span>
-            </div>
-            <span className="text-lg font-semibold text-foreground">BlackCircle</span>
+            {/* <div className="flex h-9 w-9 items-center justify-center rounded-full bg-background">
+              <span className="text-sm font-bold text-foreground">BC</span>
+            </div> */}
+            <span className="text-lg font-semibold text-background">BlackCircle</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex lg:items-center lg:gap-1">
+          <div className="hidden lg:flex lg:items-center lg:gap-1 left-0">
             {mainNavigation.map((item) => (
               <Link
                 key={item.href}
@@ -35,7 +35,7 @@ export function Header() {
                   'px-3 py-2 text-sm font-medium rounded-md transition-colors',
                   pathname === item.href
                     ? 'text-primary bg-accent'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                    : 'text-background/80 hover:text-foreground hover:bg-muted'
                 )}
               >
                 {item.label}
@@ -44,10 +44,10 @@ export function Header() {
           </div>
 
           {/* Desktop CTA Buttons */}
-          <div className="hidden lg:flex lg:items-center lg:gap-3">
+          {/* <div className="hidden lg:flex lg:items-center lg:gap-3">
             <Link
               href="/auth/sign-in"
-              className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="px-4 py-2 text-sm font-medium text-background/80 hover:text-background transition-colors"
             >
               Sign In
             </Link>
@@ -59,7 +59,7 @@ export function Header() {
                 Join
               </Link>
             </motion.div>
-          </div>
+          </div> */}
 
           {/* Mobile Menu Button */}
           <button

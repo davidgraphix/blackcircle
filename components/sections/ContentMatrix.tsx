@@ -10,27 +10,31 @@ const contentTypes = [
     description: 'Timely analysis on markets, economic indicators, and key developments shaping African finance.',
     href: '/market-scoop',
     cta: 'View latest market scoop',
-    image: 'https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=400&h=300&fit=crop',
+    image: '/market-scoop.png',
+    // image: 'https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=400&h=300&fit=crop',
+
   },
   {
     title: 'Stories',
     description: 'Documentary-style content exploring the people, trends, and developments shaping African finance.',
     href: '/stories',
     cta: 'Watch Stories',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
+    image: '/stories.png',
+    // image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
   },
   {
     title: 'Investing Guides',
     description: 'Comprehensive guides on investment fundamentals, tailored for the African market context.',
     href: '/investing-guides',
-    cta: 'down concepts, instruments,',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop',
+    cta: 'Download concepts, instruments,',
+    image: '/investing-guides.png',
+    // image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop',
   },
 ];
 
 export function ContentMatrix() {
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section className="bg-black py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {contentTypes.map((type) => (
@@ -39,10 +43,10 @@ export function ContentMatrix() {
               initial="rest"
               whileHover="hover"
               variants={cardHover}
-              className="group bg-card border border-border rounded-lg overflow-hidden"
+              className="group  border-border rounded-lg overflow-hidden"
             >
               {/* Image */}
-              <div className="relative h-40 overflow-hidden bg-muted">
+              <div className="relative h-90 overflow-hidden bg-muted">
                 <img
                   src={type.image || "/placeholder.svg"}
                   alt={type.title}
@@ -52,8 +56,8 @@ export function ContentMatrix() {
               
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-card-foreground">{type.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                <h3 className="text-lg font-semibold text-background">{type.title}</h3>
+                <p className="mt-2 text-sm text-background/70 leading-relaxed">
                   {type.description}
                 </p>
                 <Link
