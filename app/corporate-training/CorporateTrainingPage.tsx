@@ -1,0 +1,211 @@
+'use client';
+
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import {
+  Building2,
+  Users,
+  TrendingUp,
+  CheckCircle2,
+  ArrowRight,
+  Briefcase,
+  GraduationCap,
+  BarChart3,
+} from 'lucide-react';
+import { Section, SectionHeader } from '@/components/ui/section';
+import { fadeInUp, staggerContainer, buttonTap } from '@/lib/motion';
+
+const offerings = [
+  {
+    icon: GraduationCap,
+    title: 'Financial Literacy Programs',
+    description:
+      'Foundational courses covering personal finance, savings, investments, and retirement planning for employees at all levels.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Market Analysis Training',
+    description:
+      'Advanced programs for finance teams on analyzing Nigerian and African markets, including equities, fixed income, and FX.',
+  },
+  {
+    icon: BarChart3,
+    title: 'Investment Committee Workshops',
+    description:
+      'Specialized training for board members and investment committees on portfolio management and risk oversight.',
+  },
+  {
+    icon: Briefcase,
+    title: 'Custom Solutions',
+    description:
+      'Tailored programs designed around your organization\'s specific needs, industry context, and learning objectives.',
+  },
+];
+
+const benefits = [
+  'Improved financial decision-making across your organization',
+  'Enhanced employee engagement and retention',
+  'Better understanding of market dynamics affecting your business',
+  'Practical skills applicable to daily work contexts',
+  'Certificates of completion for participants',
+  'Ongoing support and refresher materials',
+];
+
+const clients = [
+  'Financial Services Firms',
+  'Pension Fund Administrators',
+  'Asset Management Companies',
+  'Corporate Treasury Teams',
+  'HR & Employee Benefits Teams',
+  'Professional Associations',
+];
+
+export function CorporateTrainingPage() {
+  return (
+    <>
+      {/* Hero Section */}
+      <section className="relative bg-primary overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.1),transparent_50%)]" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            className="max-w-3xl"
+          >
+            <motion.div variants={fadeInUp} className="flex items-center gap-2 mb-6">
+              <Building2 className="h-6 w-6 text-primary-foreground/80" />
+              <span className="text-sm font-medium text-primary-foreground/80 uppercase tracking-wider">
+                Corporate Training
+              </span>
+            </motion.div>
+            <motion.h1
+              variants={fadeInUp}
+              className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary-foreground leading-tight text-balance"
+            >
+              Empower your team with financial market knowledge
+            </motion.h1>
+            <motion.p
+              variants={fadeInUp}
+              className="mt-6 text-lg text-primary-foreground/80 leading-relaxed max-w-2xl text-pretty"
+            >
+              Custom training programs designed to build financial literacy and market understanding 
+              across your organization. From foundational concepts to advanced analysis.
+            </motion.p>
+            <motion.div variants={fadeInUp} className="mt-10">
+              <motion.div whileTap={buttonTap}>
+                <Link
+                  href="/contact?subject=corporate"
+                  className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-primary bg-primary-foreground rounded-lg hover:bg-primary-foreground/90 transition-colors"
+                >
+                  Request a Consultation
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Offerings Section */}
+      <Section>
+        <SectionHeader
+          title="Training Programs"
+          description="Comprehensive offerings designed to meet your organization's learning needs."
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {offerings.map((offering) => (
+            <div
+              key={offering.title}
+              className="bg-card border border-border rounded-lg p-6"
+            >
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent">
+                <offering.icon className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="mt-4 text-lg font-semibold text-card-foreground">
+                {offering.title}
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                {offering.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Benefits Section */}
+      <Section className="bg-muted/30">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <SectionHeader
+              title="Why Partner with BlackCircle?"
+              description="Our training programs deliver measurable impact for your organization."
+            />
+            <ul className="space-y-4">
+              {benefits.map((benefit) => (
+                <li key={benefit} className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                  <span className="text-muted-foreground">{benefit}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="bg-card border border-border rounded-lg p-8">
+            <h3 className="text-lg font-semibold text-card-foreground mb-4">
+              Who We Work With
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              {clients.map((client) => (
+                <span
+                  key={client}
+                  className="px-4 py-2 bg-muted text-sm text-muted-foreground rounded-full"
+                >
+                  {client}
+                </span>
+              ))}
+            </div>
+            <div className="mt-8 pt-6 border-t border-border">
+              <div className="flex items-center gap-4">
+                <Users className="h-10 w-10 text-primary" />
+                <div>
+                  <div className="text-2xl font-semibold text-card-foreground">500+</div>
+                  <div className="text-sm text-muted-foreground">Professionals trained</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* CTA Section */}
+      <Section>
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-semibold text-foreground text-balance">
+            Ready to invest in your team?
+          </h2>
+          <p className="mt-4 text-muted-foreground text-pretty">
+            Let&apos;s discuss how BlackCircle can help build financial capability across your organization.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.div whileTap={buttonTap}>
+              <Link
+                href="/contact?subject=corporate"
+                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-primary-foreground bg-primary rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                Get in Touch
+              </Link>
+            </motion.div>
+            <motion.div whileTap={buttonTap}>
+              <Link
+                href="/learning"
+                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-foreground bg-transparent border border-border rounded-lg hover:bg-muted transition-colors"
+              >
+                View Course Catalog
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </Section>
+    </>
+  );
+}
