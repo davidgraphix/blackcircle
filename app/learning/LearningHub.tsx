@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Clock, BarChart, ArrowRight } from 'lucide-react';
+import { Clock, Search } from 'lucide-react';
 import { courses } from '@/data/courses';
 import { fadeInUp, cardHover } from '@/lib/motion';
 import type { Course } from '@/types';
@@ -18,30 +18,45 @@ const levelColors = {
 
 export function LearningHub() {
   const [selectedLevel, setSelectedLevel] = useState<Course['level'] | 'All'>('All');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const filteredCourses = useMemo(() => {
-    if (selectedLevel === 'All') return courses;
-    return courses.filter((course) => course.level === selectedLevel);
-  }, [selectedLevel]);
+    let result = selectedLevel === 'All' ? courses : courses.filter((course) => course.level === selectedLevel);
+    if (searchQuery) {
+      result = result.filter((course) => 
+        course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        course.description.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+    return result;
+  }, [selectedLevel, searchQuery]);
 
   return (
     <div className="bg-background">
       {/* Header */}
-      <div className="bg-muted/30 border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div className="bg-background border-b border-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
-            <h1 className="text-3xl md:text-4xl font-semibold text-foreground">Learning</h1>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
-              Structured courses to build your investment knowledge from the ground up. Learn at
-              your own pace with expert-led content.
-            </p>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground">Learn African markets, step by step</h1>
+            
+            {/* Search Bar */}
+            <div className="mt-6 relative max-w-md">
+              <Search className="absolute left-3 top-3.5 h-5 w-5 text-muted-foreground" />
+              <input
+                type="text"
+                placeholder="Search keywords and topics"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-4 py-2.5 text-sm bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
           </motion.div>
         </div>
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         {/* Filter Chips */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-3 mb-8">
           <button
             onClick={() => setSelectedLevel('All')}
             className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
@@ -68,45 +83,37 @@ export function LearningHub() {
         </div>
 
         {/* Courses Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredCourses.map((course) => (
             <motion.article
               key={course.id}
               initial="rest"
               whileHover="hover"
               variants={cardHover}
-              className="group bg-card border border-border rounded-lg overflow-hidden"
+              className="group bg-card border border-border rounded-lg overflow-hidden flex flex-col"
             >
-              <Link href={`/learning/courses/${course.slug}`} className="block">
-                <div className="aspect-[16/10] bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-                    <BarChart className="h-7 w-7 text-primary" />
-                  </div>
+              <Link href={`/learning/courses/${course.slug}`} className="block flex-1 flex flex-col">
+                <div className="aspect-[4/3] bg-muted overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+                    alt={course.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-                <div className="p-5">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span
-                      className={`px-2 py-0.5 text-xs font-medium rounded ${levelColors[course.level]}`}
-                    >
-                      {course.level}
-                    </span>
-                    <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <Clock className="h-3 w-3" />
-                      {course.duration}
-                    </span>
-                  </div>
-                  <h3 className="mt-3 text-base font-semibold text-card-foreground group-hover:text-primary transition-colors text-balance">
+                <div className="p-4 flex-1 flex flex-col">
+                  <h3 className="text-base font-semibold text-card-foreground group-hover:text-primary transition-colors text-balance">
                     {course.title}
                   </h3>
-                  <p className="mt-2 text-sm text-muted-foreground line-clamp-2 text-pretty">
-                    {course.description}
+                  <p className="mt-2 text-xs text-muted-foreground">
+                    {course.level} • {course.duration}
                   </p>
-                  <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">
-                    View course
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                  </div>
                 </div>
               </Link>
+              <div className="px-4 pb-4 border-t border-border">
+                <button className="w-full text-center text-sm font-medium text-foreground bg-muted rounded px-3 py-2 hover:bg-muted/80 transition-colors">
+                  {selectedLevel !== course.level && course.level === 'Intermediate' ? 'Continue course' : 'View course'}
+                </button>
+              </div>
             </motion.article>
           ))}
         </div>

@@ -13,59 +13,104 @@ export function StoriesHub() {
   return (
     <div className="bg-background">
       {/* Header */}
-      <div className="bg-muted/30 border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div className="bg-background border-b border-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
-            <h1 className="text-3xl md:text-4xl font-semibold text-foreground">Stories</h1>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
-              Documentary-style content exploring the people, trends, and developments shaping
-              African finance and investment.
-            </p>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground">Stories</h1>
           </motion.div>
         </div>
       </div>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        {/* Featured Story */}
-        {featured && (
-          <motion.article
-            initial="rest"
-            whileHover="hover"
-            variants={cardHover}
-            className="mb-12 group"
-          >
-            <Link
-              href={`/stories/${featured.slug}`}
-              className="block bg-card border border-border rounded-lg overflow-hidden"
+        {/* Stories Grid with Featured & Popular Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          {/* First Story - Large */}
+          {featured && (
+            <motion.article
+              initial="rest"
+              whileHover="hover"
+              variants={cardHover}
+              className="md:col-span-1 group"
             >
-              <div className="aspect-video bg-gradient-to-br from-primary/10 to-secondary/10 relative flex items-center justify-center">
-                <div className="absolute inset-0 bg-foreground/5" />
-                <div className="relative z-10 flex h-20 w-20 items-center justify-center rounded-full bg-primary/90 text-primary-foreground group-hover:bg-primary transition-colors">
-                  <Play className="h-8 w-8 ml-1" fill="currentColor" />
+              <Link
+                href={`/stories/${featured.slug}`}
+                className="block bg-card border border-border rounded-lg overflow-hidden h-full"
+              >
+                <div className="aspect-square bg-muted relative flex items-center justify-center">
+                  <img
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=400&fit=crop"
+                    alt={featured.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                    <Play className="h-12 w-12 text-white fill-white" />
+                  </div>
                 </div>
-                <span className="absolute bottom-4 right-4 px-2 py-1 text-xs font-medium bg-foreground/80 text-background rounded">
-                  {featured.duration}
-                </span>
-              </div>
-              <div className="p-6 md:p-8">
-                <span className="inline-flex px-3 py-1 text-xs font-medium bg-primary text-primary-foreground rounded-full">
-                  Featured
-                </span>
-                <h2 className="mt-4 text-2xl md:text-3xl font-semibold text-card-foreground group-hover:text-primary transition-colors text-balance">
-                  {featured.title}
-                </h2>
-                <p className="mt-2 text-lg text-muted-foreground">{featured.subtitle}</p>
-                <p className="mt-3 text-muted-foreground leading-relaxed max-w-3xl text-pretty">
-                  {featured.description}
-                </p>
-              </div>
-            </Link>
-          </motion.article>
-        )}
+                <div className="p-4">
+                  <h3 className="font-semibold text-card-foreground text-sm group-hover:text-primary transition-colors text-balance">
+                    {featured.title}
+                  </h3>
+                  <p className="mt-1 text-xs text-muted-foreground">{featured.duration}</p>
+                </div>
+              </Link>
+            </motion.article>
+          )}
 
-        {/* Stories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {otherStories.map((story) => (
+          {/* Middle stories - 2 stacked */}
+          <div className="md:col-span-1 grid grid-cols-1 gap-6">
+            {otherStories.slice(0, 2).map((story) => (
+              <motion.article
+                key={story.id}
+                initial="rest"
+                whileHover="hover"
+                variants={cardHover}
+                className="group bg-card border border-border rounded-lg overflow-hidden"
+              >
+                <Link href={`/stories/${story.slug}`} className="block">
+                  <div className="aspect-square bg-muted relative flex items-center justify-center">
+                    <img
+                      src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=300&h=300&fit=crop"
+                      alt={story.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                      <Play className="h-8 w-8 text-white fill-white" />
+                    </div>
+                  </div>
+                  <div className="p-3">
+                    <h3 className="font-semibold text-card-foreground text-xs group-hover:text-primary transition-colors line-clamp-2">
+                      {story.title}
+                    </h3>
+                  </div>
+                </Link>
+              </motion.article>
+            ))}
+          </div>
+
+          {/* Right side - More stories */}
+          <div className="md:col-span-1">
+            <div className="bg-red-100 rounded-lg p-6 mb-6">
+              <h3 className="font-semibold text-red-900 text-sm mb-3">Popular stories</h3>
+              <ul className="space-y-3">
+                {otherStories.slice(2, 5).map((story) => (
+                  <li key={story.id}>
+                    <Link
+                      href={`/stories/${story.slug}`}
+                      className="text-red-900 text-xs hover:underline line-clamp-2 font-medium"
+                    >
+                      {story.title}
+                    </Link>
+                    <p className="text-xs text-red-700 mt-1">{story.duration}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Rest of Stories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {otherStories.slice(5).map((story) => (
             <motion.article
               key={story.id}
               initial="rest"
@@ -74,23 +119,21 @@ export function StoriesHub() {
               className="group bg-card border border-border rounded-lg overflow-hidden"
             >
               <Link href={`/stories/${story.slug}`} className="block">
-                <div className="aspect-video bg-gradient-to-br from-primary/5 to-secondary/5 relative flex items-center justify-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-foreground/80 text-background group-hover:bg-primary transition-colors">
-                    <Play className="h-5 w-5 ml-0.5" fill="currentColor" />
+                <div className="aspect-video bg-muted relative flex items-center justify-center">
+                  <img
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+                    alt={story.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                    <Play className="h-8 w-8 text-white fill-white" />
                   </div>
-                  <span className="absolute bottom-3 right-3 px-2 py-0.5 text-xs font-medium bg-foreground/80 text-background rounded flex items-center gap-1">
-                    <Clock className="h-3 w-3" />
-                    {story.duration}
-                  </span>
                 </div>
-                <div className="p-5">
-                  <h3 className="text-base font-semibold text-card-foreground group-hover:text-primary transition-colors text-balance">
+                <div className="p-4">
+                  <h3 className="text-sm font-semibold text-card-foreground group-hover:text-primary transition-colors line-clamp-2">
                     {story.title}
                   </h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{story.subtitle}</p>
-                  <p className="mt-2 text-sm text-muted-foreground line-clamp-2 text-pretty">
-                    {story.description}
-                  </p>
+                  <p className="mt-1 text-xs text-muted-foreground">{story.duration}</p>
                 </div>
               </Link>
             </motion.article>

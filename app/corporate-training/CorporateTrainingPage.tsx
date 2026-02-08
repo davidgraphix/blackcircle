@@ -63,43 +63,40 @@ const clients = [
 export function CorporateTrainingPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-primary overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.1),transparent_50%)]" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      {/* Hero Section - Dark theme */}
+      <section className="relative bg-foreground overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-40"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=900&fit=crop)',
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-32">
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="max-w-3xl"
+            className="max-w-2xl"
           >
-            <motion.div variants={fadeInUp} className="flex items-center gap-2 mb-6">
-              <Building2 className="h-6 w-6 text-primary-foreground/80" />
-              <span className="text-sm font-medium text-primary-foreground/80 uppercase tracking-wider">
-                Corporate Training
-              </span>
-            </motion.div>
             <motion.h1
               variants={fadeInUp}
-              className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-primary-foreground leading-tight text-balance"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight text-balance font-serif"
             >
-              Empower your team with financial market knowledge
+              Learning that meets the market
             </motion.h1>
             <motion.p
               variants={fadeInUp}
-              className="mt-6 text-lg text-primary-foreground/80 leading-relaxed max-w-2xl text-pretty"
+              className="mt-6 text-xl text-white/80 leading-relaxed max-w-2xl text-pretty"
             >
-              Custom training programs designed to build financial literacy and market understanding 
-              across your organization. From foundational concepts to advanced analysis.
+              Every programme is designed in collaboration with your team.
             </motion.p>
             <motion.div variants={fadeInUp} className="mt-10">
               <motion.div whileTap={buttonTap}>
                 <Link
                   href="/contact?subject=corporate"
-                  className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-primary bg-primary-foreground rounded-lg hover:bg-primary-foreground/90 transition-colors"
+                  className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-foreground bg-primary rounded-lg hover:bg-primary/90 transition-colors"
                 >
-                  Request a Consultation
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Start the conversation
                 </Link>
               </motion.div>
             </motion.div>
@@ -107,31 +104,76 @@ export function CorporateTrainingPage() {
         </div>
       </section>
 
-      {/* Offerings Section */}
-      <Section>
-        <SectionHeader
-          title="Training Programs"
-          description="Comprehensive offerings designed to meet your organization's learning needs."
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {offerings.map((offering) => (
-            <div
-              key={offering.title}
-              className="bg-card border border-border rounded-lg p-6"
-            >
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent">
-                <offering.icon className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="mt-4 text-lg font-semibold text-card-foreground">
-                {offering.title}
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                {offering.description}
-              </p>
+      {/* Programs Section */}
+      <section className="bg-background py-16 md:py-24 border-b border-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Training can be delivered as:</h2>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+                  <span>In-person workshops</span>
+                </li>
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+                  <span>Virtual instructor-led sessions</span>
+                </li>
+                <li className="flex items-center gap-3 text-muted-foreground">
+                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+                  <span>Blended programmes supported by our learning platform.</span>
+                </li>
+              </ul>
             </div>
-          ))}
+            <div className="bg-muted rounded-lg overflow-hidden h-80">
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=400&fit=crop"
+                alt="Training"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
         </div>
-      </Section>
+      </section>
+
+      {/* Offerings Section */}
+      <section className="bg-background py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">Working alongside leading institutions</h2>
+          <div className="flex flex-wrap gap-4">
+            {['Assets managers', 'Banks', 'Fintech companies', 'Regulatory bodies and others'].map((item) => (
+              <div key={item} className="px-6 py-3 border border-border rounded-full text-muted-foreground">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Offerings Grid Section */}
+      <section className="bg-muted/30 py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">We cover a wide range of market topics</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {offerings.map((offering) => (
+              <div
+                key={offering.title}
+                className="bg-card border border-border rounded-lg p-6"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent">
+                  <offering.icon className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="mt-4 text-lg font-semibold text-card-foreground">
+                  {offering.title}
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                  {offering.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Benefits Section */}
       <Section className="bg-muted/30">

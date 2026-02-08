@@ -28,35 +28,38 @@ export function CourseDetail({ course }: CourseDetailProps) {
     <div className="bg-background">
       {/* Breadcrumb */}
       <div className="border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
           <nav
             className="flex items-center gap-2 text-sm text-muted-foreground"
             aria-label="Breadcrumb"
           >
-            <Link href="/" className="hover:text-foreground transition-colors">
-              Home
+            <Link href="/" className="hover:text-foreground transition-colors text-xs">
+              ← Back to courses
             </Link>
-            <ChevronRight className="h-4 w-4" />
-            <Link href="/learning" className="hover:text-foreground transition-colors">
-              Learning
-            </Link>
-            <ChevronRight className="h-4 w-4" />
-            <span className="text-foreground truncate max-w-[200px]">{course.title}</span>
           </nav>
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="lg:grid lg:grid-cols-3 lg:gap-12">
-          {/* Main Content */}
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-8">
+          {/* Main Content - 2 columns */}
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
             className="lg:col-span-2"
           >
+            {/* Featured Image */}
+            <div className="bg-muted rounded-lg overflow-hidden h-64 mb-8">
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop"
+                alt={course.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
             {/* Course Header */}
-            <div className="flex items-center gap-3 flex-wrap">
+            <div className="flex items-center gap-3 flex-wrap mb-4">
               <span className={`px-3 py-1 text-sm font-medium rounded ${levelColors[course.level]}`}>
                 {course.level}
               </span>
@@ -66,7 +69,7 @@ export function CourseDetail({ course }: CourseDetailProps) {
               </span>
             </div>
 
-            <h1 className="mt-4 text-3xl md:text-4xl font-semibold text-foreground leading-tight text-balance">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight text-balance">
               {course.title}
             </h1>
 
@@ -75,11 +78,8 @@ export function CourseDetail({ course }: CourseDetailProps) {
             </p>
 
             {/* Learning Outcomes */}
-            <section className="mt-10">
-              <h2 className="text-xl font-semibold text-foreground flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5 text-primary" />
-                What you&apos;ll learn
-              </h2>
+            <section className="mt-16 pt-8 border-t border-border">
+              <h2 className="text-2xl font-bold text-foreground mb-6">What you&apos;ll learn</h2>
               <ul className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
                 {course.outcomes.map((outcome, index) => (
                   <li key={index} className="flex items-start gap-3 text-muted-foreground">
@@ -91,11 +91,13 @@ export function CourseDetail({ course }: CourseDetailProps) {
             </section>
 
             {/* Curriculum */}
-            <section className="mt-12">
-              <h2 className="text-xl font-semibold text-foreground flex items-center gap-2">
-                <BookOpen className="h-5 w-5 text-primary" />
-                Course Curriculum
-              </h2>
+            <section className="mt-16 pt-8 border-t border-border">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-2xl font-bold text-foreground">
+                  SOURCE CONTENT
+                </h2>
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-6">Explore each chapter</h3>
               <div className="mt-6 space-y-4">
                 {course.modules.map((module, moduleIndex) => (
                   <div
