@@ -20,7 +20,7 @@ export function LearningHighlight() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">Learn how African markets really work</h2>
-          <p className="mt-3 text-muted-foreground max-w-2xl">
+          <p className="mt-3 text-muted-foreground max-w-8xl">
             Whether you're investing independently or building capacity within a corporate role, understanding local markets requires market-specific knowledge grounded in how things work in practice.
           </p>
         </div>

@@ -10,7 +10,7 @@ export function CorporateHighlight() {
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=900&fit=crop)',
+          backgroundImage: 'url(/custom-training.png)',
         }}
       />
       
@@ -32,7 +32,7 @@ export function CorporateHighlight() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mt-4 text-lg text-white/90 leading-relaxed max-w-xl"
+            className="mt-4 text-md text-white/90 leading-relaxed max-w-xl"
           >
             We work with organisations to design practical, transformative training. We deliver customized, high-impact experiences that get your team investment-ready.
           </motion.p>
