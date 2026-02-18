@@ -14,14 +14,14 @@ export function StoriesHub() {
     <div className="bg-background">
       {/* Header */}
       <div className="bg-background border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 md:py-8">
           <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground">Stories</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground">Stories</h1>
           </motion.div>
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
         {/* Stories Grid with Featured & Popular Layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {/* First Story - Large */}
@@ -87,23 +87,27 @@ export function StoriesHub() {
             ))}
           </div>
 
-          {/* Right side - More stories */}
+          {/* Right side - Popular stories */}
           <div className="md:col-span-1">
-            <div className="bg-red-100 rounded-lg p-6 mb-6">
-              <h3 className="font-semibold text-red-900 text-sm mb-3">Popular stories</h3>
-              <ul className="space-y-3">
-                {otherStories.slice(2, 5).map((story) => (
-                  <li key={story.id}>
-                    <Link
-                      href={`/stories/${story.slug}`}
-                      className="text-red-900 text-xs hover:underline line-clamp-2 font-medium"
-                    >
+            <h3 className="text-sm font-bold text-foreground uppercase tracking-wider mb-4">Popular stories</h3>
+            <div className="space-y-3">
+              {otherStories.slice(2, 5).map((story, index) => (
+                <Link
+                  key={story.id}
+                  href={`/stories/${story.slug}`}
+                  className="group flex gap-3 pb-3 border-b border-border last:border-b-0 hover:opacity-80 transition-opacity"
+                >
+                  <div className="text-lg font-bold text-muted-foreground group-hover:text-primary transition-colors min-w-6">
+                    {index + 1}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-sm font-semibold text-foreground line-clamp-2 group-hover:text-primary transition-colors">
                       {story.title}
-                    </Link>
-                    <p className="text-xs text-red-700 mt-1">{story.duration}</p>
-                  </li>
-                ))}
-              </ul>
+                    </h4>
+                    <p className="text-xs text-muted-foreground mt-1">{story.duration}</p>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </div>

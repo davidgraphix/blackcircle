@@ -1,10 +1,9 @@
 import {
   Hero,
   ContentMatrix,
-  LearningHighlight,
-  CorporateHighlight,
   Newsletter,
   CommunityInvite,
+  ServicesMatrix,
 } from '@/components/sections';
 
 export default function HomePage() {
@@ -12,8 +11,7 @@ export default function HomePage() {
     <>
       <Hero />
       <ContentMatrix />
-      <LearningHighlight />
-      <CorporateHighlight />
+      <ServicesMatrix />
       <Newsletter />
       <CommunityInvite />
     </>
