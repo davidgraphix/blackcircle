@@ -49,53 +49,60 @@ export function MarketScoopHub() {
   return (
     <div className="bg-background">
       {/* Header */}
-      <div className="bg-muted/30 border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div className="bg-background border-b border-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-10">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={fadeInUp}
           >
-            <h1 className="text-3xl md:text-4xl font-semibold text-foreground">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground">
               Market Scoop
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
+            <p className="mt-2 text-sm text-muted-foreground max-w-2xl">
               Timely analysis and insights on African markets, economic indicators, and investment opportunities.
             </p>
           </motion.div>
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
         {/* Featured Article */}
         {featured && (
           <motion.article
             initial="rest"
             whileHover="hover"
             variants={cardHover}
-            className="mb-12 group"
+            className="mb-8 group"
           >
             <Link
               href={`/market-scoop/${featured.slug}`}
-              className="block bg-card border border-border rounded-lg overflow-hidden"
+              className="block bg-card border border-border rounded-lg overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-0 hover:border-primary transition-colors"
             >
-              <div className="p-6 md:p-8 lg:p-10">
-                <span className="inline-flex px-3 py-1 text-xs font-medium bg-primary text-primary-foreground rounded-full">
+              <div className="bg-muted h-64 md:h-80 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+                  alt={featured.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-6 md:p-8 flex flex-col justify-start">
+                <span className="inline-flex px-3 py-1 text-xs font-medium bg-primary text-primary-foreground rounded-full w-fit">
                   Featured
                 </span>
-                <h2 className="mt-4 text-2xl md:text-3xl font-semibold text-card-foreground group-hover:text-primary transition-colors text-balance">
+                <h2 className="mt-3 text-xl md:text-2xl font-bold text-card-foreground group-hover:text-primary transition-colors text-balance">
                   {featured.title}
                 </h2>
-                <p className="mt-3 text-muted-foreground leading-relaxed max-w-3xl text-pretty">
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed text-pretty line-clamp-3">
                   {featured.excerpt}
                 </p>
-                <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
                   <span>{formatShortDate(featured.date)}</span>
                   <span>•</span>
                   <span>{featured.author.name}</span>
                 </div>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {featured.tags.map((tag) => (
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {featured.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
                       className="px-2 py-0.5 text-xs bg-muted text-muted-foreground rounded"
@@ -110,7 +117,7 @@ export function MarketScoopHub() {
         )}
 
         {/* Filters */}
-        <div className="mb-8 space-y-4">
+        <div className="mb-6 space-y-3">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
             <input
@@ -142,34 +149,40 @@ export function MarketScoopHub() {
         </div>
 
         {/* Articles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {paginatedScoops.map((scoop) => (
             <motion.article
               key={scoop.id}
               initial="rest"
               whileHover="hover"
               variants={cardHover}
-              className="group bg-card border border-border rounded-lg overflow-hidden"
+              className="group bg-card border border-border rounded-lg overflow-hidden hover:border-primary hover:bg-primary/5 transition-all duration-200"
             >
-              <Link href={`/market-scoop/${scoop.slug}`} className="block p-5">
-                <p className="text-xs text-muted-foreground">
-                  {formatShortDate(scoop.date)}
-                </p>
-                <h3 className="mt-2 text-base font-semibold text-card-foreground group-hover:text-primary transition-colors line-clamp-2 text-balance">
-                  {scoop.title}
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground line-clamp-3 text-pretty">
-                  {scoop.excerpt}
-                </p>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {scoop.tags.slice(0, 2).map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-0.5 text-xs bg-muted text-muted-foreground rounded"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+              <Link href={`/market-scoop/${scoop.slug}`} className="block h-full flex flex-col">
+                <div className="bg-muted h-48 overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+                    alt={scoop.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-4 flex flex-col flex-1">
+                  <p className="text-xs text-muted-foreground">
+                    {formatShortDate(scoop.date)}
+                  </p>
+                  <h3 className="mt-1.5 text-sm font-semibold text-card-foreground group-hover:text-primary transition-colors line-clamp-2 text-balance flex-1">
+                    {scoop.title}
+                  </h3>
+                  <div className="mt-3 flex flex-wrap gap-1">
+                    {scoop.tags.slice(0, 2).map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-1.5 py-0.5 text-xs bg-muted text-muted-foreground rounded"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </Link>
             </motion.article>
@@ -194,7 +207,7 @@ export function MarketScoopHub() {
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="mt-12 flex items-center justify-center gap-2">
+          <div className="mt-10 flex items-center justify-center gap-2">
             <button
               onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
               disabled={currentPage === 1}
