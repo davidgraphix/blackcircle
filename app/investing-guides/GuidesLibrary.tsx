@@ -19,7 +19,7 @@ export function GuidesLibrary() {
 
   return (
     <div className="bg-background">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Sidebar */}
           <aside className="md:col-span-1">
@@ -55,51 +55,57 @@ export function GuidesLibrary() {
               const categoryGuides = getGuidesByCategory(category.id);
 
               return (
-                <section key={category.id}>
-                  {selectedCategory === category.id && (
-                    <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
-                      {category.label}
-                    </h2>
-                  )}
+                <section key={category.id} className={selectedCategory === category.id ? 'block' : 'hidden'}>
+                  <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
+                    {category.label}
+                  </h2>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {categoryGuides.map((guide) => (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    {categoryGuides.map((guide, index) => (
                       <motion.article
                         key={guide.id}
                         initial="rest"
                         whileHover="hover"
                         variants={cardHover}
-                        className="group bg-card border border-border rounded-lg p-5"
+                        className="group bg-card border border-border rounded-lg overflow-hidden hover:border-primary transition-colors flex flex-col"
                       >
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="flex-1 min-w-0">
-                            <h3 className="text-base font-semibold text-card-foreground group-hover:text-primary transition-colors text-balance">
-                              {guide.title}
-                            </h3>
-                            <p className="mt-2 text-sm text-muted-foreground line-clamp-2 text-pretty">
-                              {guide.summary}
-                            </p>
-                            <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">
-                              <span className="flex items-center gap-1">
-                                <Clock className="h-3.5 w-3.5" />
-                                {guide.readTime} min read
-                              </span>
+                        <div className="relative bg-muted h-48 overflow-hidden">
+                          <img
+                            src={`https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop&v=${index}`}
+                            alt={guide.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                          {index % 3 === 0 && (
+                            <div className="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/50 transition-colors">
+                              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
+                                <svg className="w-6 h-6 text-white fill-white" viewBox="0 0 24 24">
+                                  <path d="M8 5v14l11-7z" />
+                                </svg>
+                              </div>
                             </div>
-                          </div>
-                          <button
-                            className="flex-shrink-0 p-2 rounded-lg border border-border hover:bg-muted transition-colors"
-                            aria-label={`Download ${guide.title}`}
-                          >
-                            <Download className="h-4 w-4 text-muted-foreground" />
-                          </button>
+                          )}
                         </div>
-                        <Link
-                          href={`/investing-guides/${guide.slug}`}
-                          className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-                        >
-                          Read guide
-                          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                        </Link>
+                        <div className="p-4 flex flex-col flex-1">
+                          <h3 className="text-sm font-semibold text-card-foreground group-hover:text-primary transition-colors text-balance">
+                            {guide.title}
+                          </h3>
+                          <p className="mt-1.5 text-xs text-muted-foreground line-clamp-2 text-pretty">
+                            {guide.summary}
+                          </p>
+                          <div className="mt-3 flex items-center gap-3 text-xs text-muted-foreground mb-3">
+                            <span className="flex items-center gap-1">
+                              <Clock className="h-3 w-3" />
+                              {guide.readTime} min {index % 3 === 0 ? 'watch' : 'read'}
+                            </span>
+                          </div>
+                          <Link
+                            href={`/investing-guides/${guide.slug}`}
+                            className="text-xs font-semibold text-primary hover:text-primary/80 transition-colors flex items-center gap-1 mt-auto"
+                          >
+                            {index % 3 === 0 ? 'Watch now' : 'Read guide'}
+                            <ArrowRight className="h-2.5 w-2.5 transition-transform group-hover:translate-x-0.5" />
+                          </Link>
+                        </div>
                       </motion.article>
                     ))}
                   </div>

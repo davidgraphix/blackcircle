@@ -7,7 +7,7 @@ import { buttonTap } from '@/lib/motion';
 
 export function CommunityInvite() {
   return (
-    <section className="bg-muted/30 py-16 md:py-24">
+    <section className="bg-muted/30 py-16 md:py-6">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12">
           <div className="flex-1">

@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section className="relative min-h-screen md:min-h-[600px] flex items-center justify-start overflow-hidden">
       {/* Background image with overlay */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: 'url(/hero-bg.png)',
@@ -17,7 +17,7 @@ export function Hero() {
       />
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/40" />
-      
+
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-0 w-full">
         <motion.div
           variants={staggerContainer}
@@ -31,7 +31,7 @@ export function Hero() {
           >
             Navigate African markets <br />with confidence
           </motion.h1>
-          
+
           <motion.p
             variants={fadeInUp}
             className="mt-6 text-lg sm:text-xl text-white/90 leading-relaxed max-w-2xl text-pretty"
@@ -39,7 +39,7 @@ export function Hero() {
             Clear learning, market insights, and practical guidance for African finance.
           </motion.p>
 
-          <motion.div
+          {/* <motion.div
             variants={fadeInUp}
             className="mt-10 flex flex-col sm:flex-row gap-4"
           >
@@ -59,7 +59,7 @@ export function Hero() {
                 See Market Scoop
               </Link>
             </motion.div>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </div>
     </section>
