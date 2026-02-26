@@ -79,7 +79,7 @@ export function ContentMatrix() {
               className="group bg-card border border-white rounded-lg overflow-hidden flex flex-col h-full hover:border-primary transition-colors"
             >
               {/* Image */}
-              <div className="relative h-62 overflow-hidden bg-muted">
+              <div className="relative h-52 overflow-hidden bg-muted">
                 <img
                   src={type.image}
                   alt={type.title}
