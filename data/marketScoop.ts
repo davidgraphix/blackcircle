@@ -36,7 +36,7 @@ We anticipate the CBN will maintain current rates through Q1 2026, with potentia
       name: 'Adaeze Okonkwo',
       role: 'Fixed Income Analyst',
     },
-    tags: ['Fixed Income', 'Nigeria', 'Treasury Bills', 'Macro'],
+    tags: ['Nigeria', 'Treasury Bills', 'Macro', 'Investments'],
     featured: true,
   },
   {
@@ -67,7 +67,7 @@ The banking sector enters 2026 with solid fundamentals, though investors should 
       name: 'Chidi Nnamdi',
       role: 'Equity Research Lead',
     },
-    tags: ['Equities', 'Nigeria', 'Banking', 'NGX'],
+    tags: ['Equities', 'Nigeria', 'Banking', 'Investments'],
     featured: false,
   },
   {
@@ -98,7 +98,7 @@ Foreign exchange considerations remain crucial for investment decisions in Niger
       name: 'Olumide Adeyemi',
       role: 'Macro Strategist',
     },
-    tags: ['Macro', 'Nigeria', 'FX', 'Currency'],
+    tags: ['Macro', 'Nigeria', 'Emerging Markets', 'Energy'],
     featured: false,
   },
   {
@@ -129,7 +129,7 @@ These regulatory changes are expected to attract more institutional participatio
       name: 'Ngozi Eze',
       role: 'Regulatory Affairs',
     },
-    tags: ['Regulation', 'Nigeria', 'SEC', 'Compliance'],
+    tags: ['Nigeria', 'US Markets', 'Ghana', 'BRVM'],
     featured: false,
   },
   {
@@ -160,7 +160,7 @@ For investors with appropriate risk tolerance, African Eurobonds offer attractiv
       name: 'Adaeze Okonkwo',
       role: 'Fixed Income Analyst',
     },
-    tags: ['Fixed Income', 'Africa', 'Bonds', 'Eurobonds'],
+    tags: ['Emerging Markets', 'Africa', 'Angola', 'Investments'],
     featured: false,
   },
   {
@@ -188,7 +188,7 @@ While the moderation is encouraging, inflation remains well above the CBN\'s tar
       name: 'Olumide Adeyemi',
       role: 'Macro Strategist',
     },
-    tags: ['Macro', 'Nigeria', 'Inflation', 'Economy'],
+    tags: ['Macro', 'Nigeria', 'Commodities', 'Energy'],
     featured: false,
   },
   {
@@ -219,7 +219,7 @@ We maintain a cautiously optimistic view on the sector, with preference for comp
       name: 'Chidi Nnamdi',
       role: 'Equity Research Lead',
     },
-    tags: ['Equities', 'Nigeria', 'Oil & Gas', 'NGX'],
+    tags: ['Energy', 'Nigeria', 'Commodities', 'Investments'],
     featured: false,
   },
   {
@@ -247,7 +247,7 @@ The cedi has shown tentative stabilization following the announcements, though s
       name: 'Olumide Adeyemi',
       role: 'Macro Strategist',
     },
-    tags: ['Macro', 'Ghana', 'FX', 'Currency'],
+    tags: ['Macro', 'Ghana', 'BRVM', 'Emerging Markets'],
     featured: false,
   },
   {
@@ -278,7 +278,7 @@ Our conviction picks for 2026 include Safaricom for growth and KCB for value and
       name: 'Chidi Nnamdi',
       role: 'Equity Research Lead',
     },
-    tags: ['Equities', 'Kenya', 'NSE', 'Africa'],
+    tags: ['Equities', 'Tanzania', 'Emerging Markets', 'Investments'],
     featured: false,
   },
   {
@@ -306,7 +306,7 @@ We expect SARB to maintain current rates through Q1, with potential for modest c
       name: 'Olumide Adeyemi',
       role: 'Macro Strategist',
     },
-    tags: ['Macro', 'South Africa', 'Interest Rates', 'SARB'],
+    tags: ['Macro', 'Rare Earths', 'Energy', 'Commodities'],
     featured: false,
   },
   {
@@ -337,7 +337,7 @@ PFA investment decisions significantly influence market dynamics, particularly i
       name: 'Ngozi Eze',
       role: 'Regulatory Affairs',
     },
-    tags: ['Fixed Income', 'Nigeria', 'Pensions', 'Institutional'],
+    tags: ['Funds', 'Nigeria', 'Commercial Papers', 'Investments'],
     featured: false,
   },
   {
@@ -368,7 +368,7 @@ While valuations have moderated from 2021 peaks, strong fintechs with proven bus
       name: 'Chidi Nnamdi',
       role: 'Equity Research Lead',
     },
-    tags: ['Equities', 'Africa', 'Fintech', 'IPO'],
+    tags: ['Mergers & Acquisitions', 'IMF', 'China', 'Investments'],
     featured: false,
   },
 ];

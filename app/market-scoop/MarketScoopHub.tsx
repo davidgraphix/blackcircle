@@ -8,7 +8,7 @@ import { marketScoops, getFeaturedMarketScoop, getAllTags } from '@/data/marketS
 import { formatShortDate } from '@/lib/helpers';
 import { fadeInUp, cardHover } from '@/lib/motion';
 
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_PAGE = 9;
 
 export function MarketScoopHub() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -232,7 +232,7 @@ export function MarketScoopHub() {
               ))}
             </div>
             <button
-              onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+              onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 2))}
               disabled={currentPage === totalPages}
               className="p-2 rounded-lg border border-border hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               aria-label="Next page"
