@@ -11,7 +11,7 @@ import { fadeInUp, cardHover } from '@/lib/motion';
 const categoryIcons = {
   'start-here': BookOpen,
   intermediate: Sparkles,
-  advanced: Award,
+  professional: Award,
 };
 
 export function GuidesLibrary() {
@@ -19,7 +19,7 @@ export function GuidesLibrary() {
 
   return (
     <div className="bg-background">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-2 py-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Sidebar */}
           <aside className="md:col-span-1">
@@ -60,7 +60,7 @@ export function GuidesLibrary() {
                     {category.label}
                   </h2>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
                     {categoryGuides.map((guide, index) => (
                       <motion.article
                         key={guide.id}

@@ -75,14 +75,14 @@ export const guides: Guide[] = [
     category: 'intermediate',
     readTime: 16,
   },
-  // Advanced
+  // Professional
   {
     id: '9',
     slug: 'fgn-bonds-and-fixed-income-strategy',
     title: 'FGN Bonds and Fixed Income Strategy',
     summary: 'Advanced concepts in bond investing including duration, yield curves, and constructing a fixed income portfolio.',
     content: `Federal Government of Nigeria bonds offer attractive yields and portfolio diversification benefits. This guide covers advanced concepts for sophisticated fixed income investors.`,
-    category: 'advanced',
+    category: 'professional',
     readTime: 20,
   },
   {
@@ -91,7 +91,7 @@ export const guides: Guide[] = [
     title: 'International Diversification for Nigerians',
     summary: 'How to access global markets, manage currency risk, and build a truly diversified portfolio.',
     content: `Diversifying beyond Nigeria can reduce portfolio risk and provide access to global growth opportunities. This guide covers the practical and regulatory aspects of international investing.`,
-    category: 'advanced',
+    category: 'professional',
     readTime: 22,
   },
   {
@@ -100,7 +100,7 @@ export const guides: Guide[] = [
     title: 'Real Estate Investment Strategies',
     summary: 'From direct ownership to REITs: understanding real estate investment options in Nigeria.',
     content: `Real estate has long been a favored asset class for Nigerian investors. This guide explores various approaches from direct investment to real estate investment trusts.`,
-    category: 'advanced',
+    category: 'professional',
     readTime: 18,
   },
   {
@@ -109,7 +109,7 @@ export const guides: Guide[] = [
     title: 'Tax-Efficient Investing in Nigeria',
     summary: 'Understanding the tax implications of different investments and strategies to optimize after-tax returns.',
     content: `Taxes can significantly impact your investment returns. This guide covers the tax treatment of various investments in Nigeria and strategies for tax-efficient portfolio management.`,
-    category: 'advanced',
+    category: 'professional',
     readTime: 16,
   },
 ];
@@ -125,5 +125,5 @@ export function getGuidesByCategory(category: Guide['category']): Guide[] {
 export const guideCategories = [
   { id: 'start-here', label: 'Start Here', description: 'Essential foundations for new investors' },
   { id: 'intermediate', label: 'Intermediate', description: 'Deepen your investment knowledge' },
-  { id: 'advanced', label: 'Advanced', description: 'Sophisticated strategies and concepts' },
+  { id: 'professional', label: 'Professional', description: 'Sophisticated strategies and concepts' },
 ] as const;

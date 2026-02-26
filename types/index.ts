@@ -37,7 +37,7 @@ export interface Guide {
   title: string;
   summary: string;
   content: string;
-  category: 'start-here' | 'intermediate' | 'advanced';
+  category: 'start-here' | 'intermediate' | 'professional';
   readTime: number;
   downloadUrl?: string;
 }
