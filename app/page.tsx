@@ -11,7 +11,7 @@ export default function HomePage() {
     <>
       <Hero />
       <ContentMatrix />
-      <ServicesMatrix />
+      {/* <ServicesMatrix /> */}
       <Newsletter />
       <CommunityInvite />
     </>

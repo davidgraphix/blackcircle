@@ -23,13 +23,13 @@ export function Hero() {
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="max-w-2xl"
+          className="max-w-4xl"
         >
           <motion.h1
             variants={fadeInUp}
-            className="text-5xl sm:text-7xl lg:text-5xl font-bold text-white leading-tight text-balance font-serif"
+            className="text-5xl sm:text-7xl lg:text-7xxl font-bold text-white leading-tight text-balance font-serif"
           >
-            Navigate African markets <br />with confidence
+            Navigate African markets <br /> with confidence
           </motion.h1>
 
           <motion.p
