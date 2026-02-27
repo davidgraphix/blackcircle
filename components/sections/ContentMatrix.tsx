@@ -22,7 +22,7 @@ export function ContentMatrix() {
       description: featuredScoop.excerpt,
       href: `/market-scoop/${featuredScoop.slug}`,
       cta: 'Read article',
-      image: 'https://images.unsplash.com/photo-1611532736579-6b16e2b50449?w=400&h=300&fit=crop',
+      image: '/market-scoop.png',
     },
     {
       label: 'Stories',
@@ -30,7 +30,7 @@ export function ContentMatrix() {
       description: featuredStory.description,
       href: `/stories/${featuredStory.slug}`,
       cta: 'Watch story',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
+      image: '/stories.png',
     },
     {
       label: 'Investing Guides',
@@ -38,7 +38,7 @@ export function ContentMatrix() {
       description: featuredGuide.summary,
       href: `/investing-guides/${featuredGuide.slug}`,
       cta: 'Read guide',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop',
+      image: '/investing-guides.png',
     },
     {
       label: 'Learning',
@@ -46,7 +46,7 @@ export function ContentMatrix() {
       description: featuredCourse.description,
       href: `/learning/courses/${featuredCourse.slug}`,
       cta: 'View course',
-      image: 'https://images.unsplash.com/photo-1516534775068-bb57e39b7224?w=400&h=300&fit=crop',
+      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop',
     },
     {
       label: 'Corporate Training',
@@ -54,7 +54,7 @@ export function ContentMatrix() {
       description: 'We design and deliver practical, transformative training programs tailored to your team\'s learning objectives.',
       href: '/corporate-training',
       cta: 'Learn more',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
+      image: '/custom-training.png',
     },
      {
       label: 'Community',
@@ -67,8 +67,8 @@ export function ContentMatrix() {
   ];
 
   return (
-    <section className="bg-black py-10 md:py-14">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-black py-10 md:py-8">
+      <div className="mx-auto max-w-9xl px-4 sm:px-6 lg:px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-5">
           {contentTypes.map((type) => (
             <motion.article
@@ -76,10 +76,10 @@ export function ContentMatrix() {
               initial="rest"
               whileHover="hover"
               variants={cardHover}
-              className="group bg-card border border-white rounded-lg overflow-hidden flex flex-col h-full hover:border-primary transition-colors"
+              className="group bg-black border border-black rounded-lg overflow-hidden flex flex-col h-full hover:border-primary transition-colors"
             >
               {/* Image */}
-              <div className="relative h-52 overflow-hidden bg-muted">
+              <div className="relative h-92 overflow-hidden bg-muted">
                 <img
                   src={type.image}
                   alt={type.title}
@@ -89,13 +89,13 @@ export function ContentMatrix() {
               
               {/* Content */}
               <div className="p-3 flex flex-col flex-1">
-                <span className="text-xs font-semibold text-primary uppercase tracking-wider mb-1.5">
+                <span className="text-xs font-semibold text-white uppercase tracking-wider mb-1.5">
                   {type.label}
                 </span>
-                <h3 className="text-sm font-semibold text-card-foreground line-clamp-2 group-hover:text-primary transition-colors">
+                <h3 className="text-sm font-semibold text-gray-500 line-clamp-2 group-hover:text-primary transition-colors">
                   {type.title}
                 </h3>
-                <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed line-clamp-2 flex-1">
+                <p className="mt-1.5 text-xs text-gray-300 leading-relaxed line-clamp-2 flex-1">
                   {type.description}
                 </p>
                 <Link
