@@ -82,8 +82,6 @@ export default function HomePage() {
       <ContentMatrix />
       <Newsletter />
       <CommunityInvite />
-
-
     </>
   );
 }
