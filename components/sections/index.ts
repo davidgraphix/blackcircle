@@ -1,6 +1,9 @@
 export { Hero } from './Hero';
+export { DashboardHero } from './DashboardHero';
 export { WhatIsBlackCircle } from './WhatIsBlackCircle';
 export { ContentMatrix } from './ContentMatrix';
+export { MarketBarometer } from './MarketBarometer';
+export { TrendingSection } from './TrendingSection';
 export { ServicesMatrix } from './ServicesMatrix';
 export { LearningHighlight } from './LearningHighlight';
 export { CorporateHighlight } from './CorporateHighlight';

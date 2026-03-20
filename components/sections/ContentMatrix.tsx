@@ -67,7 +67,7 @@ export function ContentMatrix() {
   ];
 
   return (
-    <section className="bg-black py-10 md:py-8">
+    <section className="bg-white py-10 md:py-8">
       <div className="mx-auto max-w-9xl px-4 sm:px-6 lg:px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-5">
           {contentTypes.map((type) => (
@@ -76,7 +76,7 @@ export function ContentMatrix() {
               initial="rest"
               whileHover="hover"
               variants={cardHover}
-              className="group bg-black border border-black rounded-lg overflow-hidden flex flex-col h-full hover:border-primary transition-colors"
+              className="group bg-white border border-gray-400 rounded-lg overflow-hidden flex flex-col h-full hover:border-primary transition-colors"
             >
               {/* Image */}
               <div className="relative h-92 overflow-hidden bg-muted">
@@ -92,10 +92,10 @@ export function ContentMatrix() {
                 <span className="text-xs font-semibold text-white uppercase tracking-wider mb-1.5">
                   {type.label}
                 </span>
-                <h3 className="text-sm font-semibold text-gray-500 line-clamp-2 group-hover:text-primary transition-colors">
+                <h3 className="text-sm font-semibold text-gray-900 line-clamp-2 group-hover:text-primary transition-colors">
                   {type.title}
                 </h3>
-                <p className="mt-1.5 text-xs text-gray-300 leading-relaxed line-clamp-2 flex-1">
+                <p className="mt-1.5 text-xs text-gray-600 leading-relaxed line-clamp-2 flex-1">
                   {type.description}
                 </p>
                 <Link
