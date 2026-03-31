@@ -65,7 +65,7 @@ export function TrendingSection() {
       </div>
 
       {/* Portfolio Box */}
-      <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-lg p-4">
+      {/* <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-lg p-4">
         <h4 className="text-sm font-bold text-gray-900 mb-2">Portfolio</h4>
         <p className="text-xs text-gray-700 leading-relaxed mb-3">
           You already know what you want out of your portfolio. BlackCircle Investor can help you double-check your investing instincts with exclusive ratings & analysis.
@@ -76,7 +76,7 @@ export function TrendingSection() {
         >
           Free 7-Day Trial
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }

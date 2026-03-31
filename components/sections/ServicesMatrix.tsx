@@ -14,8 +14,8 @@ import { fadeInUp, cardHover } from '@/lib/motion';
 const services = [
   {
     id: 'market-scoop',
-    title: 'Market Scoop',
-    description: 'Timely analysis and insights on African markets',
+    title: 'African Eurobond Market Update',
+    description: 'Jan 18, 2026',
     href: '/market-scoop',
     icon: Newspaper,
     gradient: 'from-blue-500/20 to-blue-600/20',
@@ -23,8 +23,8 @@ const services = [
   },
   {
     id: 'stories',
-    title: 'Stories',
-    description: 'Documentary-style content exploring African finance',
+    title: 'Fintech Founders',
+    description: 'In-depth interviews with leading fintech entrepreneurs in Nigeria, sharing their journeys, challenges, and insights.',
     href: '/stories',
     icon: Play,
     gradient: 'from-purple-500/20 to-purple-600/20',
@@ -32,8 +32,8 @@ const services = [
   },
   {
     id: 'guides',
-    title: 'Investing Guides',
-    description: 'Comprehensive guides on investment fundamentals',
+    title: 'Understanding Nigerian Financial Markets',
+    description: "An overview of Nigeria's key financial markets including the stock exchange, money market",
     href: '/investing-guides',
     icon: BookOpen,
     gradient: 'from-green-500/20 to-green-600/20',
@@ -41,22 +41,14 @@ const services = [
   },
   {
     id: 'learning',
-    title: 'Learning',
-    description: 'Structured courses to build investment knowledge',
+    title: 'Real Estate Investing in Nigeria',
+    description: 'Advanced • 5.5 hours',
     href: '/learning',
     icon: TrendingUp,
     gradient: 'from-orange-500/20 to-orange-600/20',
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
   },
-  {
-    id: 'corporate',
-    title: 'Corporate Training',
-    description: 'Custom training programs for organizations',
-    href: '/corporate-training',
-    icon: Building2,
-    gradient: 'from-red-500/20 to-red-600/20',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
-  },
+
 ];
 
 export function ServicesMatrix() {
