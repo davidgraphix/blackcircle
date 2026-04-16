@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, Source_Serif_4 } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SiteLayout } from '@/components/layout';
-import './globals.css';
+import './global.css';
 
 const inter = Inter({
   subsets: ['latin'],
