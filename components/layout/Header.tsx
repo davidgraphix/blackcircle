@@ -30,7 +30,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'px-3 py-2 text-sm font-medium rounded-md transition-colors',
+                  'px-3 py-2 text-xs font-medium rounded-md transition-colors',
                   pathname === item.href
                     ? 'bg-white text-black'
                     : 'text-white/80 hover:text-white hover:bg-white/10'
