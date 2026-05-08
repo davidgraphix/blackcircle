@@ -3,12 +3,12 @@ import type { NavItem } from '@/types';
 export const mainNavigation: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'Market Scoop', href: '/market-scoop' },
-  { label: 'Stories', href: '/stories' },
+  // { label: 'Stories', href: '/stories' },
   { label: 'Investing Guides', href: '/investing-guides' },
-  { label: 'Learning Center', href: '/learning' },
+  // { label: 'Learning Center', href: '/learning' },
   { label: 'Corporate Training', href: '/corporate-training' },
   { label: 'Community', href: '/community' },
-  { label: 'Dangote Refinery', href: '/dangote-refinery' },
+  // { label: 'Dangote Refinery', href: '/dangote-refinery' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -16,15 +16,15 @@ export const mainNavigation: NavItem[] = [
 export const footerNavigation = {
   learn: [
     { label: 'Market Scoop', href: '/market-scoop' },
-    { label: 'Stories', href: '/stories' },
+    // { label: 'Stories', href: '/stories' },
     { label: 'Investing Guides', href: '/investing-guides' },
-    { label: 'Learning ', href: '/learning' },
+    // { label: 'Learning Center', href: '/learning' },
   ],
   company: [
     { label: 'About', href: '/about' },
     { label: 'Corporate Training', href: '/corporate-training' },
     { label: 'Community', href: '/community' },
-  { label: 'Dangote Refinery', href: '/dangote-refinery' },
+    // { label: 'Dangote Refinery', href: '/dangote-refinery' },
     { label: 'Contact', href: '/contact' },
   ],
   legal: [
