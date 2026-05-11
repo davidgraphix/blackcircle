@@ -20,7 +20,7 @@ export function Header() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <img src="/logo.png" alt="BlackCircle" className="h-17 w-auto" />
+            <img src="/logo.jpeg" alt="BlackCircle" className="h-14 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
