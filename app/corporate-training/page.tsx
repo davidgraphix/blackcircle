@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { CorporateTrainingPage } from './CorporateTrainingPage';
+import  CorporateTrainingPage  from './CorporateTrainingPage';
 
 export const metadata: Metadata = {
   title: 'Corporate Training',
