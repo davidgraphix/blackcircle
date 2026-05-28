@@ -1,217 +1,345 @@
-'use client';
-
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import {
-  Target,
-  Eye,
-  Heart,
-  Users,
+  ArrowRight,
+  BarChart3,
   BookOpen,
-  TrendingUp,
-  Globe,
-  Award,
+  Building2,
+  Compass,
+  Globe2,
+  ShieldCheck,
+  Sparkles,
+  Target,
 } from 'lucide-react';
-import { Section, SectionHeader } from '@/components/ui/section';
-import { fadeInUp, staggerContainer, buttonTap } from '@/lib/motion';
 
 const values = [
   {
+    title: 'Clarity over noise',
+    description:
+      'We simplify market information without watering it down, helping users understand what matters and why.',
+    icon: Compass,
+  },
+  {
+    title: 'Education before action',
+    description:
+      'BlackCircle is built around informed participation, not hype, speculation, or impulsive decisions.',
     icon: BookOpen,
-    title: 'Education First',
-    description: 'We believe informed investors make better decisions. Our content prioritizes understanding over speculation.',
   },
   {
-    icon: Globe,
-    title: 'African Context',
-    description: 'Generic financial advice often misses local nuances. We build content rooted in African market realities.',
-  },
-  {
-    icon: Heart,
-    title: 'Accessibility',
-    description: 'Financial knowledge shouldn\'t be gatekept. We strive to make market insights available to everyone.',
-  },
-  {
-    icon: Award,
-    title: 'Quality',
-    description: 'Our content is created by practitioners with real market experience, ensuring practical relevance.',
+    title: 'Trust and discipline',
+    description:
+      'Our tone, structure, and content are designed to feel credible, consistent, and institutionally responsible.',
+    icon: ShieldCheck,
   },
 ];
 
-const team = [
+const whatWeDo = [
   {
-    name: 'Adaeze Okonkwo',
-    role: 'Co-Founder & Head of Content',
-    bio: 'Former fixed income analyst with 8 years experience in Nigerian capital markets.',
+    title: 'Market intelligence',
+    description:
+      'Timely insights, explainers, and commentary on African markets, economics, policy, and investment themes.',
+    icon: BarChart3,
   },
   {
-    name: 'Chidi Nnamdi',
-    role: 'Co-Founder & Head of Research',
-    bio: 'Former equity research lead at a leading Nigerian asset management firm.',
+    title: 'Investing education',
+    description:
+      'Structured guides and learning resources that help individuals and professionals build market confidence.',
+    icon: BookOpen,
   },
   {
-    name: 'Olumide Adeyemi',
-    role: 'Head of Education',
-    bio: 'Curriculum development specialist with background in financial training.',
+    title: 'Corporate training',
+    description:
+      'Custom training programs for institutions, teams, and professionals working across finance and adjacent sectors.',
+    icon: Building2,
   },
 ];
 
-const stats = [
-  { value: '10,000+', label: 'Active Learners' },
-  { value: '50+', label: 'Educational Resources' },
-  { value: '500+', label: 'Corporate Trainees' },
-  { value: '3', label: 'Years Building' },
+const audiences = [
+  'Retail and aspiring investors',
+  'African diaspora audiences',
+  'Finance, law, accounting, and business professionals',
+  'Banks, asset managers, fintechs, regulators, and corporates',
 ];
 
-export function AboutPage() {
+export default function AboutPage() {
   return (
-    <>
-      {/* Hero Section */}
-      <section className="relative bg-background overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(0,128,128,0.03),transparent_50%)]" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
-            className="max-w-3xl"
-          >
-            <motion.h1
-              variants={fadeInUp}
-              className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-foreground leading-tight text-balance"
-            >
-              Democratizing financial education for Africa
-            </motion.h1>
-            <motion.p
-              variants={fadeInUp}
-              className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-2xl text-pretty"
-            >
-              BlackCircle was founded on a simple belief: that every African should have access to 
-              quality financial education and market insights, regardless of their starting point.
-            </motion.p>
-          </motion.div>
+    <main className="bg-[#f7f5ef]">
+      {/* Hero */}
+      <section className="border-b border-black/10 bg-[#050907] text-white">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-14 sm:px-6 md:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+              <Sparkles className="h-3.5 w-3.5" />
+              About BlackCircle
+            </div>
+
+            <h1 className="mt-6 font-serif text-4xl font-semibold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Building the front page of African market intelligence.
+            </h1>
+
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/65">
+              BlackCircle is a modern, Africa-focused digital hub helping people
+              understand, navigate, and participate in financial markets with
+              more confidence — starting with Nigeria and expanding across the
+              continent and diaspora.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/market-scoop"
+                className="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+              >
+                Explore Market Scoop
+              </Link>
+
+              <Link
+                href="/corporate-training"
+                className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-black"
+              >
+                Corporate Training
+              </Link>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5 shadow-2xl shadow-black/20 lg:p-6">
+            <div className="rounded-2xl border border-white/10 bg-black/25 p-5">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+                Our positioning
+              </p>
+
+              <h2 className="mt-4 font-serif text-2xl font-semibold text-white">
+                Serious like a financial institution. Clear like a good teacher.
+              </h2>
+
+              <p className="mt-4 text-sm leading-relaxed text-white/60">
+                BlackCircle is not trying to be flashy or gimmicky. The brand
+                combines financial credibility, editorial discipline, and
+                accessible education for people who want to understand African
+                markets properly.
+              </p>
+            </div>
+
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                <p className="text-2xl font-semibold text-white">Nigeria</p>
+                <p className="mt-1 text-xs text-white/50">Starting market</p>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                <p className="text-2xl font-semibold text-white">Africa</p>
+                <p className="mt-1 text-xs text-white/50">Continental focus</p>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                <p className="text-2xl font-semibold text-white">Diaspora</p>
+                <p className="mt-1 text-xs text-white/50">Global audience</p>
+              </div>
+
+              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                <p className="text-2xl font-semibold text-white">Markets</p>
+                <p className="mt-1 text-xs text-white/50">Core language</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <Section className="bg-muted/30">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-card border border-border rounded-lg p-8">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary">
-              <Target className="h-6 w-6 text-primary-foreground" />
-            </div>
-            <h2 className="mt-6 text-xl font-semibold text-card-foreground">Our Mission</h2>
-            <p className="mt-3 text-muted-foreground leading-relaxed">
-              To empower individuals and organizations with the knowledge and tools they need 
-              to navigate African markets with confidence. We make complex financial concepts 
-              accessible and actionable.
+      {/* Mission */}
+      <section className="border-b border-black/10 bg-white">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:py-16">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+              Why we exist
             </p>
+
+            <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight text-gray-950">
+              To make African markets more understandable, accessible, and actionable.
+            </h2>
           </div>
-          <div className="bg-card border border-border rounded-lg p-8">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-secondary">
-              <Eye className="h-6 w-6 text-secondary-foreground" />
-            </div>
-            <h2 className="mt-6 text-xl font-semibold text-card-foreground">Our Vision</h2>
-            <p className="mt-3 text-muted-foreground leading-relaxed">
-              A continent where financial literacy is the norm, not the exception. Where every 
-              market participant — from first-time investors to seasoned professionals — has 
-              access to quality insights and education.
+
+          <div className="space-y-5 text-sm leading-relaxed text-gray-600 sm:text-base">
+            <p>
+              Financial markets can feel distant, technical, and intimidating —
+              especially across emerging markets where information is often
+              fragmented, jargon-heavy, or difficult to interpret.
+            </p>
+
+            <p>
+              BlackCircle exists to close that gap. We help individuals,
+              professionals, institutions, and diaspora audiences understand how
+              markets work, what is changing, and how to think about opportunities
+              with structure and discipline.
+            </p>
+
+            <p>
+              Our goal is not to create noise. It is to become a trusted guide for
+              market learning, insight, and participation across Africa.
             </p>
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* Values Section */}
-      <Section>
-        <SectionHeader
-          title="What We Stand For"
-          description="The principles that guide everything we do at BlackCircle."
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {values.map((value) => (
-            <div key={value.title} className="flex gap-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent shrink-0">
-                <value.icon className="h-5 w-5 text-primary" />
+      {/* What We Do */}
+      <section className="border-b border-black/10 bg-[#f7f5ef]">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+          <div className="mb-8 max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+              What we do
+            </p>
+
+            <h2 className="mt-3 font-serif text-3xl font-semibold text-gray-950">
+              One ecosystem for insights, learning, and institutional training.
+            </h2>
+
+            <p className="mt-3 text-sm leading-relaxed text-gray-600">
+              BlackCircle brings together content, education, and corporate
+              learning in a unified experience.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            {whatWeDo.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <article
+                  key={item.title}
+                  className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-md"
+                >
+                  <span className="grid h-11 w-11 place-items-center rounded-2xl bg-primary/10 text-primary">
+                    <Icon className="h-5 w-5" />
+                  </span>
+
+                  <h3 className="mt-5 text-lg font-semibold text-gray-950">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                    {item.description}
+                  </p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="border-b border-black/10 bg-white">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-16">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+              Our principles
+            </p>
+
+            <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight text-gray-950">
+              Designed for trust, clarity, and long-term credibility.
+            </h2>
+
+            <p className="mt-4 text-sm leading-relaxed text-gray-600">
+              The platform is being built as a serious market-intelligence
+              ecosystem, not just a static website.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {values.map((value) => {
+              const Icon = value.icon;
+
+              return (
+                <article
+                  key={value.title}
+                  className="flex gap-4 rounded-2xl border border-black/10 bg-[#f7f5ef] p-5"
+                >
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white text-primary shadow-sm">
+                    <Icon className="h-5 w-5" />
+                  </span>
+
+                  <div>
+                    <h3 className="font-semibold text-gray-950">{value.title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-gray-600">
+                      {value.description}
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Audience */}
+      <section className="border-b border-black/10 bg-[#050907] text-white">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-16">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+              <Globe2 className="h-3.5 w-3.5" />
+              Who we serve
+            </div>
+
+            <h2 className="mt-5 font-serif text-3xl font-semibold leading-tight text-white">
+              Built for the people and institutions participating in Africa’s financial future.
+            </h2>
+
+            <p className="mt-4 text-sm leading-relaxed text-white/60">
+              BlackCircle speaks to both individual learners and professional
+              market participants, while maintaining one coherent brand and user experience.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {audiences.map((audience) => (
+              <div
+                key={audience}
+                className="rounded-2xl border border-white/10 bg-white/[0.04] p-5"
+              >
+                <p className="text-sm font-semibold text-white">{audience}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-[#f7f5ef]">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+          <div className="rounded-3xl border border-black/10 bg-white p-6 shadow-sm sm:p-8 lg:p-10">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
               <div>
-                <h3 className="font-semibold text-foreground">{value.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                  {value.description}
+                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                  <Target className="h-3.5 w-3.5" />
+                  Start exploring
+                </div>
+
+                <h2 className="mt-4 font-serif text-3xl font-semibold text-gray-950">
+                  Understand the pulse of African markets.
+                </h2>
+
+                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-gray-600">
+                  Read the latest market insights, browse practical investing guides,
+                  or speak with us about training for your organisation.
                 </p>
               </div>
-            </div>
-          ))}
-        </div>
-      </Section>
 
-      {/* Stats Section */}
-      <Section className="bg-primary">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-primary-foreground">
-                {stat.value}
+              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+                <Link
+                  href="/market-scoop"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                >
+                  Read Market Scoop
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-gray-950 transition-colors hover:bg-black hover:text-white"
+                >
+                  Contact BlackCircle
+                </Link>
               </div>
-              <div className="mt-2 text-sm text-primary-foreground/70">{stat.label}</div>
             </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* Team Section */}
-      <Section>
-        <SectionHeader
-          title="The Team"
-          description="Meet the people behind BlackCircle."
-        />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {team.map((member) => (
-            <div
-              key={member.name}
-              className="bg-card border border-border rounded-lg p-6 text-center"
-            >
-              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-muted">
-                <Users className="h-8 w-8 text-muted-foreground" />
-              </div>
-              <h3 className="mt-4 text-lg font-semibold text-card-foreground">{member.name}</h3>
-              <p className="text-sm text-primary">{member.role}</p>
-              <p className="mt-3 text-sm text-muted-foreground">{member.bio}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* CTA Section */}
-      <Section className="bg-muted/30">
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-semibold text-foreground text-balance">
-            Join us on this journey
-          </h2>
-          <p className="mt-4 text-muted-foreground text-pretty">
-            Whether you&apos;re an individual investor or a corporate team, we&apos;re here to support 
-            your financial education journey.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.div whileTap={buttonTap}>
-              <Link
-                href="/learning"
-                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-primary-foreground bg-primary rounded-lg hover:bg-primary/90 transition-colors"
-              >
-                <TrendingUp className="mr-2 h-5 w-5" />
-                Start Learning
-              </Link>
-            </motion.div>
-            <motion.div whileTap={buttonTap}>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-foreground bg-transparent border border-border rounded-lg hover:bg-muted transition-colors"
-              >
-                Get in Touch
-              </Link>
-            </motion.div>
           </div>
         </div>
-      </Section>
-    </>
+      </section>
+    </main>
   );
 }
