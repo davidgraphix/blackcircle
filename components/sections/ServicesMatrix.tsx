@@ -9,104 +9,100 @@ import {
   Building2,
   Newspaper,
 } from 'lucide-react';
-import { fadeInUp, cardHover } from '@/lib/motion';
 
-const services = [
+const featuredContent = [
   {
     id: 'market-scoop',
+    eyebrow: 'Market Scoop',
     title: 'African Eurobond Market Update',
-    description: 'Jan 18, 2026',
+    description: 'A concise look at recent sovereign bond movements, investor appetite, and what it means for African markets.',
     href: '/market-scoop',
     icon: Newspaper,
-    gradient: 'from-blue-500/20 to-blue-600/20',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
-  },
-  {
-    id: 'stories',
-    title: 'Fintech Founders',
-    description: 'In-depth interviews with leading fintech entrepreneurs in Nigeria, sharing their journeys, challenges, and insights.',
-    href: '/stories',
-    icon: Play,
-    gradient: 'from-purple-500/20 to-purple-600/20',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=420&fit=crop',
   },
   {
     id: 'guides',
+    eyebrow: 'Investing Guides',
     title: 'Understanding Nigerian Financial Markets',
-    description: "An overview of Nigeria's key financial markets including the stock exchange, money market",
+    description: "A practical guide to Nigeria's capital markets, instruments, participants, and investment pathways.",
     href: '/investing-guides',
     icon: BookOpen,
-    gradient: 'from-green-500/20 to-green-600/20',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
+    image: '/investing-guides.png',
+  },
+  {
+    id: 'training',
+    eyebrow: 'Corporate Training',
+    title: 'Practical market training for your team',
+    description: 'Custom-designed learning programs for institutions, professionals, and market-facing teams.',
+    href: '/corporate-training',
+    icon: Building2,
+    image: '/custom-training.png',
   },
   {
     id: 'learning',
-    title: 'Real Estate Investing in Nigeria',
-    description: 'Advanced • 5.5 hours',
+    eyebrow: 'Learning',
+    title: 'Structured learning for investors',
+    description: 'Build market confidence through practical courses and guided learning paths.',
     href: '/learning',
     icon: TrendingUp,
-    gradient: 'from-orange-500/20 to-orange-600/20',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=420&fit=crop',
   },
-
 ];
 
 export function ServicesMatrix() {
   return (
-    <section className="bg-background py-12 md:py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Grid Layout - 3 columns for desktop, responsive for mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
-          {services.map((service, index) => {
-            const Icon = service.icon;
-            const isLarge = index < 3; // First 3 items are larger
-            
-            return (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className={`${isLarge ? 'md:col-span-1' : 'md:col-span-1'}`}
-              >
-                <Link href={service.href}>
-                  <motion.div
-                    whileHover={{ y: -4 }}
-                    className="group relative bg-card border border-border rounded-lg overflow-hidden h-full hover:border-primary transition-colors duration-300 flex flex-col cursor-pointer"
-                  >
-                    {/* Image Background */}
-                    <div className="relative h-40 bg-muted overflow-hidden">
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
+    <section className="bg-transparent">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {featuredContent.map((item, index) => {
+          const Icon = item.icon;
+
+          return (
+            <motion.article
+              key={item.id}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: index * 0.06 }}
+            >
+              <Link href={item.href}>
+                <div className="group h-full overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-md">
+                  <div className="relative h-44 overflow-hidden bg-gray-100">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/15" />
+                  </div>
+
+                  <div className="p-5">
+                    <div className="flex items-center gap-2">
+                      <span className="grid h-8 w-8 place-items-center rounded-full bg-primary/10 text-primary">
+                        <Icon className="h-4 w-4" />
+                      </span>
+
+                      <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-primary">
+                        {item.eyebrow}
+                      </span>
                     </div>
 
-                    {/* Content */}
-                    <div className="p-4 flex flex-col flex-1">
-                      <div className="flex items-center gap-2 mb-2">
-                        <div className="p-2 rounded-lg bg-muted group-hover:bg-primary/10 transition-colors">
-                          <Icon className="h-4 w-4 text-foreground group-hover:text-primary transition-colors" />
-                        </div>
-                      </div>
-                      <h3 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">
-                        {service.title}
-                      </h3>
-                      <p className="mt-1 text-xs text-muted-foreground line-clamp-2 flex-1">
-                        {service.description}
-                      </p>
-                      <div className="mt-3 text-xs font-semibold text-primary">
-                        Explore →
-                      </div>
-                    </div>
-                  </motion.div>
-                </Link>
-              </motion.div>
-            );
-          })}
-        </div>
+                    <h3 className="mt-4 text-base font-semibold leading-snug text-gray-950 group-hover:text-primary transition-colors">
+                      {item.title}
+                    </h3>
+
+                    <p className="mt-2 text-sm leading-relaxed text-gray-600 line-clamp-3">
+                      {item.description}
+                    </p>
+
+                    <p className="mt-4 text-sm font-semibold text-primary">
+                      Explore →
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </motion.article>
+          );
+        })}
       </div>
     </section>
   );

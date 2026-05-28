@@ -1,11 +1,17 @@
 import type { MarketScoop } from '@/types';
 
+const author = {
+  name: 'BlackCircle Research Desk',
+  role: 'Research',
+};
+
 export const marketScoops: MarketScoop[] = [
   {
     id: '1',
     slug: 'nigerian-treasury-bills-january-2026-outlook',
     title: 'Nigerian Treasury Bills: January 2026 Outlook',
-    excerpt: 'The Central Bank of Nigeria continues its tight monetary policy stance. Here\'s what investors should expect for T-bill rates this quarter.',
+    excerpt:
+      "The Central Bank of Nigeria continues its tight monetary policy stance. Here's what investors should expect for T-bill rates this quarter.",
     content: `## Overview
 
 The Nigerian Treasury Bills market has seen remarkable activity as we enter 2026. The Central Bank of Nigeria (CBN) maintains its hawkish monetary policy stance, keeping the benchmark interest rate elevated to combat persistent inflationary pressures.
@@ -16,26 +22,19 @@ Treasury bill rates have remained attractive for investors seeking relatively sa
 
 ### Key Observations
 
-- **Primary Market Auctions**: Oversubscription continues as institutional investors seek higher yields
-- **Secondary Market Liquidity**: Trading volumes remain robust with healthy bid-ask spreads
-- **Foreign Participation**: Limited but growing interest from offshore investors
+- Primary market auctions remain well subscribed
+- Secondary market liquidity remains active
+- Investor demand for naira-denominated assets remains strong
 
 ## Investment Considerations
 
-For retail investors looking to participate in the T-bill market, here are key factors to consider:
-
-1. **Minimum Investment**: NGN 50,000 for most banks and brokers
-2. **Holding Period**: 91, 182, or 364 days
-3. **Tax Treatment**: Interest income is exempt from tax for individuals
+For retail investors looking to participate in the T-bill market, key factors include minimum investment size, holding period, liquidity needs, and reinvestment risk.
 
 ## Looking Ahead
 
 We anticipate the CBN will maintain current rates through Q1 2026, with potential adjustments depending on inflation trajectory and foreign exchange stability.`,
     date: '2026-01-28',
-    author: {
-      name: 'Adaeze Okonkwo',
-      role: 'Fixed Income Analyst',
-    },
+    author,
     tags: ['Nigeria', 'Treasury Bills', 'Macro', 'Investments'],
     featured: true,
   },
@@ -43,7 +42,8 @@ We anticipate the CBN will maintain current rates through Q1 2026, with potentia
     id: '2',
     slug: 'ngx-banking-sector-q4-2025-review',
     title: 'NGX Banking Sector: Q4 2025 Review',
-    excerpt: 'Nigerian banks posted strong earnings in Q4 2025, driven by elevated interest rates and improved fee income. We analyze the key performers.',
+    excerpt:
+      'Nigerian banks posted strong earnings in Q4 2025, driven by elevated interest rates and improved fee income. We analyze the key performers.',
     content: `## Quarterly Performance Overview
 
 The Nigerian banking sector closed 2025 on a strong note, with tier-1 banks reporting impressive earnings growth. The high interest rate environment proved beneficial for net interest margins across the board.
@@ -51,22 +51,22 @@ The Nigerian banking sector closed 2025 on a strong note, with tier-1 banks repo
 ## Top Performers
 
 ### Access Holdings
-Access Holdings led the pack with a 45% year-over-year increase in profit before tax, driven by strong trading gains and improved loan book performance.
+
+Access Holdings led the pack with strong profit growth, driven by trading gains and improved loan book performance.
 
 ### Zenith Bank
-Zenith maintained its position as the most profitable bank by absolute numbers, benefiting from its diversified revenue streams and conservative risk management approach.
+
+Zenith maintained its position as one of the strongest performers by absolute earnings, supported by diversified revenue streams and conservative risk management.
 
 ### GTCO
-Guaranty Trust Holding Company showed resilience with steady growth in its retail banking segment and expanding digital banking revenues.
+
+GTCO showed resilience with steady growth in retail banking and expanding digital revenues.
 
 ## Sector Outlook
 
 The banking sector enters 2026 with solid fundamentals, though investors should monitor asset quality metrics closely as the economy navigates inflation pressures.`,
     date: '2026-01-25',
-    author: {
-      name: 'Chidi Nnamdi',
-      role: 'Equity Research Lead',
-    },
+    author,
     tags: ['Equities', 'Nigeria', 'Banking', 'Investments'],
     featured: false,
   },
@@ -74,7 +74,8 @@ The banking sector enters 2026 with solid fundamentals, though investors should 
     id: '3',
     slug: 'understanding-naira-fx-dynamics-2026',
     title: 'Understanding Naira FX Dynamics in 2026',
-    excerpt: 'The naira has shown relative stability in early 2026. We examine the factors driving exchange rate movements and outlook for the year.',
+    excerpt:
+      'The naira has shown relative stability in early 2026. We examine the factors driving exchange rate movements and outlook for the year.',
     content: `## Foreign Exchange Overview
 
 The Nigerian naira has demonstrated improved stability in the first weeks of 2026, trading within a narrower band compared to the volatility experienced in 2025.
@@ -82,293 +83,297 @@ The Nigerian naira has demonstrated improved stability in the first weeks of 202
 ## Key Drivers
 
 ### Oil Receipts
+
 Improved crude oil production and relatively stable global oil prices have supported dollar inflows into the economy.
 
 ### Diaspora Remittances
-January typically sees elevated remittance flows as Nigerians abroad send funds home after the holiday season.
+
+Remittance flows remain an important source of foreign exchange supply.
 
 ### CBN Interventions
+
 The Central Bank has maintained its presence in the FX market, providing liquidity to meet legitimate demand.
 
 ## Implications for Investors
 
-Foreign exchange considerations remain crucial for investment decisions in Nigeria, particularly for those with dollar-denominated liabilities or those considering offshore investments.`,
+Foreign exchange considerations remain crucial for investment decisions in Nigeria, particularly for investors with dollar-denominated obligations or offshore exposure.`,
     date: '2026-01-22',
-    author: {
-      name: 'Olumide Adeyemi',
-      role: 'Macro Strategist',
-    },
-    tags: ['Macro', 'Nigeria', 'Emerging Markets', 'Energy'],
+    author,
+    tags: ['Macro', 'Nigeria', 'FX', 'Emerging Markets'],
     featured: false,
   },
   {
     id: '4',
     slug: 'sec-nigeria-new-regulations-2026',
     title: 'SEC Nigeria: New Regulations for 2026',
-    excerpt: 'The Securities and Exchange Commission introduces new rules aimed at improving market transparency and investor protection.',
+    excerpt:
+      'The Securities and Exchange Commission introduces new rules aimed at improving market transparency and investor protection.',
     content: `## Regulatory Updates
 
-The Securities and Exchange Commission (SEC) of Nigeria has announced several regulatory changes effective in 2026, aimed at strengthening market integrity and investor confidence.
+The Securities and Exchange Commission of Nigeria has announced several regulatory changes aimed at strengthening market integrity and investor confidence.
 
 ## Key Changes
 
 ### Enhanced Disclosure Requirements
-Listed companies will now be required to provide more detailed quarterly reports, including segment-level performance data and risk factor updates.
+
+Listed companies are expected to provide more detailed reporting, including clearer updates on performance, risks, and governance.
 
 ### Digital Asset Framework
-The SEC has finalized its framework for regulating digital assets, providing clarity for cryptocurrency exchanges and blockchain-based securities.
 
-### Investor Protection Fund
-The coverage limit for the Investor Protection Fund has been increased to provide greater protection for retail investors.
+The SEC continues to refine its approach to digital assets and market innovation.
+
+### Investor Protection
+
+Investor protection remains a core priority as participation in capital markets grows.
 
 ## Market Impact
 
-These regulatory changes are expected to attract more institutional participation and potentially improve Nigeria\'s standing in global market indices.`,
+These regulatory changes are expected to support institutional participation and strengthen confidence in Nigeria’s capital markets.`,
     date: '2026-01-20',
-    author: {
-      name: 'Ngozi Eze',
-      role: 'Regulatory Affairs',
-    },
-    tags: ['Nigeria', 'US Markets', 'Ghana', 'BRVM'],
+    author,
+    tags: ['Nigeria', 'Policy', 'Regulation', 'Capital Markets'],
     featured: false,
   },
   {
     id: '5',
     slug: 'african-eurobond-market-update',
     title: 'African Eurobond Market Update',
-    excerpt: 'African sovereign Eurobonds have rallied in recent weeks. We examine the drivers and identify opportunities.',
+    excerpt:
+      'African sovereign Eurobonds have rallied in recent weeks. We examine the drivers and identify what investors should watch.',
     content: `## Market Overview
 
-African sovereign Eurobonds have experienced a notable rally since late 2025, as global risk appetite improved and investors sought higher yields in emerging markets.
+African sovereign Eurobonds have experienced renewed investor attention as global risk appetite improves and investors search for higher yields.
 
 ## Country Spotlight
 
 ### Nigeria
-Nigerian Eurobonds have outperformed, with spreads tightening as oil production improvements boosted investor confidence.
+
+Nigerian Eurobonds have benefited from improved sentiment around oil production, policy direction, and investor positioning.
 
 ### Kenya
-Kenyan bonds have benefited from successful IMF program reviews and improved fiscal metrics.
+
+Kenyan bonds have responded positively to fiscal reform signals and external financing support.
 
 ### Ghana
-Ghana\'s Eurobonds remain volatile as the country continues debt restructuring negotiations.
+
+Ghana’s Eurobonds remain sensitive to restructuring developments and investor confidence.
 
 ## Investment Thesis
 
-For investors with appropriate risk tolerance, African Eurobonds offer attractive yields compared to developed market alternatives, though currency and sovereign risks must be carefully considered.`,
+African Eurobonds can offer attractive yields, but investors must understand sovereign risk, currency exposure, liquidity, and macroeconomic conditions before participating.`,
     date: '2026-01-18',
-    author: {
-      name: 'Adaeze Okonkwo',
-      role: 'Fixed Income Analyst',
-    },
-    tags: ['Emerging Markets', 'Africa', 'Angola', 'Investments'],
+    author,
+    tags: ['Africa', 'Eurobonds', 'Fixed Income', 'Investments'],
     featured: false,
   },
   {
     id: '6',
     slug: 'nigerian-inflation-december-2025-analysis',
     title: 'Nigerian Inflation: December 2025 Analysis',
-    excerpt: 'Inflation moderated slightly in December, offering hope for monetary policy easing. We break down the numbers.',
+    excerpt:
+      'Inflation moderated slightly in December, offering hope for monetary policy easing. We break down the numbers.',
     content: `## Inflation Report
 
-Nigeria\'s headline inflation rate moderated to 28.5% year-over-year in December 2025, down from 29.2% in November, according to data from the National Bureau of Statistics.
+Nigeria’s headline inflation moderated slightly in December 2025, offering early signs that price pressures may be easing.
 
 ## Component Analysis
 
 ### Food Inflation
-Food inflation remains elevated at 32.1%, though the pace of increase has slowed compared to previous months.
+
+Food inflation remains elevated and continues to affect household purchasing power.
 
 ### Core Inflation
-Core inflation (excluding food and energy) dropped to 24.8%, suggesting some success in the CBN\'s monetary tightening measures.
+
+Core inflation provides a cleaner view of underlying price pressures, excluding volatile food and energy components.
 
 ## Policy Implications
 
-While the moderation is encouraging, inflation remains well above the CBN\'s target range, suggesting monetary policy will remain tight in the near term.`,
+While moderation is encouraging, inflation remains high. Monetary policy is likely to remain cautious until there is a stronger trend of disinflation.`,
     date: '2026-01-15',
-    author: {
-      name: 'Olumide Adeyemi',
-      role: 'Macro Strategist',
-    },
-    tags: ['Macro', 'Nigeria', 'Commodities', 'Energy'],
+    author,
+    tags: ['Macro', 'Nigeria', 'Inflation', 'Policy'],
     featured: false,
   },
   {
     id: '7',
     slug: 'ngx-oil-gas-sector-performance',
     title: 'NGX Oil & Gas Sector Performance',
-    excerpt: 'Energy stocks on the Nigerian Stock Exchange have shown mixed performance. We analyze the sector dynamics.',
+    excerpt:
+      'Energy stocks on the Nigerian Exchange have shown mixed performance. We analyze the sector dynamics.',
     content: `## Sector Overview
 
-The oil and gas sector on the Nigerian Stock Exchange has delivered mixed returns, with upstream companies generally outperforming downstream operators.
+The oil and gas sector on the Nigerian Exchange has delivered mixed returns, with performance varying across upstream, downstream, and integrated operators.
 
-## Key Stocks
+## Key Themes
 
-### Seplat Energy
-Seplat continues to be the sector leader, benefiting from its diversified asset base and gas-focused growth strategy.
+### Production and Pricing
 
-### Total Energies Nigeria
-The company has seen improved volumes following resolution of operational challenges in its offshore fields.
+Production levels, crude oil prices, and operating costs remain important drivers of earnings.
 
-### Oando
-Oando\'s share price has been volatile, reflecting ongoing corporate restructuring efforts.
+### Gas Strategy
+
+Gas-focused companies continue to attract attention due to Nigeria’s energy transition priorities.
+
+### Regulatory Environment
+
+Investors continue to watch pricing policy, subsidy reforms, and sector-specific regulation.
 
 ## Investment Outlook
 
-We maintain a cautiously optimistic view on the sector, with preference for companies with strong gas portfolios given Nigeria\'s energy transition priorities.`,
+We remain cautiously optimistic on companies with strong cash flows, disciplined balance sheets, and clear exposure to gas growth.`,
     date: '2026-01-12',
-    author: {
-      name: 'Chidi Nnamdi',
-      role: 'Equity Research Lead',
-    },
-    tags: ['Energy', 'Nigeria', 'Commodities', 'Investments'],
+    author,
+    tags: ['Energy', 'Nigeria', 'Equities', 'Investments'],
     featured: false,
   },
   {
     id: '8',
     slug: 'ghana-cedi-stabilization-efforts',
     title: 'Ghana Cedi Stabilization Efforts',
-    excerpt: 'Ghana\'s central bank implements new measures to support the cedi. We assess the likely effectiveness.',
+    excerpt:
+      'Ghana’s central bank implements new measures to support the cedi. We assess the likely effectiveness.',
     content: `## Currency Update
 
-The Bank of Ghana has announced additional measures to support the cedi, which has faced depreciation pressure amid ongoing debt restructuring.
+The Bank of Ghana has announced additional measures to support the cedi, which has faced pressure amid debt restructuring and external financing constraints.
 
 ## New Measures
 
 ### Gold Purchase Program
-The central bank will increase gold purchases to bolster foreign reserves and reduce reliance on dollar-based reserves.
+
+The central bank’s gold purchase program may help strengthen reserves over time.
 
 ### FX Auction Reforms
-New auction mechanisms aim to improve price discovery and reduce speculation in the FX market.
+
+Auction reforms aim to improve transparency, liquidity, and price discovery in the FX market.
 
 ## Market Reaction
 
-The cedi has shown tentative stabilization following the announcements, though sustained improvement will depend on the success of broader economic reforms.`,
+The cedi has shown tentative stabilization, but sustained improvement will depend on broader economic reforms and investor confidence.`,
     date: '2026-01-10',
-    author: {
-      name: 'Olumide Adeyemi',
-      role: 'Macro Strategist',
-    },
-    tags: ['Macro', 'Ghana', 'BRVM', 'Emerging Markets'],
+    author,
+    tags: ['Ghana', 'FX', 'Macro', 'Africa'],
     featured: false,
   },
   {
     id: '9',
     slug: 'kenyan-equities-2026-outlook',
     title: 'Kenyan Equities: 2026 Outlook',
-    excerpt: 'The Nairobi Securities Exchange offers interesting opportunities. We outline our top picks for the year.',
+    excerpt:
+      'The Nairobi Securities Exchange offers interesting opportunities. We outline key themes for the year.',
     content: `## Market Overview
 
-The Nairobi Securities Exchange (NSE) ended 2025 with modest gains, outperforming several regional peers. We see continued opportunity in 2026.
+The Nairobi Securities Exchange ended 2025 with modest gains, outperforming some regional peers and attracting renewed attention from investors.
 
 ## Sector Views
 
 ### Banking
-Kenyan banks remain attractively valued with strong dividend yields. We favor KCB Group and Equity Bank.
+
+Kenyan banks remain important market drivers, supported by profitability, dividends, and regional expansion.
 
 ### Telecommunications
-Safaricom remains the market bellwether, with M-Pesa growth continuing to drive earnings.
 
-### Manufacturing
-East African Breweries offers exposure to consumer recovery with attractive valuation.
+Telecommunications remains a key sector, with mobile money continuing to support earnings growth.
 
-## Top Picks
+### Consumer and Manufacturing
 
-Our conviction picks for 2026 include Safaricom for growth and KCB for value and income.`,
+Consumer-facing companies may benefit from improved economic activity and easing cost pressures.
+
+## Outlook
+
+Kenyan equities may offer selective opportunities, but investors should remain disciplined on valuation, liquidity, and currency risk.`,
     date: '2026-01-08',
-    author: {
-      name: 'Chidi Nnamdi',
-      role: 'Equity Research Lead',
-    },
-    tags: ['Equities', 'Tanzania', 'Emerging Markets', 'Investments'],
+    author,
+    tags: ['Kenya', 'Equities', 'Africa', 'Investments'],
     featured: false,
   },
   {
     id: '10',
     slug: 'south-africa-rate-decision-analysis',
     title: 'South Africa Rate Decision Analysis',
-    excerpt: 'The SARB held rates steady at its latest meeting. We analyze the decision and implications.',
+    excerpt:
+      'The SARB held rates steady at its latest meeting. We analyze the decision and implications.',
     content: `## Monetary Policy Update
 
-The South African Reserve Bank (SARB) kept its repo rate unchanged at 8.25% at its January meeting, in line with market expectations.
+The South African Reserve Bank kept rates steady at its latest meeting, in line with market expectations.
 
-## Governor\'s Commentary
+## Governor’s Commentary
 
-Governor Kganyago emphasized the need for continued vigilance on inflation, noting that while headline inflation has moderated, core pressures remain sticky.
+The central bank emphasized the need for continued vigilance on inflation, even as headline pressures show signs of moderation.
 
 ## Economic Backdrop
 
-South Africa\'s economy continues to face structural challenges including electricity supply constraints and elevated unemployment.
+South Africa continues to face structural challenges, including electricity constraints, fiscal pressure, and unemployment.
 
 ## Investment Implications
 
-We expect SARB to maintain current rates through Q1, with potential for modest cuts later in 2026 if inflation trajectory improves.`,
+Investors should continue to monitor inflation, currency movement, and the policy path before making major allocation decisions.`,
     date: '2026-01-05',
-    author: {
-      name: 'Olumide Adeyemi',
-      role: 'Macro Strategist',
-    },
-    tags: ['Macro', 'Rare Earths', 'Energy', 'Commodities'],
+    author,
+    tags: ['South Africa', 'Macro', 'Rates', 'Policy'],
     featured: false,
   },
   {
     id: '11',
     slug: 'nigerian-pension-funds-investment-trends',
     title: 'Nigerian Pension Funds: Investment Trends',
-    excerpt: 'PFAs are diversifying their portfolios. We examine the latest allocation trends and implications for markets.',
+    excerpt:
+      'PFAs are diversifying their portfolios. We examine the latest allocation trends and implications for markets.',
     content: `## Industry Overview
 
-Nigerian Pension Fund Administrators (PFAs) continue to be major drivers of domestic capital market activity, with total assets under management exceeding NGN 18 trillion.
+Nigerian Pension Fund Administrators remain major players in domestic capital markets, with significant assets under management.
 
 ## Allocation Trends
 
 ### Government Securities
-PFAs maintain heavy allocation to FGN bonds and Treasury bills, attracted by elevated yields and regulatory requirements.
+
+PFAs maintain heavy allocations to FGN bonds and Treasury bills due to yield, liquidity, and regulatory considerations.
 
 ### Equities
-Equity allocations have increased modestly as PFAs seek higher returns and diversification benefits.
 
-### Alternative Investments
-Growing interest in infrastructure funds and real estate investment trusts, though allocations remain small.
+Equity exposure has increased selectively as funds seek diversification and higher long-term returns.
+
+### Alternatives
+
+Infrastructure funds and real estate investment trusts remain areas of gradual interest.
 
 ## Market Impact
 
-PFA investment decisions significantly influence market dynamics, particularly in the fixed income space where they are dominant buyers.`,
+PFA allocation decisions significantly influence market dynamics, especially in fixed income where they are dominant buyers.`,
     date: '2026-01-03',
-    author: {
-      name: 'Ngozi Eze',
-      role: 'Regulatory Affairs',
-    },
-    tags: ['Funds', 'Nigeria', 'Commercial Papers', 'Investments'],
+    author,
+    tags: ['Nigeria', 'Pension Funds', 'Fixed Income', 'Investments'],
     featured: false,
   },
   {
     id: '12',
     slug: 'african-fintech-ipo-pipeline',
     title: 'African Fintech IPO Pipeline',
-    excerpt: 'Several African fintechs are eyeing public listings. We preview the potential market entrants.',
+    excerpt:
+      'Several African fintechs are eyeing public listings. We preview the potential market entrants.',
     content: `## IPO Watch
 
 The African fintech sector has matured significantly, with several companies now considering public listings on regional and international exchanges.
 
 ## Potential Candidates
 
-### Flutterwave
-The Nigerian payments giant continues to be mentioned as a potential IPO candidate, though timing remains uncertain.
+### Payments Companies
 
-### Chipper Cash
-The cross-border payments platform has reportedly engaged advisors to explore listing options.
+Payments infrastructure businesses remain likely candidates due to scale, transaction volume, and regional relevance.
 
-### Interswitch
-Nigeria\'s largest payment infrastructure company has long been rumored to be IPO-bound.
+### Cross-Border Platforms
+
+Cross-border fintechs may attract investor attention because of their role in remittances, trade, and settlement.
+
+### Infrastructure Providers
+
+Companies powering digital payments and financial rails remain strategically important.
 
 ## Market Readiness
 
-While valuations have moderated from 2021 peaks, strong fintechs with proven business models could still attract significant investor interest.`,
+Strong fintechs with proven business models, disciplined governance, and sustainable margins could attract meaningful investor interest when market conditions support listings.`,
     date: '2026-01-01',
-    author: {
-      name: 'Chidi Nnamdi',
-      role: 'Equity Research Lead',
-    },
-    tags: ['Mergers & Acquisitions', 'IMF', 'China', 'Investments'],
+    author,
+    tags: ['Fintech', 'IPO', 'Africa', 'Capital Markets'],
     featured: false,
   },
 ];
@@ -381,9 +386,15 @@ export function getFeaturedMarketScoop(): MarketScoop | undefined {
   return marketScoops.find((scoop) => scoop.featured);
 }
 
-export function getRelatedScoops(currentSlug: string, limit: number = 3): MarketScoop[] {
+export function getRelatedScoops(
+  currentSlug: string,
+  limit: number = 3
+): MarketScoop[] {
   const current = getMarketScoopBySlug(currentSlug);
-  if (!current) return marketScoops.slice(0, limit);
+
+  if (!current) {
+    return marketScoops.slice(0, limit);
+  }
 
   return marketScoops
     .filter((scoop) => scoop.slug !== currentSlug)
@@ -393,6 +404,18 @@ export function getRelatedScoops(currentSlug: string, limit: number = 3): Market
 
 export function getAllTags(): string[] {
   const tags = new Set<string>();
-  marketScoops.forEach((scoop) => scoop.tags.forEach((tag) => tags.add(tag)));
+
+  marketScoops.forEach((scoop) => {
+    scoop.tags.forEach((tag) => tags.add(tag));
+  });
+
   return Array.from(tags).sort();
+}
+
+export function formatMarketScoopDate(date: string): string {
+  return new Date(date).toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+  });
 }

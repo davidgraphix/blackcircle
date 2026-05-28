@@ -2,19 +2,17 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { cardHover } from '@/lib/motion';
 import { marketScoops } from '@/data/marketScoop';
 import { stories } from '@/data/stories';
 import { guides } from '@/data/guides';
 import { courses } from '@/data/courses';
 
 export function ContentMatrix() {
-  // Get featured content from each section
   const featuredScoop = marketScoops.find((s) => s.featured) || marketScoops[0];
   const featuredStory = stories.find((s) => s.featured) || stories[0];
-  const featuredGuide = guides.find((g) => g.category === 'start-here') || guides[0];
+  const featuredGuide = guides[0];
   const featuredCourse = courses.find((c) => c.featured) || courses[0];
-  
+
   const contentTypes = [
     {
       label: 'Market Scoop',
@@ -36,8 +34,8 @@ export function ContentMatrix() {
       label: 'Investing Guides',
       title: featuredGuide.title,
       description: featuredGuide.summary,
-      href: `/investing-guides/${featuredGuide.slug}`,
-      cta: 'Read guide',
+      href: `/investing-guides`,
+      cta: 'Browse guides',
       image: '/investing-guides.png',
     },
     {
@@ -46,65 +44,71 @@ export function ContentMatrix() {
       description: featuredCourse.description,
       href: `/learning/courses/${featuredCourse.slug}`,
       cta: 'View course',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop',
+      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=420&fit=crop',
     },
     {
       label: 'Corporate Training',
       title: 'Custom training for your organization',
-      description: 'We design and deliver practical, transformative training programs tailored to your team\'s learning objectives.',
+      description:
+        "Practical, market-relevant training programs tailored to your team's learning objectives.",
       href: '/corporate-training',
       cta: 'Learn more',
       image: '/custom-training.png',
     },
-     {
-      label: 'Community',
-      title: 'Join our community of investors',
-      description: 'Connect with like-minded investors, share insights, and stay updated on the latest market trends.',
-      href: '/community',
-      cta: 'Join now',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
-    },
   ];
 
   return (
-    <section className="bg-white py-10 md:py-8">
-      <div className="mx-auto max-w-9xl px-4 sm:px-6 lg:px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-5">
-          {contentTypes.map((type) => (
+    <section className="bg-white py-12 lg:py-16 border-t border-black/10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-7 max-w-2xl">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+            Explore BlackCircle
+          </p>
+          <h2 className="mt-2 font-serif text-3xl lg:text-4xl font-semibold text-gray-950">
+            Insights, guides, stories, and training in one place.
+          </h2>
+          <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+            BlackCircle connects market intelligence, structured education, and institutional training for people who want to understand African markets better.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {contentTypes.map((type, index) => (
             <motion.article
               key={type.label}
-              initial="rest"
-              whileHover="hover"
-              variants={cardHover}
-              className="group bg-white border border-gray-400 rounded-lg overflow-hidden flex flex-col h-full hover:border-primary transition-colors"
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: index * 0.05 }}
+              className="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-md"
             >
-              {/* Image */}
-              <div className="relative h-92 overflow-hidden bg-muted">
-                <img
-                  src={type.image}
-                  alt={type.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              
-              {/* Content */}
-              <div className="p-3 flex flex-col flex-1">
-                <span className="text-xs font-semibold text-white uppercase tracking-wider mb-1.5">
-                  {type.label}
-                </span>
-                <h3 className="text-sm font-semibold text-gray-900 line-clamp-2 group-hover:text-primary transition-colors">
-                  {type.title}
-                </h3>
-                <p className="mt-1.5 text-xs text-gray-600 leading-relaxed line-clamp-2 flex-1">
-                  {type.description}
-                </p>
-                <Link
-                  href={type.href}
-                  className="mt-2.5 inline-block text-xs font-medium text-primary hover:text-primary/80 transition-colors"
-                >
-                  {type.cta} →
-                </Link>
-              </div>
+              <Link href={type.href} className="block h-full">
+                <div className="relative h-56 overflow-hidden bg-gray-100">
+                  <img
+                    src={type.image}
+                    alt={type.title}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+
+                <div className="p-5">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-primary">
+                    {type.label}
+                  </span>
+
+                  <h3 className="mt-3 text-lg font-semibold leading-snug text-gray-950 group-hover:text-primary transition-colors">
+                    {type.title}
+                  </h3>
+
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600 line-clamp-3">
+                    {type.description}
+                  </p>
+
+                  <p className="mt-4 text-sm font-semibold text-primary">
+                    {type.cta} →
+                  </p>
+                </div>
+              </Link>
             </motion.article>
           ))}
         </div>

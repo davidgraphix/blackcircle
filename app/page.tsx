@@ -1,87 +1,86 @@
 import {
-  // DashboardHero,
   ContentMatrix,
-  // MarketBarometer,
   TrendingSection,
   ServicesMatrix,
-  Newsletter,
-  CommunityInvite,
 } from '@/components/sections';
 
 export default function HomePage() {
   return (
     <>
-      {/* <DashboardHero /> */}
-      
-      {/* Main Dashboard Grid */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-            {/* Left Sidebar - Hidden on mobile */}
-            {/* <div className="hidden md:block md:col-span-1">
-              <div className="sticky top-40 space-y-6"> */}
-                {/* <MarketBarometer /> */}
-                {/* <div className="bg-white border border-gray-200 rounded-lg p-4">
-                  <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-3">Market Movers</h3>
-                  <p className="text-xs text-gray-600 leading-relaxed">
-                    Data on gainers, losers, and actives is available starting 15 minutes after US markets open.
-                  </p>
-                </div>
-              </div>
-            </div> */}
+      <section className="bg-[#f7f5ef] border-b border-black/10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 lg:py-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-6 lg:gap-8">
+            <div className="space-y-6">
+              <article className="bg-white border border-black/10 rounded-2xl overflow-hidden shadow-sm group">
+                <div className="grid grid-cols-1 md:grid-cols-2">
+                  <div className="relative min-h-[320px] lg:min-h-[420px] bg-black overflow-hidden">
+                    <img
+                      src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&h=700&fit=crop"
+                      alt="African market intelligence"
+                      className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  </div>
 
-            {/* Center - Main Content */}
-            <div className="md:col-span-1 lg:col-span-2">
-              <div className="space-y-6">
-                {/* Featured Article */}
-                <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-gray-300 transition-colors group">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="relative h-80 bg-gray-100 overflow-hidden">
-                      <img
-                        src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=500&fit=crop"
-                        alt="Featured article"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
+                  <div className="p-6 lg:p-8 flex flex-col justify-between">
+                    <div>
+                      <span className="text-xs font-bold text-primary uppercase tracking-[0.18em]">
+                        African Market Intelligence
+                      </span>
+
+                      <h1 className="mt-4 font-serif text-4xl lg:text-6xl font-semibold text-black leading-[0.98] tracking-tight">
+                        Navigate African markets with clarity.
+                      </h1>
+
+                      <p className="mt-5 text-sm lg:text-base text-gray-600 leading-relaxed max-w-xl">
+                        Follow market developments, understand investment opportunities,
+                        and build stronger financial market knowledge with BlackCircle.
+                      </p>
                     </div>
-                    <div className="p-6 flex flex-col justify-between">
-                      <div>
-                        <span className="text-xs font-bold text-primary uppercase tracking-wider">Featured</span>
-                        <h2 className="mt-3 text-xl font-bold text-gray-900 group-hover:text-primary transition-colors leading-tight">
-                          Global Stocks Tumble, Crude Oil Prices Skyrocket Amid Strikes on Storage Tanks
-                        </h2>
-                        <p className="mt-3 text-sm text-gray-600 leading-relaxed line-clamp-4">
-                          Oil prices spiked before slightly paring gains, as odds of a quick return to normality fade away. Market participants continue to assess the broader implications of recent geopolitical developments.
-                        </p>
-                      </div>
-                      <div>
-                        <p className="text-xs text-gray-500">Market Scoop</p>
-                      </div>
+
+                    <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                      <a
+                        href="/market-scoop"
+                        className="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+                      >
+                        Read Market Scoop
+                      </a>
+
+                      <a
+                        href="/investing-guides"
+                        className="inline-flex items-center justify-center rounded-xl border border-black/15 bg-white px-5 py-3 text-sm font-semibold text-black hover:bg-black hover:text-white transition-colors"
+                      >
+                        Browse Guides
+                      </a>
                     </div>
                   </div>
                 </div>
+              </article>
 
-                {/* Services Matrix */}
-                <div>
-                  <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">Our Services</h3>
-                  <ServicesMatrix />
+              <section>
+                <div className="mb-4 flex items-end justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+                      Featured Content
+                    </p>
+                    <h2 className="mt-2 font-serif text-2xl lg:text-3xl font-semibold text-black">
+                      Latest from BlackCircle
+                    </h2>
+                  </div>
                 </div>
-              </div>
+
+                <ServicesMatrix />
+              </section>
             </div>
 
-            {/* Right Sidebar - Trending */}
-            <div className="md:col-span-1">
-              <div className="sticky top-4">
-                <TrendingSection />
-              </div>
-            </div>
+            <aside className="lg:sticky lg:top-24 h-fit">
+              <TrendingSection />
+            </aside>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Bottom Sections */}
       <ContentMatrix />
-      <Newsletter />
-      <CommunityInvite />
     </>
   );
 }

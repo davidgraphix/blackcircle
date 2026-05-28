@@ -1,11 +1,9 @@
 'use client';
 
-import React from "react"
-
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Twitter, Linkedin, Youtube, Instagram } from 'lucide-react';
+import { Twitter, Linkedin, Youtube, Instagram, Mail } from 'lucide-react';
 import { footerNavigation, socialLinks } from '@/data/navigation';
 import { buttonTap } from '@/lib/motion';
 
@@ -22,6 +20,7 @@ export function Footer() {
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
+
     if (email) {
       setSubscribed(true);
       setEmail('');
@@ -29,51 +28,50 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-foreground text-background" role="contentinfo">
+    <footer className="bg-[#050907] text-white" role="contentinfo">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Brand Column */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-background">
-                <span className="text-sm font-bold text-foreground">BC</span>
-              </div>
-              <span className="text-lg font-semibold">BlackCircle</span>
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.9fr_0.9fr_1.35fr] gap-10 lg:gap-12">
+          <div>
+            <Link href="/" className="inline-flex items-center gap-3">
+              <img src="/logo.jpeg" alt="BlackCircle" className="h-12 w-auto" />
             </Link>
-            <p className="mt-4 text-sm text-background/70 leading-relaxed">
-              Navigate African markets with confidence. Learn, follow the pulse, and invest smarter.
+
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/65">
+              Navigate African markets with clarity. Follow market developments,
+              understand investment opportunities, and build stronger financial market knowledge.
             </p>
-            {/* Social Links */}
-            <div className="mt-6 flex items-center gap-4">
+
+            <div className="mt-6 flex items-center gap-3">
               {socialLinks.map((social) => {
                 const Icon = socialIcons[social.label];
+
                 return (
                   <a
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-background/60 hover:text-background transition-colors"
-                    aria-label={`Follow us on ${social.label}`}
+                    className="grid h-9 w-9 place-items-center rounded-full border border-white/10 text-white/65 transition-colors hover:border-primary hover:text-primary"
+                    aria-label={`Follow BlackCircle on ${social.label}`}
                   >
-                    <Icon className="h-5 w-5" />
+                    <Icon className="h-4 w-4" />
                   </a>
                 );
               })}
             </div>
           </div>
 
-          {/* Learn Column */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-background/90">
-              Learn
+          <div className="lg:border-l lg:border-white/10 lg:pl-8">
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-white">
+              Market Intelligence
             </h3>
-            <ul className="mt-4 space-y-3">
-              {footerNavigation.learn.map((item) => (
+
+            <ul className="mt-5 space-y-3">
+              {footerNavigation.marketIntelligence.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-background/70 hover:text-background transition-colors"
+                    className="text-sm text-white/65 transition-colors hover:text-primary"
                   >
                     {item.label}
                   </Link>
@@ -82,29 +80,28 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company Column */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-background/90">
+          <div className="lg:border-l lg:border-white/10 lg:pl-8">
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-white">
               Company
             </h3>
-            <ul className="mt-4 space-y-3">
+
+            <ul className="mt-5 space-y-3">
               {footerNavigation.company.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-background/70 hover:text-background transition-colors"
+                    className="text-sm text-white/65 transition-colors hover:text-primary"
                   >
                     {item.label}
                   </Link>
                 </li>
               ))}
-            </ul>
-            <ul className="mt-4 space-y-3">
+
               {footerNavigation.legal.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-background/70 hover:text-background transition-colors"
+                    className="text-sm text-white/65 transition-colors hover:text-primary"
                   >
                     {item.label}
                   </Link>
@@ -113,50 +110,63 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter Column */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-background/90">
-              Stay Updated
-            </h3>
-            <p className="mt-4 text-sm text-background/70">
-              Get weekly market insights delivered to your inbox.
+          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-2xl shadow-black/20">
+            <div className="flex items-center gap-3">
+              <span className="grid h-10 w-10 place-items-center rounded-full bg-primary/15 text-primary">
+                <Mail className="h-5 w-5" />
+              </span>
+
+              <div>
+                <h3 className="font-serif text-xl font-semibold text-white">
+                  Join the BlackCircle list
+                </h3>
+                <p className="mt-1 text-xs text-white/50">
+                  Market scoop, opportunities, stories, and intelligence.
+                </p>
+              </div>
+            </div>
+
+            <p className="mt-4 text-sm leading-relaxed text-white/65">
+              Get the scoop from BlackCircle — new listings, investment opportunities,
+              company stories, market moves and key developments across Nigerian and African markets.
             </p>
+
             {subscribed ? (
-              <p className="mt-4 text-sm text-secondary">Thanks for subscribing!</p>
+              <p className="mt-5 rounded-xl border border-primary/30 bg-primary/10 px-4 py-3 text-sm text-primary">
+                Thanks for subscribing.
+              </p>
             ) : (
-              <form onSubmit={handleSubscribe} className="mt-4">
-                <div className="flex flex-col gap-3">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email"
-                    required
-                    className="w-full px-4 py-2.5 text-sm bg-background/10 border border-background/20 rounded-lg text-background placeholder:text-background/50 focus:outline-none focus:ring-2 focus:ring-background/30"
-                  />
-                  <motion.button
-                    type="submit"
-                    whileTap={buttonTap}
-                    className="w-full px-4 py-2.5 text-sm font-medium bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-                  >
-                    Subscribe
-                  </motion.button>
-                </div>
+              <form onSubmit={handleSubscribe} className="mt-5 space-y-3">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email address"
+                  required
+                  className="w-full rounded-xl border border-white/10 bg-black/25 px-4 py-3 text-sm text-white placeholder:text-white/35 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+                />
+
+                <motion.button
+                  type="submit"
+                  whileTap={buttonTap}
+                  className="w-full rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                >
+                  Join the list →
+                </motion.button>
               </form>
             )}
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="mt-12 pt-8 border-t border-background/10">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <p className="text-xs text-background/60">
-              &copy; {new Date().getFullYear()} BlackCircle. All rights reserved.
-            </p>
-            <p className="text-xs text-background/60 max-w-md">
-              Educational content only. Not personalized investment advice. Always conduct your own research before making investment decisions.
-            </p>
-          </div>
+        <div className="mt-12 border-t border-white/10 pt-6">
+          <p className="text-xs leading-relaxed text-white/45">
+            Educational content only. Nothing on BlackCircle constitutes personalised investment advice,
+            an offer, solicitation, or commitment to invest.
+          </p>
+
+          <p className="mt-3 text-xs text-white/35">
+            © {new Date().getFullYear()} BlackCircle. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
