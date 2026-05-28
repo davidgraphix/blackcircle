@@ -705,7 +705,7 @@ export default function HomePage() {
       </section>
 
       {/* NEWSLETTER CTA */}
-      <section className="bg-white">
+      {/* <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
           <div className="overflow-hidden rounded-3xl border border-black/10 bg-[#050907] p-6 text-white shadow-sm lg:p-10">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-center">
@@ -754,7 +754,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }
