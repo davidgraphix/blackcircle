@@ -9,6 +9,7 @@ export const guides: Guide[] = [
     summary: 'A beginner-friendly introduction to the concept of investing, why it matters, and how to think about growing your money over time.',
     content: `Investing is the act of putting money into assets with the expectation that they will grow in value or generate income over time. This guide introduces the fundamental concepts every new investor should understand.`,
     category: 'start-here',
+    type: 'video',
     readTime: 8,
   },
   {
@@ -18,6 +19,7 @@ export const guides: Guide[] = [
     summary: 'An overview of Nigeria\'s key financial markets including the stock exchange, money market, and bond market.',
     content: `Nigeria has a well-developed financial market ecosystem. This guide provides an overview of the main markets where Nigerians can invest their money.`,
     category: 'start-here',
+    type: 'video',
     readTime: 12,
   },
   {
@@ -27,6 +29,7 @@ export const guides: Guide[] = [
     summary: 'Step-by-step guide to opening brokerage accounts, CSCS accounts, and accessing Treasury bill investments.',
     content: `Before you can start investing, you need the right accounts. This guide walks you through the process of setting up the accounts you need to begin your investment journey.`,
     category: 'start-here',
+    type: 'text',
     readTime: 10,
   },
   {
@@ -36,6 +39,7 @@ export const guides: Guide[] = [
     summary: 'Learn the fundamental relationship between risk and potential returns, and how to think about risk in your investment decisions.',
     content: `Risk and return are two sides of the same coin in investing. This guide helps you understand this critical relationship and how it applies to Nigerian investment options.`,
     category: 'start-here',
+    type: 'text',
     readTime: 9,
   },
   {
@@ -45,6 +49,7 @@ export const guides: Guide[] = [
     summary: 'Learn from the mistakes many new investors make and how to avoid them as you start your investing journey.',
     content: `Every investor makes mistakes, but some are more costly than others. This guide highlights the most common pitfalls new investors encounter and how to avoid them.`,
     category: 'start-here',
+    type: 'video',
     readTime: 7,
   },
   {
@@ -54,6 +59,7 @@ export const guides: Guide[] = [
     summary: 'How to define clear investment objectives and create a timeline that aligns with your financial goals.',
     content: `Before investing, it\'s crucial to define what you\'re investing for. This guide helps you set clear goals and establish realistic timelines for your investments.`,
     category: 'start-here',
+    type: 'text',
     readTime: 8,
   },
   {
@@ -63,6 +69,7 @@ export const guides: Guide[] = [
     summary: 'A glossary of common investment terms and concepts you\'ll encounter when investing in Nigerian markets.',
     content: `Investment professionals use a lot of jargon. This guide demystifies the most important terms and concepts you need to know as an investor.`,
     category: 'start-here',
+    type: 'text',
     readTime: 10,
   },
   {
@@ -72,6 +79,7 @@ export const guides: Guide[] = [
     summary: 'An overview of the different investment vehicles available in Nigeria, from stocks to bonds to real estate.',
     content: `Nigeria offers a variety of investment options. This guide provides an overview of each type so you can understand your options as you begin investing.`,
     category: 'start-here',
+    type: 'text',
     readTime: 11,
   },
   {
@@ -81,6 +89,7 @@ export const guides: Guide[] = [
     summary: 'Strategies for beginning your investment journey even if you don\'t have a large sum of money to start with.',
     content: `You don\'t need a fortune to start investing. This guide shows practical strategies for starting with whatever amount you can afford.`,
     category: 'start-here',
+    type: 'text', 
     readTime: 9,
   },
   // Intermediate
@@ -91,6 +100,7 @@ export const guides: Guide[] = [
     summary: 'Everything you need to know about investing in Nigerian Treasury bills, from auctions to secondary market trading.',
     content: `Treasury bills are one of the safest and most popular investment options in Nigeria. This comprehensive guide covers everything from how auctions work to calculating your returns.`,
     category: 'intermediate',
+    type: 'text',
     readTime: 15,
   },
   {
@@ -100,6 +110,7 @@ export const guides: Guide[] = [
     summary: 'Learn fundamental and technical analysis techniques tailored for stocks listed on the Nigerian Exchange.',
     content: `Successful stock investing requires the ability to analyze companies and their prospects. This guide introduces analysis frameworks relevant to Nigerian listed companies.`,
     category: 'intermediate',
+    type: 'text',
     readTime: 18,
   },
   {
@@ -109,6 +120,7 @@ export const guides: Guide[] = [
     summary: 'Understanding unit trusts, mutual funds, and ETFs available to Nigerian investors.',
     content: `For investors who prefer professional management or want instant diversification, collective investment schemes offer an attractive option. This guide explains the landscape in Nigeria.`,
     category: 'intermediate',
+    type: 'video',
     readTime: 14,
   },
   {
@@ -118,6 +130,7 @@ export const guides: Guide[] = [
     summary: 'A practical guide to constructing a diversified investment portfolio suited to your goals and risk tolerance.',
     content: `Asset allocation and portfolio construction are critical skills for any investor. This guide provides a practical framework for building your first portfolio.`,
     category: 'intermediate',
+    type: 'text',
     readTime: 16,
   },
   {
@@ -127,6 +140,7 @@ export const guides: Guide[] = [
     summary: 'How to build a dividend income portfolio from Nigerian stocks and bonds for passive income.',
     content: `Dividend investing is a popular strategy for generating passive income. This guide shows you how to identify dividend-paying stocks and build a sustainable income stream.`,
     category: 'intermediate',
+    type: 'text',
     readTime: 15,
   },
   {
@@ -136,6 +150,7 @@ export const guides: Guide[] = [
     summary: 'Learn how often and why you should rebalance your portfolio to maintain your target asset allocation.',
     content: `Building a portfolio is just the first step. This guide covers how to monitor and rebalance your investments to stay aligned with your goals.`,
     category: 'intermediate',
+    type: 'video',
     readTime: 12,
   },
   {
@@ -145,6 +160,7 @@ export const guides: Guide[] = [
     summary: 'An introduction to how bonds work, different types of bonds, and their role in a balanced portfolio.',
     content: `Bonds are a crucial part of diversified portfolios. This guide explains how bonds work and why they should be part of your investment strategy.`,
     category: 'intermediate',
+    type: 'text',
     readTime: 14,
   },
   {
@@ -154,6 +170,7 @@ export const guides: Guide[] = [
     summary: 'How to use Exchange Traded Funds and index investing for low-cost, diversified portfolio exposure.',
     content: `Index investing and ETFs offer a simple way to build diversified portfolios. This guide explains how they work and why they\'re popular with many investors.`,
     category: 'intermediate',
+    type: 'video',
     readTime: 13,
   },
   {
@@ -163,6 +180,7 @@ export const guides: Guide[] = [
     summary: 'Understanding the costs of investing and strategies to minimize fees that eat into your returns.',
     content: `Investment fees might seem small, but they compound over time. This guide shows you how to understand and minimize costs in your portfolio.`,
     category: 'intermediate',
+    type: 'text',
     readTime: 11,
   },
   // Professional
@@ -173,6 +191,7 @@ export const guides: Guide[] = [
     summary: 'Professional concepts in bond investing including duration, yield curves, and constructing a fixed income portfolio.',
     content: `Federal Government of Nigeria bonds offer attractive yields and portfolio diversification benefits. This guide covers advanced concepts for sophisticated fixed income investors.`,
     category: 'professional',
+    type: 'text',
     readTime: 20,
   },
   {
@@ -182,6 +201,7 @@ export const guides: Guide[] = [
     summary: 'How to access global markets, manage currency risk, and build a truly diversified portfolio.',
     content: `Diversifying beyond Nigeria can reduce portfolio risk and provide access to global growth opportunities. This guide covers the practical and regulatory aspects of international investing.`,
     category: 'professional',
+    type: 'text',
     readTime: 22,
   },
   {
@@ -191,6 +211,7 @@ export const guides: Guide[] = [
     summary: 'From direct ownership to REITs: understanding real estate investment options in Nigeria.',
     content: `Real estate has long been a favored asset class for Nigerian investors. This guide explores various approaches from direct investment to real estate investment trusts.`,
     category: 'professional',
+    type: 'text',
     readTime: 18,
   },
   {
@@ -200,6 +221,7 @@ export const guides: Guide[] = [
     summary: 'Understanding the tax implications of different investments and strategies to optimize after-tax returns.',
     content: `Taxes can significantly impact your investment returns. This guide covers the tax treatment of various investments in Nigeria and strategies for tax-efficient portfolio management.`,
     category: 'professional',
+    type: 'text',
     readTime: 16,
   },
   {
@@ -209,6 +231,7 @@ export const guides: Guide[] = [
     summary: 'Advanced strategies for hedging currency exposure when investing internationally.',
     content: `For investors with international exposure, currency risk is an important consideration. This guide covers strategies to manage and hedge forex exposure.`,
     category: 'professional',
+    type: 'text',
     readTime: 19,
   },
   {
@@ -218,6 +241,7 @@ export const guides: Guide[] = [
     summary: 'Exploring commodities, cryptocurrencies, private equity, and other alternative assets for sophisticated investors.',
     content: `Beyond traditional stocks and bonds, alternative investments offer unique opportunities and challenges. This guide explores options available to Nigerian investors.`,
     category: 'professional',
+    type: 'text',
     readTime: 21,
   },
   {
@@ -227,6 +251,7 @@ export const guides: Guide[] = [
     summary: 'Understanding psychological biases that affect investment decisions and how to overcome them.',
     content: `Many investment mistakes stem from psychological biases. This guide explores common behavioral patterns and strategies to make more rational investment decisions.`,
     category: 'professional',
+    type: 'text',
     readTime: 17,
   },
   {
@@ -236,6 +261,7 @@ export const guides: Guide[] = [
     summary: 'Building a comprehensive long-term investment strategy to achieve financial independence and retirement goals.',
     content: `Retirement planning is crucial for long-term wealth. This guide covers strategies for building a sustainable retirement through strategic investing.`,
     category: 'professional',
+    type: 'video',
     readTime: 23,
   },
   {
@@ -245,6 +271,7 @@ export const guides: Guide[] = [
     summary: 'Strategies for protecting and preserving wealth across generations through estate planning and strategic asset allocation.',
     content: `Building wealth is important, but preserving it is equally critical. This guide covers advanced strategies for wealth preservation and legacy planning.`,
     category: 'professional',
+    type: 'video', 
     readTime: 20,
   },
 ];

@@ -38,6 +38,7 @@ export interface Guide {
   summary: string;
   content: string;
   category: 'start-here' | 'intermediate' | 'professional';
+  type: 'text' | 'video';
   readTime: number;
   downloadUrl?: string;
 }

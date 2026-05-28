@@ -1,120 +1,256 @@
 'use client';
 
-import { useState } from "react"
-
+import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Clock, Download, ArrowRight, BookOpen, Sparkles, Award } from 'lucide-react';
-import { guides, guideCategories, getGuidesByCategory } from '@/data/guides';
-import { fadeInUp, cardHover } from '@/lib/motion';
+import {
+  BookOpen,
+  PlayCircle,
+  FileText,
+  Clock,
+  ArrowRight,
+  Sparkles,
+} from 'lucide-react';
+import { guides } from '@/data/guides';
 
-const categoryIcons = {
-  'start-here': BookOpen,
-  intermediate: Sparkles,
-  professional: Award,
-};
+type GuideCategory = 'all' | 'start-here' | 'intermediate' | 'professional';
+
+const categories: {
+  label: string;
+  value: GuideCategory;
+  description: string;
+}[] = [
+  {
+    label: 'All Guides',
+    value: 'all',
+    description: 'Complete library',
+  },
+  {
+    label: 'Start Here',
+    value: 'start-here',
+    description: 'Beginner-friendly',
+  },
+  {
+    label: 'Intermediate',
+    value: 'intermediate',
+    description: 'Build confidence',
+  },
+  {
+    label: 'Professional',
+    value: 'professional',
+    description: 'Advanced insight',
+  },
+];
+
+function getGuideType(guide: any) {
+  return guide.type || guide.format || 'text';
+}
+
+function getTimeLabel(guide: any) {
+  const type = getGuideType(guide);
+  const time =
+    guide.readTime ||
+    guide.watchTime ||
+    guide.duration ||
+    guide.estimatedTime ||
+    '8 min';
+
+  return type === 'video' ? `${time} watch` : `${time} read`;
+}
 
 export function GuidesLibrary() {
-  const [selectedCategory, setSelectedCategory] = useState<string>('start-here');
+  const [activeCategory, setActiveCategory] = useState<GuideCategory>('all');
+
+  const filteredGuides = useMemo(() => {
+    if (activeCategory === 'all') return guides;
+
+    return guides.filter((guide: any) => guide.category === activeCategory);
+  }, [activeCategory]);
 
   return (
-    <div className="bg-background">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-2 py-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Sidebar */}
-          <aside className="md:col-span-1">
-            <div className="sticky top-24">
-              <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-6">
-                Category
-              </h3>
-              <div className="space-y-2">
-                {guideCategories.map((category) => {
-                  const Icon = categoryIcons[category.id];
-                  return (
-                    <button
-                      key={category.id}
-                      onClick={() => setSelectedCategory(category.id)}
-                      className={`w-full text-left flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                        selectedCategory === category.id
-                          ? 'bg-primary text-primary-foreground'
-                          : 'text-muted-foreground hover:text-foreground'
-                      }`}
-                    >
-                      <Icon className="h-4 w-4" />
-                      {category.label}
-                    </button>
-                  );
-                })}
-              </div>
+    <div className="bg-[#f7f5ef]">
+      {/* Hero */}
+      <section className="border-b border-black/10 bg-[#050907] text-white">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+            className="max-w-3xl"
+          >
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+              <BookOpen className="h-3.5 w-3.5" />
+              Investing Guides
             </div>
-          </aside>
 
-          {/* Main Content */}
-          <div className="md:col-span-3">
-            {guideCategories.map((category) => {
-              const categoryGuides = getGuidesByCategory(category.id);
+            <h1 className="mt-5 font-serif text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
+              Practical guides for understanding African markets.
+            </h1>
+
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
+              Clear, structured explainers to help you understand investing,
+              markets, risk, instruments, and opportunities across Nigeria and Africa.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        {/* Category Filters */}
+        <div className="rounded-2xl border border-black/10 bg-white p-4 shadow-sm">
+          <div className="mb-4 flex items-center gap-2">
+            <Sparkles className="h-4 w-4 text-primary" />
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+              Browse by level
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {categories.map((category) => {
+              const isActive = activeCategory === category.value;
 
               return (
-                <section key={category.id} className={selectedCategory === category.id ? 'block' : 'hidden'}>
-                  <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
+                <button
+                  key={category.value}
+                  type="button"
+                  onClick={() => setActiveCategory(category.value)}
+                  className={`rounded-2xl border p-4 text-left transition-all duration-300 ${
+                    isActive
+                      ? 'border-primary bg-primary text-primary-foreground shadow-sm'
+                      : 'border-black/10 bg-[#f7f5ef] text-gray-900 hover:-translate-y-0.5 hover:border-primary/50 hover:bg-white'
+                  }`}
+                >
+                  <span className="block text-sm font-semibold">
                     {category.label}
-                  </h2>
-
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-                    {categoryGuides.map((guide, index) => (
-                      <motion.article
-                        key={guide.id}
-                        initial="rest"
-                        whileHover="hover"
-                        variants={cardHover}
-                        className="group bg-card border border-border rounded-lg overflow-hidden hover:border-primary transition-colors flex flex-col"
-                      >
-                        <div className="relative bg-muted h-48 overflow-hidden">
-                          <img
-                            src={`https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop&v=${index}`}
-                            alt={guide.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                          {index % 3 === 0 && (
-                            <div className="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/50 transition-colors">
-                              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-                                <svg className="w-6 h-6 text-white fill-white" viewBox="0 0 24 24">
-                                  <path d="M8 5v14l11-7z" />
-                                </svg>
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                        <div className="p-4 flex flex-col flex-1">
-                          <h3 className="text-sm font-semibold text-card-foreground group-hover:text-primary transition-colors text-balance">
-                            {guide.title}
-                          </h3>
-                          <p className="mt-1.5 text-xs text-muted-foreground line-clamp-2 text-pretty">
-                            {guide.summary}
-                          </p>
-                          <div className="mt-3 flex items-center gap-3 text-xs text-muted-foreground mb-3">
-                            <span className="flex items-center gap-1">
-                              <Clock className="h-3 w-3" />
-                              {guide.readTime} min {index % 3 === 0 ? 'watch' : 'read'}
-                            </span>
-                          </div>
-                          <Link
-                            href={`/investing-guides/${guide.slug}`}
-                            className="text-xs font-semibold text-primary hover:text-primary/80 transition-colors flex items-center gap-1 mt-auto"
-                          >
-                            {index % 3 === 0 ? 'Watch now' : 'Read guide'}
-                            <ArrowRight className="h-2.5 w-2.5 transition-transform group-hover:translate-x-0.5" />
-                          </Link>
-                        </div>
-                      </motion.article>
-                    ))}
-                  </div>
-                </section>
+                  </span>
+                  <span
+                    className={`mt-1 block text-xs ${
+                      isActive ? 'text-primary-foreground/75' : 'text-gray-500'
+                    }`}
+                  >
+                    {category.description}
+                  </span>
+                </button>
               );
             })}
           </div>
         </div>
-      </div>
+
+        {/* Guide Count */}
+        <div className="mt-6 flex items-center justify-between gap-4">
+          <div>
+            <p className="text-sm text-gray-600">
+              Showing{' '}
+              <span className="font-semibold text-gray-950">
+                {filteredGuides.length}
+              </span>{' '}
+              guide{filteredGuides.length === 1 ? '' : 's'}
+            </p>
+          </div>
+        </div>
+
+        {/* Guides Grid */}
+        <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {filteredGuides.map((guide: any, index: number) => {
+            const guideType = getGuideType(guide);
+            const isVideo = guideType === 'video';
+
+            return (
+              <motion.article
+                key={guide.id || guide.slug || guide.title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: index * 0.04 }}
+                className="group overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-md"
+              >
+                <Link
+                  href={guide.href || `/investing-guides/${guide.slug}`}
+                  className="flex h-full flex-col"
+                >
+                  {/* Top visual/type strip */}
+                  <div
+                    className={`relative flex h-32 items-center justify-center overflow-hidden ${
+                      isVideo
+                        ? 'bg-gradient-to-br from-black to-emerald-950'
+                        : 'bg-gradient-to-br from-[#f7f5ef] to-white'
+                    }`}
+                  >
+                    <div
+                      className={`absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${
+                        isVideo
+                          ? 'bg-white/10 text-white backdrop-blur'
+                          : 'border border-black/10 bg-white text-gray-700'
+                      }`}
+                    >
+                      {isVideo ? (
+                        <PlayCircle className="h-3.5 w-3.5" />
+                      ) : (
+                        <FileText className="h-3.5 w-3.5" />
+                      )}
+                      {isVideo ? 'Video' : 'Text'}
+                    </div>
+
+                    <div
+                      className={`grid h-14 w-14 place-items-center rounded-2xl ${
+                        isVideo
+                          ? 'bg-primary text-primary-foreground'
+                          : 'bg-primary/10 text-primary'
+                      }`}
+                    >
+                      {isVideo ? (
+                        <PlayCircle className="h-7 w-7" />
+                      ) : (
+                        <FileText className="h-7 w-7" />
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-5">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary">
+                        {guide.category
+                          ?.replace('-', ' ')
+                          ?.replace(/\b\w/g, (char: string) =>
+                            char.toUpperCase()
+                          ) || 'Guide'}
+                      </span>
+
+                      <span className="inline-flex items-center gap-1 rounded-full border border-black/10 bg-[#f7f5ef] px-2.5 py-1 text-xs font-medium text-gray-600">
+                        <Clock className="h-3.5 w-3.5" />
+                        {getTimeLabel(guide)}
+                      </span>
+                    </div>
+
+                    <h3 className="mt-4 text-lg font-semibold leading-snug text-gray-950 transition-colors group-hover:text-primary">
+                      {guide.title}
+                    </h3>
+
+                    <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-gray-600">
+                      {guide.summary || guide.description}
+                    </p>
+
+                    <div className="mt-auto pt-5">
+                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                        {isVideo ? 'Watch guide' : 'Read guide'}
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </motion.article>
+            );
+          })}
+        </div>
+
+        {filteredGuides.length === 0 && (
+          <div className="mt-6 rounded-2xl border border-black/10 bg-white px-6 py-14 text-center shadow-sm">
+            <p className="text-sm text-gray-600">
+              No guides found in this category.
+            </p>
+          </div>
+        )}
+      </section>
     </div>
   );
 }
