@@ -65,28 +65,38 @@ export function MarketScoopHub() {
     <div className="bg-[#f7f5ef]">
       {/* Header */}
       <section className="border-b border-black/10 bg-[#050907] text-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeInUp}
-            className="max-w-3xl"
-          >
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-              <Newspaper className="h-3.5 w-3.5" />
-              Market Intelligence
-            </div>
+       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-12 sm:px-6 md:py-16 lg:grid-cols-[1fr_360px] lg:items-center lg:px-8">
+  <motion.div
+    initial="hidden"
+    animate="visible"
+    variants={fadeInUp}
+    className="max-w-3xl"
+  >
+    <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+      <Newspaper className="h-3.5 w-3.5" />
+      Market Intelligence
+    </div>
 
-            <h1 className="mt-5 font-serif text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
-              Market Scoop
-            </h1>
+    <h1 className="mt-5 font-serif text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
+      Market Scoop
+    </h1>
 
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
-              Timely analysis and structured insights on African markets,
-              economic indicators, policy moves, and investment opportunities.
-            </p>
-          </motion.div>
-        </div>
+    <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
+      Timely analysis and structured insights on African markets,
+      economic indicators, policy moves, and investment opportunities.
+    </p>
+  </motion.div>
+
+  <div className="hidden overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-3 lg:block">
+    <div className="h-56 overflow-hidden rounded-2xl bg-black">
+      <img
+        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=420&fit=crop"
+        alt="Market intelligence"
+        className="h-full w-full object-cover opacity-80"
+      />
+    </div>
+  </div>
+</div>
       </section>
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -161,7 +171,7 @@ export function MarketScoopHub() {
                   setSearchQuery(e.target.value);
                   setCurrentPage(1);
                 }}
-                placeholder="Search market scoops..."
+                placeholder="Search"
                 className="h-11 w-full rounded-xl border border-black/10 bg-[#f7f5ef] pl-10 pr-4 text-sm text-gray-950 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
               />
             </div>

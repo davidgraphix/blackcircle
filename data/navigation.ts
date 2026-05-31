@@ -4,7 +4,7 @@ export const mainNavigation: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'Market Scoop', href: '/market-scoop' },
   { label: 'Investing Guides', href: '/investing-guides' },
-  { label: 'Corporate Training', href: '/corporate-training' },
+  { label: 'Institutional Programmes', href: '/corporate-training' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -16,7 +16,7 @@ export const footerNavigation = {
   ],
   company: [
     { label: 'About', href: '/about' },
-    { label: 'Corporate Training', href: '/corporate-training' },
+    { label: 'Institutional Programmes', href: '/corporate-training' },
     { label: 'Contact', href: '/contact' },
   ],
   legal: [

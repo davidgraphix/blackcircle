@@ -7,22 +7,18 @@ import {
   BarChart3,
   BookOpen,
   Building2,
-  Clock,
   Compass,
   FileText,
-  GraduationCap,
   LineChart,
   Newspaper,
   PlayCircle,
   ShieldCheck,
   Sparkles,
-  TrendingUp,
 } from 'lucide-react';
 
 import { marketScoops } from '@/data/marketScoop';
 import { stories } from '@/data/stories';
 import { guides } from '@/data/guides';
-import { courses } from '@/data/courses';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -37,65 +33,51 @@ const formatDate = (date: string) =>
   });
 
 export default function HomePage() {
-  const featuredScoop = marketScoops.find((item) => item.featured) || marketScoops[0];
-  const latestScoops = marketScoops.filter((item) => item.id !== featuredScoop?.id).slice(0, 3);
+  const featuredScoop =
+    marketScoops.find((item) => item.featured) || marketScoops[0];
+
+  const latestScoops = marketScoops
+    .filter((item) => item.id !== featuredScoop?.id)
+    .slice(0, 3);
 
   const featuredStory = stories.find((item: any) => item.featured) || stories[0];
+  const storyItems = stories
+    .filter((item: any) => item.id !== featuredStory?.id)
+    .slice(0, 4);
+
   const featuredGuide = guides[0];
-  const featuredCourse = courses.find((item: any) => item.featured) || courses[0];
 
   const marketThemes = [
-    'Treasury Bills',
-    'Inflation',
-    'FX Dynamics',
-    'NGX Equities',
-    'Eurobonds',
-    'Capital Markets',
+    'Research',
+    'Intelligence',
+    'Markets',
+    'Macro',
   ];
 
   const ecosystemCards = [
     {
       title: 'Market Scoop',
       description:
-        'Timely market intelligence, policy commentary, and investment explainers across Nigeria and Africa.',
+        'Timely insight on markets, companies, sectors, and investment themes across Africa.',
       href: '/market-scoop',
       icon: Newspaper,
-      cta: 'Read insights',
+      cta: 'Explore',
     },
     {
-      title: 'Investing Guides',
+      title: 'Market Guides',
       description:
-        'Evergreen resources that help beginners and professionals understand instruments, risk, and market structure.',
+        'Clear, practical guides on financial instruments, markets, and the forces shaping local markets.',
       href: '/investing-guides',
       icon: BookOpen,
-      cta: 'Browse guides',
+      cta: 'Explore',
     },
     {
-      title: 'Corporate Training',
+      title: 'Institutional Programmes',
       description:
-        'Custom market education programs for banks, fintechs, institutions, regulators, and professional teams.',
+        'Tailored market briefings and structured programmes for institutions and professional teams following domestic markets.',
       href: '/corporate-training',
       icon: Building2,
-      cta: 'Train your team',
-    },
-  ];
-
-  const stats = [
-    {
-      value: 'Nigeria-first',
-      label: 'Market lens',
-    },
-    {
-      value: 'Africa-aware',
-      label: 'Regional context',
-    },
-    {
-      value: 'Institutional',
-      label: 'Research tone',
-    },
-    {
-      value: 'Education-led',
-      label: 'Built for clarity',
+      cta: 'Discuss a Programme',
     },
   ];
 
@@ -103,12 +85,12 @@ export default function HomePage() {
     <main className="bg-[#f7f5ef]">
       {/* HERO */}
       <section className="relative overflow-hidden border-b border-black/10 bg-[#f7f5ef] text-[#111111]">
-        <div className="absolute inset-0 opacity-[0.97]">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] bg-[size:72px_72px]" />
+        <div className="absolute inset-0 opacity-[0.1]">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,black_1px,transparent_1px),linear-gradient(to_bottom,black_1px,transparent_1px)] bg-[size:72px_72px]" />
         </div>
 
-      <div className="absolute -right-32 top-20 h-96 w-96 rounded-full bg-cyan-400/20 blur-[120px]" />
-<div className="absolute -left-32 bottom-0 h-96 w-96 rounded-full bg-emerald-300/20 blur-[120px]" />
+        <div className="absolute -right-32 top-20 h-96 w-96 rounded-full bg-cyan-400/20 blur-[120px]" />
+        <div className="absolute -left-32 bottom-0 h-96 w-96 rounded-full bg-emerald-300/20 blur-[120px]" />
 
         <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
@@ -118,18 +100,18 @@ export default function HomePage() {
               variants={fadeUp}
               transition={{ duration: 0.5 }}
             >
-              <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 backdrop-blur px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary shadow-sm">
+              <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary shadow-sm backdrop-blur">
                 <Sparkles className="h-3.5 w-3.5" />
                 African Market Intelligence
               </div>
 
               <h1 className="mt-6 max-w-4xl font-serif text-5xl font-semibold leading-[0.96] tracking-tight text-[#111111] sm:text-6xl lg:text-7xl">
-                Navigate African markets with clarity.
+                Intelligence for African Capital Markets
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-relaxed text-black/65 sm:text-lg">
-                Intelligence, education, and market insights built for Africa’s next generation
-                of investors, professionals, and institutions.
+                BlackCircle delivers clear, research-driven perspectives and market
+                insights on African markets.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -137,28 +119,51 @@ export default function HomePage() {
                   href="/market-scoop"
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
                 >
-                  Read Market Scoop
+                  Market Scoop
                   <ArrowRight className="h-4 w-4" />
                 </Link>
 
                 <Link
                   href="/investing-guides"
-                  className="inline-flex items-center justify-center rounded-xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-[#111111] transition-colors hover:border-primary hover:text-primary shadow-sm"
+                  className="inline-flex items-center justify-center rounded-xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-[#111111] shadow-sm transition-colors hover:border-primary hover:text-primary"
                 >
-                  Browse Investing Guides
+                  See Market Guides
                 </Link>
               </div>
 
               <div className="mt-9 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                {stats.map((stat) => (
+                {marketThemes.map((theme) => (
                   <div
-                    key={stat.label}
-                    className="rounded-2xl border border-black/10 bg-white/80 backdrop-blur p-4 shadow-sm"
+                    key={theme}
+                    className="rounded-2xl border border-black/10 bg-white/80 p-4 shadow-sm backdrop-blur"
                   >
-                    <p className="text-sm font-semibold text-[#111111]">{stat.value}</p>
-                    <p className="mt-1 text-xs text-black/45">{stat.label}</p>
+                    <p className="text-sm font-semibold text-[#111111]">
+                      {theme}
+                    </p>
                   </div>
                 ))}
+              </div>
+
+              <div className="mt-5 overflow-hidden rounded-3xl border border-black/10 bg-white/80 p-3 shadow-sm backdrop-blur">
+                <div className="grid gap-4 sm:grid-cols-[180px_1fr] sm:items-center">
+                  <div className="h-32 overflow-hidden rounded-2xl bg-gray-100">
+                    <img
+                      src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop"
+                      alt="African capital markets"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">
+                      Research-led, market-aware
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-black/60">
+                      Restrained market intelligence for professionals, investors,
+                      and institutions following Africa’s financial systems.
+                    </p>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
@@ -190,10 +195,10 @@ export default function HomePage() {
                     <Link
                       href={`/market-scoop/${item.slug}`}
                       key={item.id}
-                      className="group rounded-2xl border border-black/10 bg-white p-4 transition-all hover:-translate-y-1 hover:border-primary/40 shadow-sm"
+                      className="group rounded-2xl border border-black/10 bg-white p-4 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/40"
                     >
                       <div className="flex items-start gap-4">
-                        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-black/10 text-xs font-semibold text-black/70">
+                        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#f7f5ef] text-xs font-semibold text-black/60">
                           {index + 1}
                         </span>
 
@@ -229,16 +234,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FEATURED EDITORIAL */}
+      {/* FEATURED PUBLICATION */}
       <section className="border-b border-black/10 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
           <div className="mb-7 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
-                Featured Intelligence
+                Market Scoop
               </p>
               <h2 className="mt-2 font-serif text-3xl font-semibold text-gray-950 lg:text-4xl">
-                The latest from BlackCircle.
+                Commentary &amp; Analysis
               </h2>
             </div>
 
@@ -246,7 +251,7 @@ export default function HomePage() {
               href="/market-scoop"
               className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80"
             >
-              View all Market Scoop
+              View all Publications
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -277,7 +282,7 @@ export default function HomePage() {
                   <div>
                     <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-primary">
                       <Newspaper className="h-3.5 w-3.5" />
-                      Featured Scoop
+                      Featured Publication
                     </div>
 
                     <h3 className="mt-5 font-serif text-3xl font-semibold leading-tight text-gray-950 transition-colors group-hover:text-primary lg:text-4xl">
@@ -293,11 +298,13 @@ export default function HomePage() {
                     <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500">
                       <span>{formatDate(featuredScoop.date)}</span>
                       <span className="text-gray-300">•</span>
-                      <span>{featuredScoop.author?.name || 'BlackCircle Research Desk'}</span>
+                      <span>
+                        {featuredScoop.author?.name || 'BlackCircle Research Desk'}
+                      </span>
                     </div>
 
                     <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                      Read full analysis
+                      Read analysis
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>
                   </div>
@@ -331,8 +338,12 @@ export default function HomePage() {
                     </p>
 
                     <div className="mt-5 flex items-center justify-between gap-4">
-                      <span className="text-xs text-gray-500">{formatDate(item.date)}</span>
-                      <span className="text-sm font-semibold text-primary">Read →</span>
+                      <span className="text-xs text-gray-500">
+                        {formatDate(item.date)}
+                      </span>
+                      <span className="text-sm font-semibold text-primary">
+                        Read →
+                      </span>
                     </div>
                   </Link>
                 </motion.article>
@@ -347,15 +358,13 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
           <div className="mb-8 max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
-              The BlackCircle Ecosystem
+              The BlackCircle Platform
             </p>
             <h2 className="mt-3 font-serif text-3xl font-semibold leading-tight text-gray-950 lg:text-5xl">
-              One platform for insight, education, and institutional learning.
+              One Platform for African Market Intelligence
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-gray-600 sm:text-base">
-              BlackCircle brings together market intelligence, investing education, and
-              corporate training in one coherent experience for people and institutions
-              following African markets.
+              Research, analysis, and tools designed to support better decision-making.
             </p>
           </div>
 
@@ -398,18 +407,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* INTELLIGENCE MATRIX */}
+      {/* STORIES */}
       <section className="border-b border-black/10 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-          <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div className="max-w-2xl">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
-                Featured Content
-              </p>
-              <h2 className="mt-3 font-serif text-3xl font-semibold text-gray-950 lg:text-4xl">
-                Explore the ideas shaping African markets.
-              </h2>
-            </div>
+          <div className="mb-8 max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+              Stories
+            </p>
+            <h2 className="mt-3 font-serif text-3xl font-semibold text-gray-950 lg:text-4xl">
+              Explore the ideas shaping African markets.
+            </h2>
           </div>
 
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-4 lg:grid-rows-2">
@@ -422,7 +429,7 @@ export default function HomePage() {
               className="group overflow-hidden rounded-3xl border border-black/10 bg-[#050907] text-white shadow-sm lg:col-span-2 lg:row-span-2"
             >
               <Link href={`/stories/${featuredStory.slug}`} className="flex h-full flex-col">
-                <div className="relative h-72 overflow-hidden bg-black lg:h-full lg:min-h-[360px]">
+                <div className="relative h-72 overflow-hidden bg-black lg:h-full lg:min-h-[420px]">
                   <img
                     src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=900&h=700&fit=crop"
                     alt={featuredStory.title}
@@ -453,89 +460,36 @@ export default function HomePage() {
               </Link>
             </motion.article>
 
-            <motion.article
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              transition={{ duration: 0.45, delay: 0.08 }}
-              className="group rounded-3xl border border-black/10 bg-[#f7f5ef] p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-md lg:col-span-2"
-            >
-              <Link href="/investing-guides" className="block">
-                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-primary">
-                  <FileText className="h-3.5 w-3.5" />
-                  Investing Guide
-                </div>
+            {storyItems.map((story: any, index: number) => (
+              <motion.article
+                key={story.id || story.slug}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeUp}
+                transition={{ duration: 0.45, delay: index * 0.06 }}
+                className="group rounded-3xl border border-black/10 bg-[#f7f5ef] p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-md lg:col-span-1"
+              >
+                <Link href={`/stories/${story.slug}`} className="block">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-primary">
+                    <PlayCircle className="h-3.5 w-3.5" />
+                    Story
+                  </div>
 
-                <h3 className="mt-5 font-serif text-2xl font-semibold leading-tight text-gray-950 group-hover:text-primary">
-                  {featuredGuide.title}
-                </h3>
+                  <h3 className="mt-5 text-lg font-semibold leading-snug text-gray-950 group-hover:text-primary">
+                    {story.title}
+                  </h3>
 
-                <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-gray-600">
-                  {featuredGuide.summary || featuredGuide.description}
-                </p>
+                  <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-gray-600">
+                    {story.description || story.excerpt}
+                  </p>
 
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                  Browse guides
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </Link>
-            </motion.article>
-
-            <motion.article
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              transition={{ duration: 0.45, delay: 0.12 }}
-              className="group rounded-3xl border border-black/10 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-md"
-            >
-              <Link href={`/learning/courses/${featuredCourse.slug}`} className="block">
-                <span className="grid h-11 w-11 place-items-center rounded-2xl bg-primary/10 text-primary">
-                  <GraduationCap className="h-5 w-5" />
-                </span>
-
-                <h3 className="mt-5 text-lg font-semibold leading-snug text-gray-950 group-hover:text-primary">
-                  {featuredCourse.title}
-                </h3>
-
-                <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-gray-600">
-                  {featuredCourse.description}
-                </p>
-
-                <div className="mt-4 flex items-center gap-2 text-xs text-gray-500">
-                  <Clock className="h-3.5 w-3.5" />
-                  <span>{featuredCourse.duration || 'Self-paced'}</span>
-                </div>
-              </Link>
-            </motion.article>
-
-            <motion.article
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              transition={{ duration: 0.45, delay: 0.16 }}
-              className="group rounded-3xl border border-black/10 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-md"
-            >
-              <Link href="/corporate-training" className="block">
-                <span className="grid h-11 w-11 place-items-center rounded-2xl bg-primary/10 text-primary">
-                  <Building2 className="h-5 w-5" />
-                </span>
-
-                <h3 className="mt-5 text-lg font-semibold leading-snug text-gray-950 group-hover:text-primary">
-                  Practical market training for your team
-                </h3>
-
-                <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-gray-600">
-                  Custom programs for institutions and market-facing professionals.
-                </p>
-
-                <span className="mt-5 inline-flex text-sm font-semibold text-primary">
-                  Request proposal →
-                </span>
-              </Link>
-            </motion.article>
+                  <span className="mt-5 inline-flex text-sm font-semibold text-primary">
+                    Explore story →
+                  </span>
+                </Link>
+              </motion.article>
+            ))}
           </div>
         </div>
       </section>
@@ -551,33 +505,33 @@ export default function HomePage() {
               </div>
 
               <h2 className="mt-5 font-serif text-3xl font-semibold leading-tight text-white lg:text-5xl">
-                Financial intelligence with discipline, clarity, and African context.
+                Financial Intelligence with discipline, clarity, and conviction.
               </h2>
 
               <p className="mt-5 text-sm leading-relaxed text-white/60 sm:text-base">
-                BlackCircle is built to feel like a trusted guide: serious enough for
-                institutions, clear enough for learners, and relevant to the realities of African markets.
+                We bring structure, context, and judgment to financial markets,
+                helping individuals and institutions understand what matters and why.
               </p>
             </div>
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               {[
                 {
-                  title: 'Clear market context',
+                  title: 'Market Context',
                   description:
-                    'We explain what matters in markets without turning every update into noise.',
+                    'We provide context that helps investors understand what matters and why.',
                   icon: Compass,
                 },
                 {
-                  title: 'Structured education',
+                  title: 'Research Depth',
                   description:
-                    'Guides and learning paths help users build knowledge step by step.',
+                    'Analysis grounded in data, market structure, and practical investment experience.',
                   icon: BookOpen,
                 },
                 {
-                  title: 'Institutional relevance',
+                  title: 'Institutional Relevance',
                   description:
-                    'Training and insights are designed for professionals and organisations.',
+                    'Market insights designed for professionals and organizations.',
                   icon: Building2,
                 },
               ].map((item) => {
@@ -607,105 +561,58 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* LEARNING + CORPORATE */}
+      {/* INSTITUTIONAL PROGRAMMES */}
       <section className="border-b border-black/10 bg-[#f7f5ef]">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8 lg:py-16">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
             transition={{ duration: 0.45 }}
-            className="rounded-3xl border border-black/10 bg-white p-6 shadow-sm lg:p-8"
+            className="overflow-hidden rounded-3xl border border-black/10 bg-[#050907] text-white shadow-sm"
           >
-            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-primary">
-              <GraduationCap className="h-3.5 w-3.5" />
-              Learning Centre
-            </div>
-
-            <h2 className="mt-5 font-serif text-3xl font-semibold leading-tight text-gray-950">
-              Build stronger market knowledge through structured learning.
-            </h2>
-
-            <p className="mt-4 text-sm leading-relaxed text-gray-600">
-              From beginner-friendly investing foundations to advanced market themes,
-              BlackCircle’s learning experience is designed to help users understand before they act.
-            </p>
-
-            <div className="mt-6 rounded-2xl border border-black/10 bg-[#f7f5ef] p-4">
-              <div className="flex items-start gap-4">
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white text-primary shadow-sm">
-                  <TrendingUp className="h-5 w-5" />
-                </span>
-
-                <div>
-                  <h3 className="text-sm font-semibold text-gray-950">
-                    {featuredCourse.title}
-                  </h3>
-                  <p className="mt-1 line-clamp-2 text-sm text-gray-600">
-                    {featuredCourse.description}
-                  </p>
+            <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr]">
+              <div className="p-6 lg:p-10">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-primary">
+                  <Building2 className="h-3.5 w-3.5" />
+                  Institutional Programmes
                 </div>
+
+                <h2 className="mt-5 font-serif text-3xl font-semibold leading-tight text-white lg:text-5xl">
+                  Practical financial markets training for professional teams.
+                </h2>
+
+                <p className="mt-5 text-sm leading-relaxed text-white/60 sm:text-base">
+                  We design and deliver training programmes for financial institutions,
+                  capital market operators, corporate and treasury teams, fintechs &amp;
+                  professional groups.
+                </p>
+
+                <Link
+                  href="/corporate-training"
+                  className="mt-7 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                >
+                  Discuss a Programme
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+
+              <div className="relative min-h-[320px] overflow-hidden bg-black">
+                <img
+                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=900&h=700&fit=crop"
+                  alt="Institutional financial training"
+                  className="h-full w-full object-cover opacity-80"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
               </div>
             </div>
-
-            <Link
-              href="/learning"
-              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-            >
-              Explore learning
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            transition={{ duration: 0.45, delay: 0.08 }}
-            className="rounded-3xl border border-black/10 bg-[#050907] p-6 text-white shadow-sm lg:p-8"
-          >
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-primary">
-              <Building2 className="h-3.5 w-3.5" />
-              Corporate Training
-            </div>
-
-            <h2 className="mt-5 font-serif text-3xl font-semibold leading-tight text-white">
-              Practical financial markets training for your team.
-            </h2>
-
-            <p className="mt-4 text-sm leading-relaxed text-white/60">
-              We design training programs for banks, asset managers, fintechs,
-              regulators, corporates, and market-facing teams that need stronger financial market understanding.
-            </p>
-
-            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {['Capital markets', 'Fixed income', 'Macro analysis', 'ESG & sustainability'].map(
-                (item) => (
-                  <div
-                    key={item}
-                    className="rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-sm font-semibold text-white"
-                  >
-                    {item}
-                  </div>
-                )
-              )}
-            </div>
-
-            <Link
-              href="/corporate-training"
-              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-            >
-              Request training
-              <ArrowRight className="h-4 w-4" />
-            </Link>
           </motion.div>
         </div>
       </section>
 
       {/* NEWSLETTER CTA */}
-      {/* <section className="bg-white">
+      <section className="bg-white">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
           <div className="overflow-hidden rounded-3xl border border-black/10 bg-[#050907] p-6 text-white shadow-sm lg:p-10">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-center">
@@ -725,7 +632,7 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <form className="rounded-2xl border border-black/10 bg-white/80 backdrop-blur p-4 shadow-sm">
+              <form className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
                 <label htmlFor="email" className="sr-only">
                   Email address
                 </label>
@@ -754,7 +661,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
     </main>
   );
 }

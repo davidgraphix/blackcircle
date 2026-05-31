@@ -70,30 +70,39 @@ export function GuidesLibrary() {
   return (
     <div className="bg-[#f7f5ef]">
       {/* Hero */}
-      <section className="border-b border-black/10 bg-[#050907] text-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45 }}
-            className="max-w-3xl"
-          >
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-              <BookOpen className="h-3.5 w-3.5" />
-              Investing Guides
-            </div>
+     <section className="border-b border-black/10 bg-[#050907] text-white">
+  <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-12 sm:px-6 md:py-16 lg:grid-cols-[1fr_360px] lg:items-center lg:px-8">
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45 }}
+      className="max-w-3xl"
+    >
+      <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+        <BookOpen className="h-3.5 w-3.5" />
+        Investing Guides
+      </div>
 
-            <h1 className="mt-5 font-serif text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
-              Practical guides for understanding African markets.
-            </h1>
+      <h1 className="mt-5 font-serif text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
+        Practical guides for understanding African markets.
+      </h1>
 
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
-              Clear, structured explainers to help you understand investing,
-              markets, risk, instruments, and opportunities across Nigeria and Africa.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
+        A digital library of practical resources on investing, markets, and financial systems.
+      </p>
+    </motion.div>
+
+    <div className="hidden overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-3 lg:block">
+      <div className="h-56 overflow-hidden rounded-2xl bg-black">
+        <img
+          src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=420&fit=crop"
+          alt="Investing guides library"
+          className="h-full w-full object-cover opacity-80"
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Category Filters */}
