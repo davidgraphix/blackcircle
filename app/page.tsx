@@ -131,7 +131,7 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              <div className="mt-9 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {/* <div className="mt-9 grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {marketThemes.map((theme) => (
                   <div
                     key={theme}
@@ -142,7 +142,7 @@ export default function HomePage() {
                     </p>
                   </div>
                 ))}
-              </div>
+              </div> */}
 
               <div className="mt-5 overflow-hidden rounded-3xl border border-black/10 bg-white/80 p-3 shadow-sm backdrop-blur">
                 <div className="grid gap-4 sm:grid-cols-[180px_1fr] sm:items-center">
