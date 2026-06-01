@@ -611,57 +611,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* NEWSLETTER CTA */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-          <div className="overflow-hidden rounded-3xl border border-black/10 bg-[#050907] p-6 text-white shadow-sm lg:p-10">
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_0.85fr] lg:items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-primary">
-                  <BarChart3 className="h-3.5 w-3.5" />
-                  Stay updated
-                </div>
-
-                <h2 className="mt-5 font-serif text-3xl font-semibold leading-tight text-white lg:text-4xl">
-                  Join the BlackCircle list.
-                </h2>
-
-                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/60">
-                  Get the scoop on investments, market intelligence, company stories,
-                  transactions, conversations, and opportunities across Nigerian and African markets.
-                </p>
-              </div>
-
-              <form className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-                <label htmlFor="email" className="sr-only">
-                  Email address
-                </label>
-
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  <input
-                    id="email"
-                    type="email"
-                    placeholder="Enter your email address"
-                    className="h-12 flex-1 rounded-xl border border-white/10 bg-black/25 px-4 text-sm text-white outline-none placeholder:text-white/35 transition focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  />
-
-                  <button
-                    type="submit"
-                    className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-                  >
-                    Join list
-                    <ArrowRight className="h-4 w-4" />
-                  </button>
-                </div>
-
-                <p className="mt-3 text-xs text-white/40">
-                  Educational updates only. No spam. No personalised investment advice.
-                </p>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
