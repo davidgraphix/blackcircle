@@ -280,7 +280,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* MARKET TICKER STRIP */}
-      <section className="border-b border-black/10 bg-[#050907] text-white">
+      {/* <section className="border-b border-black/10 bg-[#050907] text-white">
         <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs">
             <span className="font-bold uppercase tracking-[0.18em] text-primary">
@@ -302,7 +302,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FEATURED PUBLICATION */}
       <section className="border-b border-black/10 bg-white">
