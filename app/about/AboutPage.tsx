@@ -93,16 +93,19 @@ export default function AboutPage() {
   return (
     <main className="bg-[#f7f5ef]">
       {/* Hero */}
+
       <section className="relative overflow-hidden border-b border-black/10 bg-[#050907] text-white">
-        <img
-          src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?w=1600&h=800&fit=crop"
-          alt="African markets background"
-          className="absolute inset-0 h-full w-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-black/75" />
-        <div className="absolute inset-0 opacity-[0.08]">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] bg-[size:72px_72px]" />
-        </div>
+  <img
+    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&h=900&fit=crop"
+    alt="African financial markets and city skyline"
+    className="absolute inset-0 h-full w-full object-cover opacity-30"
+  />
+
+  <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/45" />
+
+  <div className="absolute inset-0 opacity-[0.08]">
+    <div className="absolute inset-0 bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] bg-[size:72px_72px]" />
+  </div>
 
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-3xl">
@@ -140,7 +143,9 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+</section>
+
+
 
       {/* Why BlackCircle */}
       <section className="border-b border-black/10 bg-white">
