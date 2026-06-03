@@ -64,40 +64,37 @@ export function MarketScoopHub() {
   return (
     <div className="bg-[#f7f5ef]">
       {/* Header */}
-      <section className="border-b border-black/10 bg-[#050907] text-white">
-       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-12 sm:px-6 md:py-16 lg:grid-cols-[1fr_360px] lg:items-center lg:px-8">
-  <motion.div
-    initial="hidden"
-    animate="visible"
-    variants={fadeInUp}
-    className="max-w-3xl"
-  >
-    <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-      <Newspaper className="h-3.5 w-3.5" />
-      Market Intelligence
-    </div>
+     <section className="relative overflow-hidden border-b border-black/10 bg-[#050907] text-white">
+  <img
+    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&h=700&fit=crop"
+    alt="Market intelligence"
+    className="absolute inset-0 h-full w-full object-cover opacity-35"
+  />
+  <div className="absolute inset-0 bg-black/70" />
 
-    <h1 className="mt-5 font-serif text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
-      Market Scoop
-    </h1>
+  <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-8">
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={fadeInUp}
+      className="max-w-3xl"
+    >
+      <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+        <Newspaper className="h-3.5 w-3.5" />
+        Market Intelligence
+      </div>
 
-    <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
-      Timely analysis and structured insights on African markets,
-      economic indicators, policy moves, and investment opportunities.
-    </p>
-  </motion.div>
+      <h1 className="mt-5 font-serif text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
+        Market Scoop
+      </h1>
 
-  <div className="hidden overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-3 lg:block">
-    <div className="h-56 overflow-hidden rounded-2xl bg-black">
-      <img
-        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=420&fit=crop"
-        alt="Market intelligence"
-        className="h-full w-full object-cover opacity-80"
-      />
-    </div>
+      <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/70 sm:text-base">
+        Timely analysis and structured insights on African markets,
+        economic indicators, policy moves, and investment opportunities.
+      </p>
+    </motion.div>
   </div>
-</div>
-      </section>
+</section>
 
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Featured Article */}

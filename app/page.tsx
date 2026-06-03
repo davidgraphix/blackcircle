@@ -4,11 +4,9 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
-  BarChart3,
   BookOpen,
   Building2,
   Compass,
-  FileText,
   LineChart,
   Newspaper,
   PlayCircle,
@@ -18,7 +16,6 @@ import {
 
 import { marketScoops } from '@/data/marketScoop';
 import { stories } from '@/data/stories';
-import { guides } from '@/data/guides';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -40,19 +37,14 @@ export default function HomePage() {
     .filter((item) => item.id !== featuredScoop?.id)
     .slice(0, 3);
 
-  const featuredStory = stories.find((item: any) => item.featured) || stories[0];
+  const featuredStory =
+    stories.find((item: any) => item.featured) || stories[0];
+
   const storyItems = stories
     .filter((item: any) => item.id !== featuredStory?.id)
     .slice(0, 4);
 
-  const featuredGuide = guides[0];
-
-  const marketThemes = [
-    'Research',
-    'Intelligence',
-    'Markets',
-    'Macro',
-  ];
+  const marketThemes = ['Research', 'Intelligence', 'Markets', 'Macro'];
 
   const ecosystemCards = [
     {
@@ -92,8 +84,9 @@ export default function HomePage() {
         <div className="absolute -right-32 top-20 h-96 w-96 rounded-full bg-cyan-400/20 blur-[120px]" />
         <div className="absolute -left-32 bottom-0 h-96 w-96 rounded-full bg-emerald-300/20 blur-[120px]" />
 
-        <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 md:py-6 lg:px-8">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            {/* Left Hero Content */}
             <motion.div
               initial="hidden"
               animate="visible"
@@ -110,11 +103,43 @@ export default function HomePage() {
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-relaxed text-black/65 sm:text-lg">
-                BlackCircle delivers clear, research-driven perspectives and market
-                insights on African markets.
+                BlackCircle delivers clear, research-driven perspectives and
+                market insights on African markets.
               </p>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              {/* Hero Image directly under hero text */}
+              <div className="mt-7 overflow-hidden rounded-3xl border border-black/10 bg-white/80 p-3 shadow-sm backdrop-blur">
+                <div className="relative h-56 overflow-hidden rounded-2xl bg-black sm:h-64 lg:h-72">
+                  <img
+                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=700&fit=crop"
+                    alt="African capital markets"
+                    className="h-full w-full object-cover opacity-85"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+
+                  {/* Small terminal overlay */}
+                  <div className="absolute left-4 top-4 rounded-xl border border-white/10 bg-black/45 px-3 py-2 backdrop-blur">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-primary">
+                      Research Signal
+                    </p>
+                    <p className="mt-1 text-xs text-white/75">
+                      Macro • Markets • Policy
+                    </p>
+                  </div>
+
+                  <div className="absolute bottom-5 left-5 right-5">
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">
+                      Research-led, market-aware
+                    </p>
+                    <p className="mt-2 max-w-lg text-sm leading-relaxed text-white/85">
+                      Restrained market intelligence for professionals, investors,
+                      and institutions following Africa’s financial systems.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/market-scoop"
                   className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
@@ -131,47 +156,27 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              {/* <div className="mt-9 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {marketThemes.map((theme) => (
                   <div
                     key={theme}
-                    className="rounded-2xl border border-black/10 bg-white/80 p-4 shadow-sm backdrop-blur"
+                    className="rounded-2xl border border-black/10 bg-white/80 p-2 text-center shadow-sm backdrop-blur"
                   >
                     <p className="text-sm font-semibold text-[#111111]">
                       {theme}
                     </p>
                   </div>
                 ))}
-              </div> */}
-
-              <div className="mt-5 overflow-hidden rounded-3xl border border-black/10 bg-white/80 p-3 shadow-sm backdrop-blur">
-                <div className="grid gap-4 sm:grid-cols-[180px_1fr] sm:items-center">
-                  <div className="h-32 overflow-hidden rounded-2xl bg-gray-100">
-                    <img
-                      src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop"
-                      alt="African capital markets"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">
-                      Research-led, market-aware
-                    </p>
-                    <p className="mt-2 text-sm leading-relaxed text-black/60">
-                      Restrained market intelligence for professionals, investors,
-                      and institutions following Africa’s financial systems.
-                    </p>
-                  </div>
-                </div>
               </div>
             </motion.div>
 
+
+            {/* Right Market Intelligence Panel */}
             <motion.div
               initial={{ opacity: 0, y: 18, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.55, delay: 0.1 }}
-              className="rounded-3xl border border-black/10 bg-white/80 p-4 shadow-2xl shadow-black/5 backdrop-blur"
+              className="rounded-3xl border border-black/10 bg-white/85 p-4 shadow-2xl shadow-black/5 backdrop-blur"
             >
               <div className="rounded-2xl border border-black/10 bg-[#fcfbf8] p-5">
                 <div className="flex items-center justify-between gap-4">
@@ -190,6 +195,29 @@ export default function HomePage() {
                   </span>
                 </div>
 
+                {/* Mini Market Metrics */}
+                <div className="mt-5 grid grid-cols-2 gap-3">
+                  {[
+                    { label: 'NGX ASI', value: '+0.42%', tone: 'text-emerald-700' },
+                    { label: 'T-Bills', value: '19.5%', tone: 'text-[#111111]' },
+                    { label: 'Inflation', value: '28.9%', tone: 'text-amber-700' },
+                    { label: 'FX Watch', value: 'Active', tone: 'text-primary' },
+                  ].map((metric) => (
+                    <div
+                      key={metric.label}
+                      className="rounded-2xl border border-black/10 bg-white p-3 shadow-sm"
+                    >
+                      <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-black/45">
+                        {metric.label}
+                      </p>
+                      <p className={`mt-1 text-lg font-semibold ${metric.tone}`}>
+                        {metric.value}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Trending List */}
                 <div className="mt-5 grid gap-3">
                   {latestScoops.map((item, index) => (
                     <Link
@@ -218,18 +246,60 @@ export default function HomePage() {
                   ))}
                 </div>
 
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {marketThemes.map((theme) => (
-                    <span
-                      key={theme}
-                      className="rounded-full border border-black/10 bg-white px-3 py-1 text-xs text-black/60 shadow-sm"
-                    >
-                      {theme}
-                    </span>
-                  ))}
+                {/* Research Themes */}
+                {/* <div className="mt-5 border-t border-black/10 pt-4">
+      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-black/45">
+        Research themes
+      </p>
+
+      <div className="mt-3 flex flex-wrap gap-2">
+        {marketThemes.map((theme) => (
+          <span
+            key={theme}
+            className="rounded-full border border-black/10 bg-white px-3 py-1 text-xs text-black/60 shadow-sm"
+          >
+            {theme}
+          </span>
+        ))}
+      </div>
+    </div> */}
+
+                {/* Bottom briefing note */}
+                <div className="mt-5 rounded-2xl border border-primary/20 bg-primary/5 p-4">
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary">
+                    Today’s Briefing
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-black/65">
+                    Watch policy direction, liquidity conditions, FX pressure, and investor
+                    positioning across local markets.
+                  </p>
                 </div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+      {/* MARKET TICKER STRIP */}
+      <section className="border-b border-black/10 bg-[#050907] text-white">
+        <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs">
+            <span className="font-bold uppercase tracking-[0.18em] text-primary">
+              Market Watch
+            </span>
+
+            {[
+              ['NGX ASI', '+0.42%'],
+              ['T-Bill 364D', '19.5%'],
+              ['Inflation', '28.9%'],
+              ['Eurobonds', 'Mixed'],
+              ['FX Liquidity', 'Active'],
+              ['Banking Sector', 'Positive'],
+            ].map(([label, value]) => (
+              <div key={label} className="flex items-center gap-2">
+                <span className="text-white/45">{label}</span>
+                <span className="font-semibold text-white">{value}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -299,7 +369,8 @@ export default function HomePage() {
                       <span>{formatDate(featuredScoop.date)}</span>
                       <span className="text-gray-300">•</span>
                       <span>
-                        {featuredScoop.author?.name || 'BlackCircle Research Desk'}
+                        {featuredScoop.author?.name ||
+                          'BlackCircle Research Desk'}
                       </span>
                     </div>
 
@@ -355,8 +426,8 @@ export default function HomePage() {
 
       {/* ECOSYSTEM */}
       <section className="border-b border-black/10 bg-[#f7f5ef]">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-          <div className="mb-8 max-w-3xl">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-16">
+          <div>
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
               The BlackCircle Platform
             </p>
@@ -366,9 +437,20 @@ export default function HomePage() {
             <p className="mt-4 text-sm leading-relaxed text-gray-600 sm:text-base">
               Research, analysis, and tools designed to support better decision-making.
             </p>
+
+            <div className="mt-7 overflow-hidden rounded-3xl border border-black/10 bg-white p-3 shadow-sm">
+              <div className="relative h-72 overflow-hidden rounded-2xl bg-black">
+                <img
+                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=900&h=650&fit=crop"
+                  alt="African market intelligence platform"
+                  className="h-full w-full object-cover opacity-90"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5">
             {ecosystemCards.map((card, index) => {
               const Icon = card.icon;
 
@@ -382,23 +464,25 @@ export default function HomePage() {
                   transition={{ duration: 0.45, delay: index * 0.08 }}
                   className="group rounded-3xl border border-black/10 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-md"
                 >
-                  <Link href={card.href} className="block h-full">
-                    <span className="grid h-12 w-12 place-items-center rounded-2xl bg-primary/10 text-primary">
+                  <Link href={card.href} className="flex gap-5">
+                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-primary/10 text-primary">
                       <Icon className="h-6 w-6" />
                     </span>
 
-                    <h3 className="mt-6 text-xl font-semibold text-gray-950">
-                      {card.title}
-                    </h3>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-950">
+                        {card.title}
+                      </h3>
 
-                    <p className="mt-3 text-sm leading-relaxed text-gray-600">
-                      {card.description}
-                    </p>
+                      <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                        {card.description}
+                      </p>
 
-                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                      {card.cta}
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </span>
+                      <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                        {card.cta}
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </span>
+                    </div>
                   </Link>
                 </motion.article>
               );
@@ -428,7 +512,10 @@ export default function HomePage() {
               transition={{ duration: 0.45 }}
               className="group overflow-hidden rounded-3xl border border-black/10 bg-[#050907] text-white shadow-sm lg:col-span-2 lg:row-span-2"
             >
-              <Link href={`/stories/${featuredStory.slug}`} className="flex h-full flex-col">
+              <Link
+                href={`/stories/${featuredStory.slug}`}
+                className="flex h-full flex-col"
+              >
                 <div className="relative h-72 overflow-hidden bg-black lg:h-full lg:min-h-[420px]">
                   <img
                     src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=900&h=700&fit=crop"
@@ -468,7 +555,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 transition={{ duration: 0.45, delay: index * 0.06 }}
-                className="group rounded-3xl border border-black/10 bg-[#f7f5ef] p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-md lg:col-span-1"
+                className="group rounded-3xl border border-black/10 bg-[#f7f5ef] p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-md"
               >
                 <Link href={`/stories/${story.slug}`} className="block">
                   <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-primary">
@@ -495,7 +582,7 @@ export default function HomePage() {
       </section>
 
       {/* WHY BLACKCIRCLE */}
-      <section className="border-b border-white/10 bg-[#050907] text-white">
+      <section className="bg-[#050907] text-white">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
             <div>
@@ -560,57 +647,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* INSTITUTIONAL PROGRAMMES */}
-      <section className="border-b border-black/10 bg-[#f7f5ef]">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            transition={{ duration: 0.45 }}
-            className="overflow-hidden rounded-3xl border border-black/10 bg-[#050907] text-white shadow-sm"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr]">
-              <div className="p-6 lg:p-10">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-primary">
-                  <Building2 className="h-3.5 w-3.5" />
-                  Institutional Programmes
-                </div>
-
-                <h2 className="mt-5 font-serif text-3xl font-semibold leading-tight text-white lg:text-5xl">
-                  Practical financial markets training for professional teams.
-                </h2>
-
-                <p className="mt-5 text-sm leading-relaxed text-white/60 sm:text-base">
-                  We design and deliver training programmes for financial institutions,
-                  capital market operators, corporate and treasury teams, fintechs &amp;
-                  professional groups.
-                </p>
-
-                <Link
-                  href="/corporate-training"
-                  className="mt-7 inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-                >
-                  Discuss a Programme
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-
-              <div className="relative min-h-[320px] overflow-hidden bg-black">
-                <img
-                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=900&h=700&fit=crop"
-                  alt="Institutional financial training"
-                  className="h-full w-full object-cover opacity-80"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
     </main>
   );
 }

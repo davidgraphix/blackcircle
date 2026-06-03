@@ -5,36 +5,16 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
   Mail,
-  MessageSquare,
-  Building2,
-  Handshake,
-  HelpCircle,
+  MapPin,
+  Phone,
   ArrowRight,
   CheckCircle2,
 } from 'lucide-react';
 import { buttonTap } from '@/lib/motion';
 
-const contactOptions = [
-  {
-    title: 'General enquiries',
-    description: 'Questions about BlackCircle, content, partnerships, or media.',
-    icon: MessageSquare,
-  },
-  {
-    title: 'Corporate training',
-    description: 'Speak to us about training programs for your team or institution.',
-    icon: Building2,
-  },
-  {
-    title: 'Partnerships',
-    description: 'Explore collaboration opportunities with BlackCircle.',
-    icon: Handshake,
-  },
-];
-
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    reason: 'General enquiry',
+    reason: 'General enquiries',
     name: '',
     email: '',
     message: '',
@@ -46,7 +26,6 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Honeypot spam protection
     if (formData.website) return;
 
     setSubmitted(true);
@@ -68,84 +47,78 @@ export default function ContactPage() {
             </h1>
 
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
-              For general enquiries, corporate training, partnerships, or support,
-              send us a message and we’ll route it properly.
+              For general enquiries, institutional programmes, partnerships, or
+              support, send us a message and we’ll route it properly.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Main Contact Layout */}
       <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          {/* Left column */}
+          {/* Contact details */}
           <div className="space-y-5">
             <div className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
-                Direct email
+                Contact details
               </p>
 
-              <div className="mt-4 flex items-start gap-4">
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-primary/10 text-primary">
-                  <Mail className="h-5 w-5" />
-                </span>
+              <div className="mt-5 space-y-4">
+                <div className="flex items-start gap-4 rounded-2xl border border-black/10 bg-[#f7f5ef] p-4">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white text-primary shadow-sm">
+                    <Mail className="h-5 w-5" />
+                  </span>
 
-                <div>
-                  <h2 className="text-lg font-semibold text-gray-950">
-                    hello@blackcircle.africa
-                  </h2>
-                  <p className="mt-1 text-sm leading-relaxed text-gray-600">
-                    Use this email for direct enquiries, corporate conversations,
-                    and partnership requests.
-                  </p>
+                  <div>
+                    <p className="text-sm font-semibold text-gray-950">
+                      Email
+                    </p>
+                    <p className="mt-1 text-sm leading-relaxed text-gray-600">
+                      hello@blackcircle.africa
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 rounded-2xl border border-black/10 bg-[#f7f5ef] p-4">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white text-primary shadow-sm">
+                    <Phone className="h-5 w-5" />
+                  </span>
+
+                  <div>
+                    <p className="text-sm font-semibold text-gray-950">
+                      Phone number
+                    </p>
+                    <p className="mt-1 text-sm leading-relaxed text-gray-600">
+                      +234 XXX XXX XXXX
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 rounded-2xl border border-black/10 bg-[#f7f5ef] p-4">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white text-primary shadow-sm">
+                    <MapPin className="h-5 w-5" />
+                  </span>
+
+                  <div>
+                    <p className="text-sm font-semibold text-gray-950">
+                      Contact address
+                    </p>
+                    <p className="mt-1 text-sm leading-relaxed text-gray-600">
+                      Lagos, Nigeria
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div className="grid gap-4">
-              {contactOptions.map((option) => {
-                const Icon = option.icon;
-
-                return (
-                  <article
-                    key={option.title}
-                    className="rounded-2xl border border-black/10 bg-white p-5 shadow-sm"
-                  >
-                    <div className="flex gap-4">
-                      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#f7f5ef] text-primary">
-                        <Icon className="h-5 w-5" />
-                      </span>
-
-                      <div>
-                        <h3 className="text-sm font-semibold text-gray-950">
-                          {option.title}
-                        </h3>
-                        <p className="mt-1 text-sm leading-relaxed text-gray-600">
-                          {option.description}
-                        </p>
-                      </div>
-                    </div>
-                  </article>
-                );
-              })}
             </div>
 
             <div className="rounded-2xl border border-black/10 bg-[#050907] p-6 text-white shadow-sm">
-              <div className="flex items-start gap-4">
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-primary">
-                  <HelpCircle className="h-5 w-5" />
-                </span>
-
-                <div>
-                  <h3 className="text-sm font-semibold text-white">
-                    Not sure who to contact?
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/60">
-                    Choose “General enquiry” in the form and we’ll route your message
-                    to the right person.
-                  </p>
-                </div>
-              </div>
+              <h3 className="font-serif text-2xl font-semibold text-white">
+                Need guidance?
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-white/60">
+                Choose the most relevant reason in the form and we’ll direct your
+                enquiry to the right channel.
+              </p>
             </div>
           </div>
 
@@ -194,7 +167,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="reason"
-                      className="mb-2 block text-sm font-semibold text-gray-900"
+                      className="mb-2 block text-base font-semibold text-gray-900"
                     >
                       Reason for contact
                     </label>
@@ -204,10 +177,10 @@ export default function ContactPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, reason: e.target.value })
                       }
-                      className="h-12 w-full rounded-xl border border-black/10 bg-[#f7f5ef] px-4 text-sm text-gray-950 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+                      className="h-13 w-full rounded-xl border border-black/10 bg-[#f7f5ef] px-4 py-3 text-base text-gray-950 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                     >
-                      <option>General enquiry</option>
-                      <option>Corporate training</option>
+                      <option>General enquiries</option>
+                      <option>Institutional Programmes</option>
                       <option>Partnerships</option>
                       <option>Support</option>
                     </select>
@@ -217,7 +190,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="name"
-                        className="mb-2 block text-sm font-semibold text-gray-900"
+                        className="mb-2 block text-base font-semibold text-gray-900"
                       >
                         Full name
                       </label>
@@ -229,7 +202,7 @@ export default function ContactPage() {
                         onChange={(e) =>
                           setFormData({ ...formData, name: e.target.value })
                         }
-                        className="h-12 w-full rounded-xl border border-black/10 bg-[#f7f5ef] px-4 text-sm text-gray-950 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+                        className="h-13 w-full rounded-xl border border-black/10 bg-[#f7f5ef] px-4 py-3 text-base text-gray-950 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                         placeholder="Your name"
                       />
                     </div>
@@ -237,7 +210,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="email"
-                        className="mb-2 block text-sm font-semibold text-gray-900"
+                        className="mb-2 block text-base font-semibold text-gray-900"
                       >
                         Email address
                       </label>
@@ -249,7 +222,7 @@ export default function ContactPage() {
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
                         }
-                        className="h-12 w-full rounded-xl border border-black/10 bg-[#f7f5ef] px-4 text-sm text-gray-950 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+                        className="h-13 w-full rounded-xl border border-black/10 bg-[#f7f5ef] px-4 py-3 text-base text-gray-950 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                         placeholder="you@example.com"
                       />
                     </div>
@@ -258,7 +231,7 @@ export default function ContactPage() {
                   <div>
                     <label
                       htmlFor="message"
-                      className="mb-2 block text-sm font-semibold text-gray-900"
+                      className="mb-2 block text-base font-semibold text-gray-900"
                     >
                       Message
                     </label>
@@ -270,12 +243,11 @@ export default function ContactPage() {
                       onChange={(e) =>
                         setFormData({ ...formData, message: e.target.value })
                       }
-                      className="w-full resize-none rounded-xl border border-black/10 bg-[#f7f5ef] px-4 py-3 text-sm text-gray-950 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+                      className="w-full resize-none rounded-xl border border-black/10 bg-[#f7f5ef] px-4 py-3 text-base text-gray-950 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                       placeholder="Tell us what you need..."
                     />
                   </div>
 
-                  {/* Honeypot */}
                   <input
                     type="text"
                     tabIndex={-1}

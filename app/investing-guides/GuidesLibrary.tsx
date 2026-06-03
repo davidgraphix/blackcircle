@@ -20,27 +20,27 @@ const categories: {
   value: GuideCategory;
   description: string;
 }[] = [
-  {
-    label: 'All Guides',
-    value: 'all',
-    description: 'Complete library',
-  },
-  {
-    label: 'Start Here',
-    value: 'start-here',
-    description: 'Beginner-friendly',
-  },
-  {
-    label: 'Intermediate',
-    value: 'intermediate',
-    description: 'Build confidence',
-  },
-  {
-    label: 'Professional',
-    value: 'professional',
-    description: 'Advanced insight',
-  },
-];
+    {
+      label: 'All Guides',
+      value: 'all',
+      description: 'Complete library',
+    },
+    {
+      label: 'Start Here',
+      value: 'start-here',
+      description: 'Beginner-friendly',
+    },
+    {
+      label: 'Intermediate',
+      value: 'intermediate',
+      description: 'Build confidence',
+    },
+    {
+      label: 'Professional',
+      value: 'professional',
+      description: 'Advanced insight',
+    },
+  ];
 
 function getGuideType(guide: any) {
   return guide.type || guide.format || 'text';
@@ -70,39 +70,36 @@ export function GuidesLibrary() {
   return (
     <div className="bg-[#f7f5ef]">
       {/* Hero */}
-     <section className="border-b border-black/10 bg-[#050907] text-white">
-  <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-12 sm:px-6 md:py-16 lg:grid-cols-[1fr_360px] lg:items-center lg:px-8">
-    <motion.div
-      initial={{ opacity: 0, y: 18 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45 }}
-      className="max-w-3xl"
-    >
-      <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-        <BookOpen className="h-3.5 w-3.5" />
-        Investing Guides
-      </div>
-
-      <h1 className="mt-5 font-serif text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
-        Practical guides for understanding African markets.
-      </h1>
-
-      <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
-        A digital library of practical resources on investing, markets, and financial systems.
-      </p>
-    </motion.div>
-
-    <div className="hidden overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-3 lg:block">
-      <div className="h-56 overflow-hidden rounded-2xl bg-black">
+      <section className="relative overflow-hidden border-b border-black/10 bg-[#050907] text-white">
         <img
-          src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=420&fit=crop"
+          src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&h=700&fit=crop"
           alt="Investing guides library"
-          className="h-full w-full object-cover opacity-80"
+          className="absolute inset-0 h-full w-full object-cover opacity-35"
         />
-      </div>
-    </div>
-  </div>
-</section>
+        <div className="absolute inset-0 bg-black/70" />
+
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+            className="max-w-3xl"
+          >
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+              <BookOpen className="h-3.5 w-3.5" />
+              Investing Guides
+            </div>
+
+            <h1 className="mt-5 font-serif text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
+              Practical guides for understanding African markets.
+            </h1>
+
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/70 sm:text-base">
+              A digital library of practical resources on investing, markets, and financial systems.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
       <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Category Filters */}
@@ -123,19 +120,17 @@ export function GuidesLibrary() {
                   key={category.value}
                   type="button"
                   onClick={() => setActiveCategory(category.value)}
-                  className={`rounded-2xl border p-4 text-left transition-all duration-300 ${
-                    isActive
+                  className={`rounded-2xl border p-4 text-left transition-all duration-300 ${isActive
                       ? 'border-primary bg-primary text-primary-foreground shadow-sm'
                       : 'border-black/10 bg-[#f7f5ef] text-gray-900 hover:-translate-y-0.5 hover:border-primary/50 hover:bg-white'
-                  }`}
+                    }`}
                 >
                   <span className="block text-sm font-semibold">
                     {category.label}
                   </span>
                   <span
-                    className={`mt-1 block text-xs ${
-                      isActive ? 'text-primary-foreground/75' : 'text-gray-500'
-                    }`}
+                    className={`mt-1 block text-xs ${isActive ? 'text-primary-foreground/75' : 'text-gray-500'
+                      }`}
                   >
                     {category.description}
                   </span>
@@ -179,18 +174,16 @@ export function GuidesLibrary() {
                 >
                   {/* Top visual/type strip */}
                   <div
-                    className={`relative flex h-32 items-center justify-center overflow-hidden ${
-                      isVideo
+                    className={`relative flex h-32 items-center justify-center overflow-hidden ${isVideo
                         ? 'bg-gradient-to-br from-black to-emerald-950'
                         : 'bg-gradient-to-br from-[#f7f5ef] to-white'
-                    }`}
+                      }`}
                   >
                     <div
-                      className={`absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${
-                        isVideo
+                      className={`absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold ${isVideo
                           ? 'bg-white/10 text-white backdrop-blur'
                           : 'border border-black/10 bg-white text-gray-700'
-                      }`}
+                        }`}
                     >
                       {isVideo ? (
                         <PlayCircle className="h-3.5 w-3.5" />
@@ -201,11 +194,10 @@ export function GuidesLibrary() {
                     </div>
 
                     <div
-                      className={`grid h-14 w-14 place-items-center rounded-2xl ${
-                        isVideo
+                      className={`grid h-14 w-14 place-items-center rounded-2xl ${isVideo
                           ? 'bg-primary text-primary-foreground'
                           : 'bg-primary/10 text-primary'
-                      }`}
+                        }`}
                     >
                       {isVideo ? (
                         <PlayCircle className="h-7 w-7" />
