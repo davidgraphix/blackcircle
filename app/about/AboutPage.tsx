@@ -95,17 +95,17 @@ export default function AboutPage() {
       {/* Hero */}
 
       <section className="relative overflow-hidden border-b border-black/10 bg-[#050907] text-white">
-  <img
-    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&h=900&fit=crop"
-    alt="African financial markets and city skyline"
-    className="absolute inset-0 h-full w-full object-cover opacity-30"
-  />
+        <img
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&h=900&fit=crop"
+          alt="African financial markets and city skyline"
+          className="absolute inset-0 h-full w-full object-cover opacity-30"
+        />
 
-  <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/45" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/45" />
 
-  <div className="absolute inset-0 opacity-[0.08]">
-    <div className="absolute inset-0 bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] bg-[size:72px_72px]" />
-  </div>
+        <div className="absolute inset-0 opacity-[0.08]">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] bg-[size:72px_72px]" />
+        </div>
 
         <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
           <div className="max-w-3xl">
@@ -143,7 +143,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-</section>
+      </section>
 
 
 
@@ -291,21 +291,21 @@ export default function AboutPage() {
                 key={member.name}
                 className="overflow-hidden rounded-3xl border border-black/10 bg-[#f7f5ef] shadow-sm"
               >
-               <div className="h-72 overflow-hidden bg-[#f7f5ef]">
-  {member.image ? (
-    <img
-      src={member.image}
-      alt={member.name}
-      className="h-full w-full object-cover object-top"
-    />
-  ) : (
-    <div className="flex h-full w-full items-center justify-center bg-[#f7f5ef]">
-      <div className="grid h-24 w-24 place-items-center rounded-full border border-black/10 bg-white text-3xl font-semibold text-primary shadow-sm">
-        {member.initials}
-      </div>
-    </div>
-  )}
-</div>
+                <div className="h-72 overflow-hidden bg-[#f7f5ef]">
+                  {member.image ? (
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="h-full w-full object-cover object-top"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-[#f7f5ef]">
+                      <div className="grid h-24 w-24 place-items-center rounded-full border border-black/10 bg-white text-3xl font-semibold text-primary shadow-sm">
+                        {member.initials}
+                      </div>
+                    </div>
+                  )}
+                </div>
 
                 <div className="p-6">
                   <div className="flex items-start justify-between gap-4">
