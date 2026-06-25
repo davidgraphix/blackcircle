@@ -64,28 +64,28 @@ const audiences = [
 
 const teamMembers = [
   {
-    name: 'Team Member One',
+    name: 'Ibe Enwo',
     role: 'Founder / Lead',
     description:
-      'Leads BlackCircle’s market vision, research direction, partnerships and institutional strategy.',
-    image:
-      'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&h=500&fit=crop',
+      'Ibe Enwo is the Founder of BlackCircle and a finance professional with experience across banking, trading, investment management, and capital markets. His career has cut across Stanbic IBTC, Fidelity Bank, Ecobank Asset Management, and the Nigerian Stock Exchange.',
+    image: '/team/ibe-enwo.jpg',
+    initials: 'IE',
   },
   {
-    name: 'Team Member Two',
-    role: 'Research & Editorial',
+    name: 'Chuka Maduabum, CFA',
+    role: 'Advisor, Private Markets & Investment Intelligence',
     description:
-      'Supports research, market commentary, editorial planning and financial-market content development.',
-    image:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=500&fit=crop',
+      'Chuka brings to BlackCircle a practitioner’s understanding of capital allocation, business growth, and investor decision-making across African markets. He has more than two decades of experience across corporate finance, private markets, advisory, investment, and business leadership.',
+    image: '',
+    initials: 'CM',
   },
   {
-    name: 'Team Member Three',
-    role: 'Learning & Content',
+    name: 'Ifesinachi Eze, CFA',
+    role: 'Finance & Research Associate',
     description:
-      'Supports learning resources, institutional programmes and simplified market education for users.',
-    image:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=500&fit=crop',
+      'Ifesinachi brings a disciplined finance, control, and business-process perspective shaped by experience across audit, banking, manufacturing, energy, and SME advisory. She contributes to BlackCircle’s intelligence-led resources and research platform.',
+    image: '/team/ifesinachi-eze.jpg',
+    initials: 'IE',
   },
 ];
 
@@ -291,13 +291,21 @@ export default function AboutPage() {
                 key={member.name}
                 className="overflow-hidden rounded-3xl border border-black/10 bg-[#f7f5ef] shadow-sm"
               >
-                <div className="h-64 overflow-hidden bg-black">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="h-full w-full object-cover opacity-95"
-                  />
-                </div>
+               <div className="h-72 overflow-hidden bg-[#f7f5ef]">
+  {member.image ? (
+    <img
+      src={member.image}
+      alt={member.name}
+      className="h-full w-full object-cover object-top"
+    />
+  ) : (
+    <div className="flex h-full w-full items-center justify-center bg-[#f7f5ef]">
+      <div className="grid h-24 w-24 place-items-center rounded-full border border-black/10 bg-white text-3xl font-semibold text-primary shadow-sm">
+        {member.initials}
+      </div>
+    </div>
+  )}
+</div>
 
                 <div className="p-6">
                   <div className="flex items-start justify-between gap-4">
@@ -323,11 +331,6 @@ export default function AboutPage() {
               </article>
             ))}
           </div>
-
-          <p className="mt-5 text-sm text-gray-500">
-            Replace the placeholder names, roles, descriptions, and images once
-            the client sends the real team details.
-          </p>
         </div>
       </section>
 

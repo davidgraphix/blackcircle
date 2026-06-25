@@ -64,51 +64,47 @@ export default function ContactPage() {
               </p>
 
               <div className="mt-5 space-y-4">
-                <div className="flex items-start gap-4 rounded-2xl border border-black/10 bg-[#f7f5ef] p-4">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white text-primary shadow-sm">
-                    <Mail className="h-5 w-5" />
-                  </span>
+  <div className="flex items-start gap-4 rounded-2xl border border-black/10 bg-[#f7f5ef] p-4">
+    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white text-primary shadow-sm">
+      <Mail className="h-5 w-5" />
+    </span>
 
-                  <div>
-                    <p className="text-sm font-semibold text-gray-950">
-                      Email
-                    </p>
-                    <p className="mt-1 text-sm leading-relaxed text-gray-600">
-                      hello@blackcircle.africa
-                    </p>
-                  </div>
-                </div>
+    <div>
+      <p className="text-sm font-semibold text-gray-950">Email</p>
+      <p className="mt-1 text-sm leading-relaxed text-gray-600">
+        hello@blackcircle.africa
+      </p>
+    </div>
+  </div>
 
-                <div className="flex items-start gap-4 rounded-2xl border border-black/10 bg-[#f7f5ef] p-4">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white text-primary shadow-sm">
-                    <Phone className="h-5 w-5" />
-                  </span>
+  <div className="flex items-start gap-4 rounded-2xl border border-black/10 bg-[#f7f5ef] p-4">
+    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white text-primary shadow-sm">
+      <Phone className="h-5 w-5" />
+    </span>
 
-                  <div>
-                    <p className="text-sm font-semibold text-gray-950">
-                      Phone number
-                    </p>
-                    <p className="mt-1 text-sm leading-relaxed text-gray-600">
-                      +234 XXX XXX XXXX
-                    </p>
-                  </div>
-                </div>
+    <div>
+      <p className="text-sm font-semibold text-gray-950">Phone number</p>
+      <p className="mt-1 text-sm leading-relaxed text-gray-600">
+        +234 815 695 9350
+      </p>
+    </div>
+  </div>
 
-                <div className="flex items-start gap-4 rounded-2xl border border-black/10 bg-[#f7f5ef] p-4">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white text-primary shadow-sm">
-                    <MapPin className="h-5 w-5" />
-                  </span>
+  <div className="flex items-start gap-4 rounded-2xl border border-black/10 bg-[#f7f5ef] p-4">
+    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-white text-primary shadow-sm">
+      <MapPin className="h-5 w-5" />
+    </span>
 
-                  <div>
-                    <p className="text-sm font-semibold text-gray-950">
-                      Contact address
-                    </p>
-                    <p className="mt-1 text-sm leading-relaxed text-gray-600">
-                      Lagos, Nigeria
-                    </p>
-                  </div>
-                </div>
-              </div>
+    <div>
+      <p className="text-sm font-semibold text-gray-950">Contact address</p>
+      <p className="mt-1 text-sm leading-relaxed text-gray-600">
+        3rd Floor, Mansard Place<br />
+        927/928 Bishop Aboyade Cole Street<br />
+        Victoria Island, Lagos
+      </p>
+    </div>
+  </div>
+</div>
             </div>
 
             <div className="rounded-2xl border border-black/10 bg-[#050907] p-6 text-white shadow-sm">
