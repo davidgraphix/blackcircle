@@ -118,7 +118,7 @@ export function Footer() {
 
               <div>
                 <h3 className="font-serif text-xl font-semibold text-white">
-                  Join the BlackCircle list
+                  Join the Circle
                 </h3>
                 <p className="mt-1 text-xs text-white/50">
                   Market scoop, opportunities, stories, and intelligence.

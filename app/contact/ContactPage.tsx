@@ -85,7 +85,7 @@ export default function ContactPage() {
     <div>
       <p className="text-sm font-semibold text-gray-950">Phone number</p>
       <p className="mt-1 text-sm leading-relaxed text-gray-600">
-        +234 815 695 9350
+        +234 903 711 6129
       </p>
     </div>
   </div>

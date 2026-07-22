@@ -3,7 +3,7 @@ import type { NavItem } from '@/types';
 export const mainNavigation: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'Market Scoop', href: '/market-scoop' },
-  { label: 'Investing Guides', href: '/investing-guides' },
+  // { label: 'Investing Guides', href: '/investing-guides' },
   { label: 'Institutional Programmes', href: '/corporate-training' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
@@ -12,7 +12,7 @@ export const mainNavigation: NavItem[] = [
 export const footerNavigation = {
   marketIntelligence: [
     { label: 'Market Scoop', href: '/market-scoop' },
-    { label: 'Investing Guides', href: '/investing-guides' },
+    // { label: 'Investing Guides', href: '/investing-guides' },
   ],
   company: [
     { label: 'About', href: '/about' },

@@ -55,14 +55,14 @@ export default function HomePage() {
       icon: Newspaper,
       cta: 'Explore',
     },
-    {
-      title: 'Market Guides',
-      description:
-        'Clear, practical guides on financial instruments, markets, and the forces shaping local markets.',
-      href: '/investing-guides',
-      icon: BookOpen,
-      cta: 'Explore',
-    },
+    // {
+    //   title: 'Market Guides',
+    //   description:
+    //     'Clear, practical guides on financial instruments, markets, and the forces shaping local markets.',
+    //   href: '/investing-guides',
+    //   icon: BookOpen,
+    //   cta: 'Explore',
+    // },
     {
       title: 'Institutional Programmes',
       description:
@@ -111,7 +111,7 @@ export default function HomePage() {
               <div className="mt-7 overflow-hidden rounded-3xl border border-black/10 bg-white/80 p-3 shadow-sm backdrop-blur">
                 <div className="relative h-56 overflow-hidden rounded-2xl bg-black sm:h-64 lg:h-72">
                   <img
-                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=700&fit=crop"
+                    src="hero-img.jpg"
                     alt="African capital markets"
                     className="h-full w-full object-cover opacity-85"
                   />
@@ -147,13 +147,13 @@ export default function HomePage() {
                   Market Scoop
                   <ArrowRight className="h-4 w-4" />
                 </Link>
-
-                <Link
+   
+                {/* <Link
                   href="/investing-guides"
                   className="inline-flex items-center justify-center rounded-xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-[#111111] shadow-sm transition-colors hover:border-primary hover:text-primary"
                 >
                   See Market Guides
-                </Link>
+                </Link> */}
               </div>
 
               <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -441,7 +441,7 @@ export default function HomePage() {
             <div className="mt-7 overflow-hidden rounded-3xl border border-black/10 bg-white p-3 shadow-sm">
               <div className="relative h-72 overflow-hidden rounded-2xl bg-black">
                 <img
-                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=900&h=650&fit=crop"
+                  src="/african-market-inteligence.jpg"
                   alt="African market intelligence platform"
                   className="h-full w-full object-cover opacity-90"
                 />
@@ -492,7 +492,7 @@ export default function HomePage() {
       </section>
 
       {/* STORIES */}
-      <section className="border-b border-black/10 bg-white">
+      {/* <section className="border-b border-black/10 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
           <div className="mb-8 max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
@@ -579,7 +579,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* WHY BLACKCIRCLE */}
       <section className="bg-[#050907] text-white">

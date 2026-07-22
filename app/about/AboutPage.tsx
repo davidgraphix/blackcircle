@@ -76,7 +76,7 @@ const teamMembers = [
     role: 'Advisor, Private Markets & Investment Intelligence',
     description:
       'Chuka brings to BlackCircle a practitioner’s understanding of capital allocation, business growth, and investor decision-making across African markets. He has more than two decades of experience across corporate finance, private markets, advisory, investment, and business leadership.',
-    image: '',
+    image: '/team/chuka-maduabum.jpg',
     initials: 'CM',
   },
   {

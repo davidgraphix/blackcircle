@@ -21,7 +21,7 @@ const formats = [
       'High-impact sessions for leadership teams, investment teams, and market-facing professionals.',
     icon: Users,
     image:
-      'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=700&h=420&fit=crop',
+      '/institutional-programmes/first-card.jpg',
   },
   {
     title: 'Virtual instructor-led training',
@@ -29,7 +29,7 @@ const formats = [
       'Live, structured training delivered remotely for distributed teams across locations.',
     icon: MonitorPlay,
     image:
-      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700&h=420&fit=crop',
+      '/institutional-programmes/second-card.jpg',
   },
   {
     title: 'Blended learning',
@@ -106,7 +106,7 @@ export default function CorporateTrainingPage() {
           <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5 shadow-2xl shadow-black/20 lg:p-6">
             <div className="relative min-h-[380px] overflow-hidden rounded-2xl border border-white/10 bg-black">
               <img
-                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=900&h=900&fit=crop"
+                src="/institutional-programmes/hero.jpg"
                 alt="Institutional financial markets training"
                 className="h-full min-h-[380px] w-full object-cover opacity-80"
               />
